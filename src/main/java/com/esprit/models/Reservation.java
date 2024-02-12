@@ -5,21 +5,19 @@ public class Reservation {
     private int id_R;
     private int  id_C;
     private String zone;
-    private String date;
     private int table_id;
 
-    public Reservation(int id_R, int id_C, String zone, String date, int table_id) {
+    public Reservation(int id_R, int id_C, String zone, int table_id) {
         this.id_R = id_R;
         this.id_C = id_C;
         this.zone = zone;
-        this.date = date;
         this.table_id = table_id;
     }
 
-    public Reservation(int id_C, String zone, String date, int table_id) {
+    public Reservation(int id_C, String zone, int table_id) {
         this.id_C = id_C;
         this.zone = zone;
-        this.date = date;
+
         this.table_id = table_id;
     }
 
@@ -47,13 +45,7 @@ public class Reservation {
         this.zone = zone;
     }
 
-    public String getDate() {
-        return date;
-    }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public int getTable_id() {
         return table_id;
@@ -69,7 +61,7 @@ public class Reservation {
                 "id_R=" + id_R +
                 ", id_C=" + id_C +
                 ", zone='" + zone + '\'' +
-                ", date='" + date + '\'' +
+
                 ", table_id='" + table_id + '\'' +
                 '}';
     }

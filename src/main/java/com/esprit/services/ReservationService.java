@@ -16,7 +16,7 @@ public class ReservationService implements IService<Reservation> {
 
     @Override
     public void ajouter(Reservation Reservation) {
-        String req = "INSERT into reservation(id_C, zone,date,table_id) values ('" + Reservation.getId_C() + "', '" + Reservation.getZone() + "', '" + Reservation.getDate() + "','"+ Reservation.getTable_id() + "');";
+        String req = "INSERT into reservation(id_C, zone,table_id) values ('" + Reservation.getId_C() + "', '" + Reservation.getZone()  + "','"+ Reservation.getTable_id() + "');";
         try {
             Statement st = connection.createStatement();
             st.executeUpdate(req);
@@ -28,7 +28,7 @@ public class ReservationService implements IService<Reservation> {
 
     @Override
     public void modifier(Reservation Reservation) {
-        String req = "UPDATE reservation set id_C = '" + Reservation.getId_C() + "', zone = '" + Reservation.getZone()+ "', date = '" + Reservation.getDate()+ "', table_id = '" + Reservation.getTable_id() + "' where id_R = " + Reservation.getId_R() + ";";
+        String req = "UPDATE reservation set id_C = '" + Reservation.getId_C() + "', zone = '" + Reservation.getZone()+ "', table_id = '" + Reservation.getTable_id() + "' where id_R = " + Reservation.getId_R() + ";";
         try {
             Statement st = connection.createStatement();
             st.executeUpdate(req);
@@ -59,7 +59,7 @@ public class ReservationService implements IService<Reservation> {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-                Reservation.add(new Reservation(rs.getInt("id_R"), rs.getInt("id_C"), rs.getString("zone"), rs.getString("date"), rs.getInt("table_id")));
+                Reservation.add(new Reservation(rs.getInt("id_R"), rs.getInt("id_C"), rs.getString("zone"), rs.getInt("table_id")));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
