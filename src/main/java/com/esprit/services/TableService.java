@@ -1,67 +1,71 @@
 package com.esprit.services;
+import com.esprit.models.Reservation;
+import com.esprit.models.Tab;
 import com.esprit.models.Zones;
 import com.esprit.utils.DataSource;
 
 import java.sql.*;
 import java.util.*;
 
-public class ZonesService implements IService<Zones> {
+public class TableService implements IService<Tab> {
 
     private Connection connection;
 
-    public ZonesService() {
+    public TableService() {
         connection = DataSource.getInstance().getConnection();
     }
+
     @Override
-    public void ajouter(Zones Zones) {
-        String req = "INSERT into zones(nom, description,capacity) values ('" + Zones.getNom() + "', '" + Zones.getDescription() + "', '" + Zones.getCapacity() + "');";
+    public void ajouter(Tab Tab) {
+        String req = "INSERT into tables(table_id, zone_id,capacite_t) values ('" + Tab.getTable_id() + "', '" + Tab.getZone_id() + "', '" + Tab.getCapacit_t()  + "');";
         try {
             Statement st = connection.createStatement();
             st.executeUpdate(req);
-            System.out.println("Zones ajoutée !");
+            System.out.println("table ajoutée !");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
     @Override
-    public void modifier(Zones Zones) {
-        String req = "UPDATE zones set nom = '" + Zones.getNom() + "', description = '" + Zones.getDescription()+ "', capacity = '" + Zones.getCapacity() + "' where zone_id = " + Zones.getZone_id() + ";";
+    public void modifier(Tab Tab) {
+        String req = "UPDATE tables set zone_id = '" + Tab.getZone_id() + "', capacite_t = '" + Tab.getCapacit_t() + "' where table_id = " + Tab.getTable_id() + ";";
         try {
             Statement st = connection.createStatement();
             st.executeUpdate(req);
-            System.out.println("Zones modifiée !");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    @Override
-    public void supprimer(Zones Zones) {
-        String req = "DELETE from zones where zone_id = " + Zones.getZone_id() + ";";
-        try {
-            Statement st = connection.createStatement();
-            st.executeUpdate(req);
-            System.out.println("Zone supprmiée !");
+            System.out.println("Table modifiée !");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
     @Override
-    public List<Zones> afficher() {
-        List<Zones> Zones = new ArrayList<>();
+    public void supprimer(Tab Tab) {
+        String req = "DELETE from tables where table_id = " + Tab.getTable_id() + ";";
+        try {
+            Statement st = connection.createStatement();
+            st.executeUpdate(req);
+            System.out.println("table supprmiée !");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
-        String req = "SELECT * from zones";
+    @Override
+    public List<Tab> afficher() {
+        List<Tab> Tab = new ArrayList<>();
+
+        String req = "SELECT * from tables";
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-                Zones.add(new Zones(rs.getInt("zone_id"), rs.getString("nom"), rs.getString("description"), rs.getInt("capacity")));
+                Tab.add(new Tab(rs.getInt("table_id"), rs.getInt("zone_id"), rs.getInt("capacite_t")));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
-        return Zones;
+        return Tab;
     }
 }

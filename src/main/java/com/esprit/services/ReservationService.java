@@ -1,5 +1,6 @@
 package com.esprit.services;
 import com.esprit.models.Reservation;
+import com.esprit.models.Zones;
 import com.esprit.utils.DataSource;
 
 import java.sql.*;
@@ -23,5 +24,47 @@ public class ReservationService implements IService<Reservation> {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public void modifier(Reservation Reservation) {
+        String req = "UPDATE reservation set id_C = '" + Reservation.getId_C() + "', zone = '" + Reservation.getZone()+ "', date = '" + Reservation.getDate()+ "', table_id = '" + Reservation.getTable_id() + "' where id_R = " + Reservation.getId_R() + ";";
+        try {
+            Statement st = connection.createStatement();
+            st.executeUpdate(req);
+            System.out.println("Reservation modifiée !");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void supprimer(Reservation Reservation) {
+        String req = "DELETE from reservation where id_R = " + Reservation.getId_R() + ";";
+        try {
+            Statement st = connection.createStatement();
+            st.executeUpdate(req);
+            System.out.println("Reservation supprmiée !");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Reservation> afficher() {
+        List<Reservation> Reservation = new ArrayList<>();
+
+        String req = "SELECT * from reservation";
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                Reservation.add(new Reservation(rs.getInt("id_R"), rs.getInt("id_C"), rs.getString("zone"), rs.getString("date"), rs.getInt("table_id")));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return Reservation;
     }
 }
