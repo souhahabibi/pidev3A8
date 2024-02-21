@@ -57,7 +57,8 @@ public class AfficherCoursController {
 
             {
                 imageView.setFitHeight(50); // ajuster la hauteur comme vous le souhaitez
-                imageView.setFitWidth(50); // ajuster la largeur comme vous le souhaitez
+                imageView.setFitWidth(50);
+              // ajuster la largeur comme vous le souhaitez
                 // changer la couleur de fond du HBox en vert clair
                 hBox.setStyle("-fx-background-color: lightgreen;" + "-fx-border-style: solid inside;"
                         + "-fx-border-width: 0;" + "-fx-border-insets: 5;");
