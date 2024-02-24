@@ -1,42 +1,21 @@
 package com.esprit.tests;
 
-import com.esprit.models.Reservation;
-import com.esprit.models.Tab;
-import com.esprit.models.Zones;
-import com.esprit.services.ReservationService;
-import com.esprit.services.TableService;
-import com.esprit.services.ZonesService;
-import com.esprit.utils.DataSource;
+import com.esprit.models.Cours;
+import com.esprit.services.CoursService;
 
 public class MainProg {
 
     public static void main(String[] args) {
 
-        //******ZONES*****//
+        //******Cours*****//
 
-        //ZonesService zs = new ZonesService() ;
-        //zs.ajouter(new Zones("cafe", "justeboisson",15));
-        //zs.modifier(new Zones(1, "resto", "plats",20));
-        //zs.supprimer(new Zones(3, "cafe", "justeboisson",15));
+        CoursService zs = new CoursService() ;
+        zs.ajouter(new Cours("photo","jambe","exercice","normale"));
+        //zs.modifier(new Cours());
+        //zs.supprimer(new Cours());
         //System.out.println(zs.afficher());
 
 
-        //******RESERVATION*****//
-
-        ReservationService rs = new ReservationService();
-       rs.ajouter(new Reservation(4, "restaurant",4));
-        //rs.modifier(new Reservation(1, 7, "cafe","mardi",5));
-        //rs.supprimer(new Reservation(1, 7, "cafe","mardi",5));
-       // System.out.println(rs.afficher());
-
-
-        //******TABLE*****//
-
-        TableService ts = new TableService();
-        //ts.ajouter(new Tab(4,4));
-        //ts.modifier(new Tab(1,8,6));
-        //ts.supprimer(new Tab(1,8,6));
-        //System.out.println(ts.afficher());
 
     }
 }
