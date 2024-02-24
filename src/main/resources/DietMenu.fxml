@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/Darktheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.DietMenuController">
+    <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+        <BorderPane layoutX="-4.0" layoutY="-2.0" prefHeight="900.0" prefWidth="1669.0">
+            <left>
+                <VBox prefHeight="779.0" prefWidth="327.0" style="-fx-background-color: #333;" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Button fx:id="Fill" graphicTextGap="5.0" mnemonicParsing="false" onAction="#FillForm" prefHeight="187.0" prefWidth="327.0" style="-fx-background-color: #333;" text="Add Diet Form" textFill="#f5f2f2">
+                                    <padding>
+                                        <Insets bottom="50.0" top="10.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets top="150.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="Javanese Text" size="20.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="47.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../resources/img/sending.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="select" mnemonicParsing="false" onAction="#SelectMeal" prefHeight="46.0" prefWidth="331.0" style="-fx-background-color: #333;" text="Meal Selection" textFill="#f5f2f2">
+                                    <padding>
+                                        <Insets bottom="50.0" top="10.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="Javanese Text" size="20.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="47.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../resources/img/list.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                        <Button fx:id="meals" layoutX="10.0" layoutY="297.0" mnemonicParsing="false" onAction="#afficheMeal" prefHeight="46.0" prefWidth="331.0" style="-fx-background-color: #333;" text="Meals" textFill="#f5f2f2">
+                           <padding>
+                              <Insets bottom="50.0" right="80.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Javanese Text" size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="47.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/img/list.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                                <Button fx:id="exit" mnemonicParsing="false" onAction="#exit" prefHeight="211.0" prefWidth="327.0" style="-fx-background-color: #333;" text="Exit" textFill="#f5f2f2">
+                                    <padding>
+                                        <Insets bottom="50.0" right="80.0" top="10.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="Javanese Text" size="20.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="47.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../resources/img/exit.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" top="100.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </children>
+                </VBox>
+            </left>
+        </BorderPane>
+        <AnchorPane fx:id="content" layoutX="326.0" prefHeight="902.0" prefWidth="1000.0">
+            <children>
+                <ImageView fx:id="img_com" fitHeight="647.0" fitWidth="642.0" layoutX="365.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resources/img/pngegg.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="430.0" layoutY="117.0" prefHeight="38.0" prefWidth="484.0" text="Welcome to the diet interface ">
+                    <font>
+                        <Font name="Rockwell Extra Bold" size="26.0" />
+                    </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </Label>
+                <Label layoutX="307.0" layoutY="156.0" text="YOU ARE GOING THE RIGHT WAY, STAY FOCUSED">
+                    <font>
+                        <Font name="Rockwell Extra Bold" size="26.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+    </children>
+   <padding>
+      <Insets left="100.0" />
+   </padding>
+</AnchorPane>

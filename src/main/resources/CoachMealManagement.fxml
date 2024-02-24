@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.CoachMealMangagementController">
+    <children>
+        <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <left>
+                <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+                            <children>
+                                <Label prefHeight="49.0" prefWidth="128.0" text="Meal" textFill="#878787">
+                                    <font>
+                                        <Font name="Cambria Bold" size="40.0" />
+                                    </font>
+                                </Label>
+                                <Label text="List" textFill="#878787">
+                                    <font>
+                                        <Font name="Cambria" size="40.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@css/style.css" VBox.vgrow="NEVER">
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" />
+                            </VBox.margin>
+                            <children>
+                                <TextField prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent" stylesheets="@css/style.css">
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font name="Cambria" size="18.0" />
+                                    </font>
+                                </TextField>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@css/style.css" text="Search" textFill="WHITE" />
+                            </children>
+                            <styleClass>
+                                <String fx:value="search-box" />
+                                <String fx:value="shadow" />
+                            </styleClass>
+                        </HBox>
+                        <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+                        <VBox fx:id="chosenMealCard" alignment="CENTER" prefHeight="406.0" prefWidth="334.0" stylesheets="@css/style.css">
+                            <VBox.margin>
+                                <Insets left="50.0" right="50.0" />
+                            </VBox.margin>
+                            <children>
+                                <HBox prefHeight="60.0" prefWidth="335.0">
+                                    <children>
+                                        <Label fx:id="MealNameLable" prefHeight="48.0" prefWidth="276.0" text="Peach" textFill="WHITE">
+                                            <font>
+                                                <Font name="Cambria" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="CaloriesProp" prefHeight="57.0" prefWidth="171.0" text="\$2.99" textFill="WHITE">
+                                            <font>
+                                                <Font name="Cambria" size="36.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="20.0" top="30.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <ImageView fx:id="mealImg" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/img/healthyfood.png" />
+                                    </image>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </ImageView>
+                                <HBox alignment="CENTER" prefHeight="107.0" prefWidth="334.0">
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                           <children>
+                              <AnchorPane prefHeight="63.0" prefWidth="326.0">
+                                 <children>
+                                    <ComboBox fx:id="Meal_time" layoutX="109.0" layoutY="1.0" prefWidth="150.0" />
+                                    <Label layoutX="28.0" layoutY="1.0" text="Meal time">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="-23.0" layoutY="18.0" prefHeight="40.0" prefWidth="98.0" text="User name">
+                                       <padding>
+                                          <Insets left="20.0" top="20.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="usersList" layoutX="75.0" layoutY="32.0" prefWidth="150.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                                </HBox>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                            </children>
+                            <styleClass>
+                                <String fx:value="chosen-fruit-card" />
+                                <String fx:value="shadow" />
+                            </styleClass>
+                        </VBox>
+                        <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="Add_To_Client" layoutX="77.0" layoutY="26.0" mnemonicParsing="false" onAction="#AddToClient" prefHeight="37.0" prefWidth="117.0" text="Add to client" />
+                        <Button fx:id="Delete_btn" layoutX="225.0" layoutY="24.0" mnemonicParsing="false" onAction="#DeleteMeal" prefHeight="37.0" prefWidth="117.0" text="Delete" />
+                     </children></Pane>
+                    </children>
+                </VBox>
+            </left>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label prefHeight="29.0" prefWidth="88.0" text="language" textFill="#878787">
+                                    <font>
+                                        <Font name="Cambria Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label prefHeight="29.0" prefWidth="77.0" text="English" textFill="#878787" underline="true">
+                                    <font>
+                                        <Font name="Cambria" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS" />
+                                <Label prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
+                                    <font>
+                                        <Font name="Cambria" size="18.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/img/healthyfood.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Pane prefHeight="84.0" prefWidth="96.0" />
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="852.0" styleClass="free-delivery-card" stylesheets="@css/style.css">
+                                    <children>
+                                        <VBox alignment="CENTER" prefHeight="94.0" prefWidth="786.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="784.0">
+                                             <children>
+                                                <Label layoutX="-5.0" layoutY="44.0" prefHeight="40.0" prefWidth="101.0" text="Meal Name">
+                                                   <padding>
+                                                      <Insets left="20.0" top="20.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="Meal_Name" layoutX="94.0" layoutY="57.0" prefHeight="28.0" prefWidth="119.0">
+                                                   <padding>
+                                                      <Insets left="30.0" top="20.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <Label layoutX="4.0" layoutY="-5.0" prefHeight="19.0" prefWidth="78.0" text="Calories">
+                                                   <padding>
+                                                      <Insets left="20.0" top="20.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="Calories" layoutX="100.0" layoutY="9.0" prefHeight="28.0" prefWidth="119.0">
+                                                   <padding>
+                                                      <Insets left="30.0" top="20.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <Button fx:id="Import_btn" layoutX="468.0" layoutY="15.0" mnemonicParsing="false" onAction="#importimg" prefHeight="26.0" prefWidth="92.0" text="Import image" />
+                                                <Button fx:id="add_btn" layoutX="326.0" layoutY="69.0" mnemonicParsing="false" onAction="#addMeal" prefHeight="26.0" prefWidth="63.0" text="Add" />
+                                                <ImageView fx:id="imgMeal" fitHeight="89.0" fitWidth="127.0" layoutX="607.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label layoutX="284.0" layoutY="19.0" text="Recipe" />
+                                                <TextArea fx:id="RecipeText" layoutX="335.0" layoutY="8.0" prefHeight="49.0" prefWidth="98.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Pane prefHeight="84.0" prefWidth="96.0" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <ScrollPane fx:id="scroll" prefHeight="570.0" prefWidth="785.0" styleClass="transparent" stylesheets="@css/style.css">
+                                    <content>
+                                        <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </content>
+                                    <HBox.margin>
+                                        <Insets top="10.0" />
+                                    </HBox.margin>
+                                </ScrollPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

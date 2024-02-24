@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="634.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.RecipeController">
+   <children>
+      <AnchorPane layoutX="533.0" layoutY="14.0" prefHeight="634.0" prefWidth="762.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="6.0" layoutY="8.0" prefHeight="330.0" prefWidth="750.0">
+               <children>
+                  <Label layoutX="26.0" layoutY="21.0" text="Recipe:">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="14.0" layoutY="349.0" prefHeight="271.0" prefWidth="742.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
