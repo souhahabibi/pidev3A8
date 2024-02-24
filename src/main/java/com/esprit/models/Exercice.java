@@ -4,6 +4,8 @@ public class Exercice {
 
 
     private  int idE;
+
+    private int id ;
     private  String nom ;
     private String image ;
 
@@ -31,9 +33,18 @@ public class Exercice {
         this.image = image;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Exercice () {}
-    public Exercice(int idE, String nom, String image) {
+    public Exercice(int idE,int id, String nom, String image) {
         this.idE = idE;
+        this.id =id;
         this.nom = nom;
         this.image = image;
     }

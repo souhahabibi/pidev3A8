@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ModifierController.java" afterDir="false" />
+    <list default="true" id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="First Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AfficherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AfficherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/models/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/Cours.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/CoursService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/CoursService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Afficher.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Afficher.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/models/Exercice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/Exercice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +26,37 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="cbd8ae7d54996a61d7bfb10d0cdecb39e592810b" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "HabibBJ"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="59c441e3-e172-4d0b-8991-ea6ed0aafd96" />
+        <option name="url" value="https://github.com/ayouta2002/SUSHIMIA_.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2cXclQnnL0THmHNzzxQUemMBoEg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,7 +66,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Projet",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "sdk",
     "last_opened_file_path": "C:/Users/benjd/OneDrive/Bureau/pidev/ProjetJAVA",
@@ -125,6 +145,7 @@
       <workItem from="1708761394954" duration="1604000" />
       <workItem from="1708763036838" duration="9443000" />
       <workItem from="1708772538747" duration="1048000" />
+      <workItem from="1708773598724" duration="3028000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -142,7 +163,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708762346121</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit">
+      <option name="closed" value="true" />
+      <created>1708773616166</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708773616166</updated>
+    </task>
+    <task id="LOCAL-00004" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708775419716</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708775419716</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,8 +209,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="First commit" />
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
