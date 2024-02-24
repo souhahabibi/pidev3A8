@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.AcceuilController">
+   <children>
+      <ImageView fitHeight="111.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/esprat.png" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="7.0" prefHeight="615.0" prefWidth="1028.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Cours">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+
+                      <Button fx:id="btnAjouter" layoutX="189.0" layoutY="64.0" mnemonicParsing="false" onAction="#NaviguerVerAjouter" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
+                      <ListView fx:id="listView" layoutX="14.0" layoutY="109.0" prefHeight="431.0" prefWidth="890.0"  />
+
+
+                  </children>
+              </AnchorPane>
+
+                
+
+
+            </content>
+          </Tab>
+          <Tab text="Exercice">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+         <padding>
+            <Insets left="100.0" />
+         </padding>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+.button-supprimer {
+    -fx-background-color: red; /* couleur de fond rouge */
+    -fx-text-fill: white; /* couleur du texte blanc */
+    -fx-border-width: 2; /* largeur du bord 2 pixels */
+    -fx-border-radius: 10; /* rayon du bord 10 pixels */
+}
+AnchorPane {
+    -fx-background-color: #f0f0f0;
+}
+
+.btnuplo {
+    /* Add your styles here */
+}
+
+Label {
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+ImageView {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+Button {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+}
+
+Button:hover {
+    -fx-background-color: #eee;
+}
+
+Button:pressed {
+    -fx-background-color: #ddd;
+}

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="commit" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2cXclQnnL0THmHNzzxQUemMBoEg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Projet",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "sdk",
+    "last_opened_file_path": "C:/Users/benjd/OneDrive/Bureau/pidev/XperienceZone-DESKTOP--main",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4229885",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\benjd\OneDrive\Bureau\pidev\ProjetJAVA\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainFX" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.esprit.tests.MainFX" />
+      <module name="sudhimia" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\benjd\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="" />
+      <created>1708261516233</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708261516233</updated>
+      <workItem from="1708261517141" duration="6071000" />
+      <workItem from="1708270791973" duration="293000" />
+      <workItem from="1708271098007" duration="38000" />
+      <workItem from="1708271147165" duration="8652000" />
+      <workItem from="1708281002992" duration="940000" />
+      <workItem from="1708284399860" duration="7638000" />
+      <workItem from="1708330323156" duration="1028000" />
+      <workItem from="1708333604584" duration="152000" />
+      <workItem from="1708335718626" duration="1068000" />
+      <workItem from="1708343939007" duration="1520000" />
+      <workItem from="1708368192918" duration="9350000" />
+      <workItem from="1708424135263" duration="9011000" />
+      <workItem from="1708443229563" duration="6189000" />
+      <workItem from="1708465263972" duration="14000" />
+      <workItem from="1708465320585" duration="3296000" />
+      <workItem from="1708468670523" duration="2120000" />
+      <workItem from="1708510623831" duration="3840000" />
+      <workItem from="1708516308292" duration="11553000" />
+      <workItem from="1708557370652" duration="1450000" />
+      <workItem from="1708589788617" duration="2048000" />
+      <workItem from="1708592081710" duration="2912000" />
+      <workItem from="1708606877942" duration="290000" />
+      <workItem from="1708611720577" duration="1134000" />
+      <workItem from="1708612940861" duration="1329000" />
+      <workItem from="1708620966690" duration="86000" />
+      <workItem from="1708621182784" duration="8000" />
+      <workItem from="1708621247001" duration="3224000" />
+      <workItem from="1708642995073" duration="119000" />
+      <workItem from="1708643143201" duration="605000" />
+      <workItem from="1708677538375" duration="2000" />
+      <workItem from="1708685131870" duration="1520000" />
+      <workItem from="1708705423420" duration="142000" />
+      <workItem from="1708705587085" duration="9000" />
+      <workItem from="1708706106649" duration="1962000" />
+      <workItem from="1708708470956" duration="11742000" />
+      <workItem from="1708728377742" duration="9583000" />
+      <workItem from="1708761394954" duration="937000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit">
+      <option name="closed" value="true" />
+      <created>1708762180140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708762180140</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="github/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/esprit/controllers/AfficherCoursController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
