@@ -38,7 +38,11 @@
           </Tab>
           <Tab text="Exercice">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnAjouter1" layoutX="194.0" layoutY="56.0" mnemonicParsing="false" onAction="#NaviguerVerAjouter1" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
+                        <Button fx:id="btnAfficher1" layoutX="419.0" layoutY="56.0" mnemonicParsing="false" onAction="#NaviguerVersAfficher2" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Afficher" />
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

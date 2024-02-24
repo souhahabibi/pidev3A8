@@ -1,5 +1,7 @@
 package com.esprit.models;
 
+import java.util.Objects;
+
 public class Exercice {
 
 
@@ -7,7 +9,37 @@ public class Exercice {
 
     private int id ;
     private  String nom ;
+
+    private  String etape ;
     private String image ;
+
+
+
+    public String getEtape() {
+        return etape;
+    }
+
+    public void setEtape(String etape) {
+        this.etape = etape;
+    }
+
+    public Exercice(int idE, int id, String nom, String etape, String image) {
+        this.idE = idE;
+        this.id = id;
+        this.nom = nom;
+        this.etape = etape;
+        this.image = image;
+    }
+
+
+    public Exercice( int id, String nom, String etape, String image) {
+        this.idE = idE;
+        this.id = id;
+        this.nom = nom;
+        this.etape = etape;
+        this.image = image;
+    }
+
 
     public int getIdE() {
         return idE;
@@ -42,7 +74,21 @@ public class Exercice {
     }
 
     public Exercice () {}
-    public Exercice(int idE,int id, String nom, String image) {
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Exercice exercice = (Exercice) o;
+        return idE == exercice.idE && id == exercice.id && Objects.equals(nom, exercice.nom) && Objects.equals(etape, exercice.etape) && Objects.equals(image, exercice.image);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idE, id, nom, etape, image);
+    }
+
+    public Exercice(int idE, int id, String nom, String image) {
         this.idE = idE;
         this.id =id;
         this.nom = nom;

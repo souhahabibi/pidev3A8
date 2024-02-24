@@ -49,6 +49,10 @@ public class AcceuilController {
     private Button btnAjouter;
 
     @FXML
+    private Button btnAjouter1;
+
+
+    @FXML
     private Button btnAfficher;
 
     @FXML
@@ -68,7 +72,19 @@ public class AcceuilController {
             System.err.println(e.getMessage());
         }
     }
+    @FXML
+    void NaviguerVerAjouter1 (ActionEvent event){
 
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AjouterExercice.fxml"));
+            btnAjouter1.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+
+
+    }
 
     @FXML
     void NaviguerVersAfficher(ActionEvent event) {
@@ -78,6 +94,17 @@ public class AcceuilController {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    @FXML
+    void NaviguerVersAfficher2(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherExercice.fxml"));
+            btnAfficher.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
     }
 
     public void setCours(Cours cours) {

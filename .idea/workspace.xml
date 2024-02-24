@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="First Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AfficherExerciceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AfficherExerciceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ModifierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ModifierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ModifierExerciceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ModifierExerciceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/models/Exercice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/Exercice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/ExerciceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/ExerciceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Acceuil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AfficherExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AfficherExercice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AjouterExercice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ModifierExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ModifierExercice.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +28,8 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -145,7 +153,7 @@
       <workItem from="1708761394954" duration="1604000" />
       <workItem from="1708763036838" duration="9443000" />
       <workItem from="1708772538747" duration="1048000" />
-      <workItem from="1708773598724" duration="3028000" />
+      <workItem from="1708773598724" duration="23290000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -179,7 +187,31 @@
       <option name="project" value="LOCAL" />
       <updated>1708775419716</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708776765491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708776765491</updated>
+    </task>
+    <task id="LOCAL-00006" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708776852097</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708776852097</updated>
+    </task>
+    <task id="LOCAL-00007" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708776920236</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708776920236</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

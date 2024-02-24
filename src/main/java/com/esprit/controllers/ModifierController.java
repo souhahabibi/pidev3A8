@@ -1,6 +1,7 @@
 package com.esprit.controllers;
 
 import com.esprit.models.Cours;
+import com.esprit.models.Exercice;
 import com.esprit.services.CoursService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,12 +38,18 @@ public class ModifierController {
     @FXML
     private TextField descriptionTF;
 
+    @FXML
+    private TextArea etapeTR;
 
-    private Cours cours;
+    private  Cours cours;
+    private Exercice exercice;
     private String niveau;
 
     @FXML
     private Button btnAfficher;
+
+    @FXML
+    private TextField idTF;
 
 
     @FXML
@@ -189,6 +196,34 @@ public class ModifierController {
 
 
     }
+
+
+    public void setExercice(Exercice exercice) {
+        // Récupérer les attributs de l'objet Cours
+        Integer id = exercice.getId();
+        String nom = exercice.getNom();
+        String etape = exercice.getEtape();
+
+
+
+
+        // Remplir les champs de texte avec les attributs
+
+        idTF.setText(String.valueOf(id));
+
+
+        nomTF.setText(nom);
+        etapeTR.setText(nom);
+
+
+
+        this.exercice = exercice;
+    }
+
+
+
+
+
 
 
 
