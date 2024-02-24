@@ -4,19 +4,46 @@ import com.esprit.models.Cours;
 import com.esprit.services.CoursService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class AfficherController {
+
+
+        @FXML
+
+        private Button btnAjouter;
+
+
+    @FXML
+
+    private Button btnModifier;
+
+    @FXML
+    private TextField nomTF;
+    @FXML
+    private TextField descriptionTF;
+
+
+    private Cours cours;
+    private String niveau;
+
 
 
     @FXML
@@ -78,6 +105,67 @@ public class AfficherController {
 
 
     }
+
+
+    @FXML
+    void NaviguerVerAjouter(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Ajouter.fxml"));
+            btnAjouter.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+
+    private Cours obtenirCoursSelectionne() {
+        Cours coursSelectionne = listView.getSelectionModel().getSelectedItem();
+        return coursSelectionne;
+    }
+
+
+
+    @FXML
+    void modifierCours(ActionEvent event) {
+
+        try {
+            // Charger la page AjouterCours.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Modifier.fxml"));
+            Parent root = loader.load();
+            // Récupérer le contrôleur de la page AjouterCours.fxml
+            ModifierController controller = loader.getController();
+            // Récupérer l'objet Cours à modifier
+
+            Cours coursAmodifier = obtenirCoursSelectionne();
+            // Passer l'objet Cours au contrôleur
+            controller.setCours(coursAmodifier);
+            // Créer une nouvelle scène avec la page chargée
+            Scene scene = new Scene(root);
+            // Récupérer la fenêtre principale de l'application
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            // Assigner la nouvelle scène à la fenêtre principale
+            stage.setScene(scene);
+            // Afficher la fenêtre principale
+            stage.show();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+
+
+    }
+
+
+
+    @FXML
+    void supprimerCours(ActionEvent event) {
+        Cours coursASupprimer = obtenirCoursSelectionne();
+        int indexASupprimer = listView.getSelectionModel().getSelectedIndex();
+        listView.getItems().remove(indexASupprimer);
+        cs.supprimer(coursASupprimer);
+    }
+
+
 
 
 

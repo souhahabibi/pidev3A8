@@ -1,10 +1,24 @@
 package com.esprit.models;
 
 import java.sql.Blob;
+import java.util.Objects;
 
 public class Cours {
 
     private int id;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cours cours = (Cours) o;
+        return id == cours.id && Objects.equals(image, cours.image) && Objects.equals(nom, cours.nom) && Objects.equals(description, cours.description) && Objects.equals(niveau, cours.niveau);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, image, nom, description, niveau);
+    }
 
     private  String image ;
     private String nom;
