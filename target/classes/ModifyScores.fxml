@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifyScoresController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="142.0" layoutY="464.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1000.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop color="#525252" />
+                  <Stop color="#525252" offset="0.5253623188405797" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <ListView fx:id="listviewS" layoutX="80.0" layoutY="54.0" onMouseClicked="#isSelected" prefHeight="405.0" prefWidth="309.0" />
+      <Button layoutX="601.0" layoutY="212.0" mnemonicParsing="false" onAction="#UpdateScore" prefHeight="44.0" prefWidth="119.0" styleClass="login-btn" stylesheets="@design.css" text="Update" />
+      <Text layoutX="642.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" />
+      <TextField fx:id="scoreTF" layoutX="570.0" layoutY="167.0" prefHeight="31.0" prefWidth="180.0" />
+      <Button layoutX="610.0" layoutY="284.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="44.0" prefWidth="102.0" styleClass="login-btn" stylesheets="@design.css" text="Cancel" />
+   </children>
+</AnchorPane>

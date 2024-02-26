@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterOrganisateurController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="248.0" layoutY="356.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1000.0" >
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop color="#525252" />
+                  <Stop color="#525252" offset="0.5253623188405797" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <TextField fx:id="nomTF" layoutX="487.0" layoutY="104.0" />
+      <TextField fx:id="numTF" layoutX="487.0" layoutY="180.0" />
+      <Text layoutX="337.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" wrappingWidth="84.6708984375" />
+      <Text layoutX="337.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="numero" wrappingWidth="84.6708984375" />
+      <Button layoutX="337.0" layoutY="407.0" mnemonicParsing="false" onAction="#ajouterOrganisateur" prefHeight="49.0" prefWidth="85.0" styleClass="login-btn" stylesheets="@design.css" text="ADD" />
+      <Button layoutX="520.0" layoutY="407.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="49.0" prefWidth="85.0" styleClass="login-btn" stylesheets="@design.css" text="Cancel" />
+      <Text fx:id="nomCS" fill="RED" layoutX="680.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".Letters only" visible="false" />
+      <Text fx:id="numeroCS" fill="RED" layoutX="680.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".Numbers only" visible="false" wrappingWidth="159.66650390625" />
+      <Text fx:id="numeroCS1" fill="RED" layoutX="680.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".should be 8 digits long" visible="false" />
+   </children>
+</AnchorPane>
