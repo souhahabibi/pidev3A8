@@ -23,6 +23,15 @@ Label {
     -fx-font-size: 23px;
 }
 
+
+#titre2 {
+    -fx-background-color: linear-gradient(to right, #ff0000, #8b0000);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);
+    -fx-font-size: 23px;
+}
+
+
 ImageView {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }

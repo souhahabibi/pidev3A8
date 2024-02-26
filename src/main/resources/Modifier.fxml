@@ -11,6 +11,13 @@
 <AnchorPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.ModifierController">
 
     <children>
+
+        <Label fx:id="titre2" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="95" prefHeight="53.0" prefWidth="582.0" stylesheets="@style.css" text="Modifier Cours" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+
         <ImageView fitHeight="111.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/esprat.png" />
