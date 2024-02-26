@@ -56,6 +56,9 @@ public class AcceuilController {
     private Button btnAfficher;
 
     @FXML
+    private Button btnAfficher2;
+
+    @FXML
     private ListView<Cours> listView;
 
     List<Cours> cour = cs.afficher();
@@ -195,6 +198,19 @@ public class AcceuilController {
     }
 
 
+
+
+
+    @FXML
+    void NaviviguerVerAfficherCours(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Afficher.fxml"));
+            btnAfficher2.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+    }
 
 
 

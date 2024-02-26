@@ -99,6 +99,24 @@ public class ExerciceService implements IService<Exercice>{
 
     }
 
+
+    public List<Exercice> getExerciceByCoursId(int id) {
+       // Exercice exercice = null;
+        List<Exercice> exercice = new ArrayList<>();
+
+        String req = "SELECT * FROM exercice WHERE id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exercice;
+    }
+
+
+
     @Override
     public List<Exercice> afficher() {
 
@@ -117,6 +135,30 @@ public class ExerciceService implements IService<Exercice>{
 
         return exercice;
     }
+
+
+    public List<Exercice> afficher2(int id) {
+        List<Exercice> exercice = new ArrayList<>();
+        String req = "SELECT exercice.idE, exercice.id, exercice.nom, exercice.etape, exercice.image from exercice , cours where cours.id=exercice.id AND cours.id=" + id;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                exercice.add(new Exercice(rs.getInt("idE"), rs.getString("nom"), rs.getString("etape"),rs.getString("image")));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return exercice;
+    }
+
+
+
+
+
+
+
 
 
 }

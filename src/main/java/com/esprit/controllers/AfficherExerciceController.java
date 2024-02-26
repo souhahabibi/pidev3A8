@@ -35,10 +35,7 @@ public class AfficherExerciceController {
 
     private Button btnModifier;
 
-    @FXML
-    private TextField nomTF;
-    @FXML
-    private TextField descriptionTF;
+
 
 
     private Exercice exercice;

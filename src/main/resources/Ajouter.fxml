@@ -24,45 +24,60 @@
         <tabs>
           <Tab text="Cours">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" >
-                <Label layoutX="169.0" layoutY="136.0" text="Image" textFill="WHITE">
-                    <font>
-                        <Font size="33.0" />
-                    </font></Label>
-                <Label layoutX="189.0" layoutY="185.0" text="Nom" textFill="WHITE">
-                    <font>
-                        <Font size="33.0" />
-                    </font></Label>
-                <Label layoutX="117.0" layoutY="243.0" text="Description" textFill="WHITE">
-                    <font>
-                        <Font size="33.0" />
-                    </font></Label>
-                <Label layoutX="175.0" layoutY="306.0" text="Niveau" textFill="WHITE">
-                    <font>
-                        <Font size="33.0" />
-                    </font></Label>
-                <TextField fx:id="nomTF" layoutX="283.0" layoutY="194.0" />
-                <TextField fx:id="descriptionTF" layoutX="283.0" layoutY="252.0" />
-                <Button layoutX="313.0" layoutY="386.0" mnemonicParsing="false" onAction="#AjouterCours" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
-                <Button fx:id="btnuplaod" layoutX="298.0" layoutY="145.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: grey; -fx-text-fill: white; -fx-font-size: 15px; -fx-padding: 4px 25px; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 2);" text="Upload" />
-                <RadioButton fx:id="rButton1" layoutX="283.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Débutant" textFill="WHITE" toggleGroup="$sport">
-                    <font>
-                        <Font size="19.0" />
-                    </font>
-                    <toggleGroup>
-                        <ToggleGroup fx:id="sport" />
-                    </toggleGroup>
-                </RadioButton>
-                <RadioButton fx:id="rButton2" layoutX="392.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Normale" textFill="WHITE" toggleGroup="$sport">
-                    <font>
-                        <Font size="19.0" />
-                    </font>
-                </RadioButton>
-                <RadioButton fx:id="rButton3" layoutX="526.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Avancé" textFill="WHITE" toggleGroup="$sport">
-                    <font>
-                        <Font size="19.0" />
-                    </font>
-                </RadioButton>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                 <children>
+
+                     <Label fx:id="titre" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="50.0" prefHeight="53.0" prefWidth="582.0" stylesheets="@style.css" text="Ajouter Cours" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                         <font>
+                             <Font name="System Bold" size="20.0" />
+                         </font>
+                     </Label>
+
+
+                   <Label layoutX="169.0" layoutY="136.0" text="Image" textFill="WHITE">
+                       <font>
+                           <Font size="33.0" />
+                       </font>
+                        </Label>
+                   <Label layoutX="189.0" layoutY="185.0" text="Nom" textFill="WHITE">
+                       <font>
+                           <Font size="33.0" />
+                       </font>
+                        </Label>
+                   <Label layoutX="117.0" layoutY="243.0" text="Description" textFill="WHITE">
+                       <font>
+                           <Font size="33.0" />
+                       </font>
+                        </Label>
+                   <Label layoutX="175.0" layoutY="306.0" text="Niveau" textFill="WHITE">
+                       <font>
+                           <Font size="33.0" />
+                       </font>
+                        </Label>
+                   <TextField fx:id="nomTF" layoutX="283.0" layoutY="194.0" />
+                   <TextField fx:id="descriptionTF" layoutX="283.0" layoutY="252.0" />
+                   <Button layoutX="313.0" layoutY="386.0" mnemonicParsing="false" onAction="#AjouterCours" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
+                   <Button fx:id="btnuplaod" layoutX="298.0" layoutY="145.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: grey; -fx-text-fill: white; -fx-font-size: 15px; -fx-padding: 4px 25px; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 2);" text="Upload" />
+                   <RadioButton fx:id="rButton1" layoutX="283.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Débutant" textFill="WHITE" toggleGroup="$sport">
+                       <font>
+                           <Font size="19.0" />
+                       </font>
+                       <toggleGroup>
+                           <ToggleGroup fx:id="sport" />
+                       </toggleGroup>
+                   </RadioButton>
+                   <RadioButton fx:id="rButton2" layoutX="392.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Normale" textFill="WHITE" toggleGroup="$sport">
+                       <font>
+                           <Font size="19.0" />
+                       </font>
+                   </RadioButton>
+                   <RadioButton fx:id="rButton3" layoutX="526.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Avancé" textFill="WHITE" toggleGroup="$sport">
+                       <font>
+                           <Font size="19.0" />
+                       </font>
+                   </RadioButton>
+                        <Button fx:id="btnAfficher2" layoutX="489.0" layoutY="386.0" mnemonicParsing="false" onAction="#NaviviguerVerAfficherCours" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Afficher" />
+                 </children>
               </AnchorPane>
 
             </content>

@@ -17,10 +17,25 @@ public class InterfaceController {
     private Button btncoach;
 
     @FXML
+    private Button btnClient;
+
+    @FXML
     void NaviguerVerscoach(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Acceuil.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Afficher.fxml"));
             btncoach.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+
+
+    @FXML
+    void NaviguerVersclient(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Client.fxml"));
+            btnClient.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

@@ -14,7 +14,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button id="sale" layoutX="46.0" layoutY="139.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="257.0" stylesheets="@stylesheet.css" text="Interface client">
+      <Button id="sale" fx:id="btnClient" layoutX="46.0" layoutY="139.0" mnemonicParsing="false" onAction="#NaviguerVersclient" prefHeight="96.0" prefWidth="257.0" stylesheets="@stylesheet.css" text="Interface client">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

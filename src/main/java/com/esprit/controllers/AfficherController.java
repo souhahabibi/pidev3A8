@@ -1,7 +1,9 @@
 package com.esprit.controllers;
 
 import com.esprit.models.Cours;
+import com.esprit.models.Exercice;
 import com.esprit.services.CoursService;
+import com.esprit.services.ExerciceService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,7 +46,33 @@ public class AfficherController {
     private Cours cours;
     private String niveau;
 
+//Exercice//
+@FXML
 
+private Button btnAjouter2;
+
+
+    @FXML
+
+    private Button btnModifier2;
+
+
+
+    private Exercice exercice;
+
+
+    @FXML
+    private ListView<Exercice> listView2;
+
+    private final ExerciceService es = new ExerciceService();
+
+
+    @FXML
+    private TabPane tabPane;
+
+    @FXML
+    private Tab ExTab;
+    ///
 
     @FXML
     private ListView<Cours> listView;
@@ -70,7 +98,7 @@ public class AfficherController {
             private final Text niveau = new Text();
             private final HBox niveauBox = new HBox(niveauLabel, niveau);
 
-            private final VBox vBox = new VBox(nomBox, descriptionBox, niveauBox);
+            private final VBox vBox = new VBox(10,nomBox, descriptionBox, niveauBox);
             private final HBox hBox = new HBox(35, imageView, vBox);
 
             {
@@ -103,6 +131,57 @@ public class AfficherController {
         });
 
 
+///Exercice//
+        List<Exercice> exercice = es.afficher();
+        ObservableList<Exercice> observableList2 = FXCollections.observableList(exercice);
+        listView2.setItems(observableList2);
+
+        listView2.setCellFactory(param -> new ListCell<>() {
+            private final ImageView imageView = new ImageView();
+            private final Label nom = new Label("Nom: ");
+            private final Text nomLabel= new Text();
+            private final HBox nomBox = new HBox(nom, nomLabel);
+            private final Label etape = new Label("Etape: ");
+            private final Text etapeLabel = new Text();
+            private final HBox etapeBox = new HBox(etape, etapeLabel);
+            private final VBox vBox = new VBox(10,nomBox, etapeBox);
+
+
+            private final HBox hBox = new HBox(35, imageView, vBox);
+
+            {
+                imageView.setFitHeight(300);
+                imageView.setFitWidth(300);
+                hBox.setStyle("-fx-border-style: solid inside;"
+                        + "-fx-border-width: 0;" + "-fx-border-insets: 5;");
+                nomLabel.setStyle("-fx-text-fill: white;");
+                etapeLabel.setStyle("-fx-text-fill: white;");
+                vBox.setStyle("-fx-font-family: 'Comic Sans MS';" + "-fx-font-size: 14px;");
+
+                // Rendre le texte des labels "Nom" et "Etape" en gras
+                nom.setStyle("-fx-font-weight: bold;");
+                etape.setStyle("-fx-font-weight: bold;");
+            }
+
+            @Override
+            protected void updateItem(Exercice item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                } else {
+                    imageView.setImage(new Image("file:" + item.getImage()));
+                    nomLabel.setText(item.getNom());
+                    etapeLabel.setText(item.getEtape());
+                    setGraphic(hBox);
+                }
+            }
+        });
+
+
+        //////
+
+
+
 
     }
 
@@ -122,7 +201,6 @@ public class AfficherController {
         Cours coursSelectionne = listView.getSelectionModel().getSelectedItem();
         return coursSelectionne;
     }
-
 
 
     @FXML
@@ -166,8 +244,75 @@ public class AfficherController {
     }
 
 
+    @FXML
+    void NaviguerVerAjouter2(ActionEvent event) {
+        try {
+            // Charger la page AjouterExercice.fxml
+            Parent root = FXMLLoader.load(getClass().getResource("/AjouterExercice.fxml"));
+
+            TabPane modifierExerciceTabPane = (TabPane) root.lookup("TabPane");
+            // Obtenir l'onglet "Exercice" du TabPane
+            Tab exerciceTab = modifierExerciceTabPane.getTabs().get(1); // L'index 1 correspond à l'onglet "Exercice"
+
+            // Définir le contenu de l'onglet ExTab avec le contenu de l'onglet "Exercice"
+            ExTab.setContent(exerciceTab.getContent());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
 
+
+    private Exercice obtenirExerciceSelectionne() {
+        Exercice exerciceSelectionne = listView2.getSelectionModel().getSelectedItem();
+        return exerciceSelectionne;
+    }
+
+
+
+    @FXML
+    void modifierExercice2(ActionEvent event) {
+        try {
+            // Charger la page ModifierExercice.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierExercice.fxml"));
+            Parent root = loader.load();
+
+            // Récupérer le contrôleur de la page ModifierExercice.fxml
+            ModifierExerciceController controller = loader.getController();
+            // Récupérer l'objet Exercice à modifier
+            Exercice exerciceAmodifier = obtenirExerciceSelectionne();
+            // Passer l'objet Exercice au contrôleur
+            controller.setExercice(exerciceAmodifier);
+
+            // Obtenir le TabPane du Parent chargé
+            TabPane modifierExerciceTabPane = (TabPane) root.lookup("TabPane");
+            // Obtenir l'onglet "Exercice" du TabPane
+            Tab exerciceTab = modifierExerciceTabPane.getTabs().get(1); // L'index 1 correspond à l'onglet "Exercice"
+
+            // Définir le contenu de l'onglet ExTab avec le contenu de l'onglet "Exercice"
+            ExTab.setContent(exerciceTab.getContent());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    @FXML
+    void supprimerExercice2(ActionEvent event) {
+        Exercice ExerciceASupprimer = obtenirExerciceSelectionne();
+        int indexASupprimer = listView2.getSelectionModel().getSelectedIndex();
+        listView2.getItems().remove(indexASupprimer);
+        es.supprimer(ExerciceASupprimer);
+    }
 
 
 }

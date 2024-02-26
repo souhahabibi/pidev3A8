@@ -10,6 +10,8 @@ public class CoursService implements IService<Cours> {
 
     private Connection connection;
 
+    private Cours cours;
+
     public CoursService() {
         connection = DataSource.getInstance().getConnection();
     }
@@ -28,15 +30,24 @@ public class CoursService implements IService<Cours> {
 
     @Override
     public void modifier(Cours Cours) {
-        String req = "UPDATE Cours set image =  '" +  Cours.getImage() + " ', nom = '" +  Cours.getNom() + "', description = '" + Cours.getDescription()+ "', niveau = '" + Cours.getNiveau() + "' where id = " + Cours.getId() + ";";
+        String req = "UPDATE Cours SET image = ?, nom = ?, description = ?, niveau = ? WHERE id = ?;";
         try {
-            Statement st = connection.createStatement();
-            st.executeUpdate(req);
+            PreparedStatement pstmt = connection.prepareStatement(req);
+            pstmt.setString(1, Cours.getImage());
+            pstmt.setString(2, Cours.getNom());
+            pstmt.setString(3, Cours.getDescription());
+            pstmt.setString(4, Cours.getNiveau());
+            pstmt.setInt(5, Cours.getId());
+            pstmt.executeUpdate();
             System.out.println("Cours modifiée !");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
+
+
+
     @Override
     public void supprimer(Cours Cours) {
         String req = "DELETE from Cours where id = " + Cours.getId() + ";";
@@ -110,6 +121,30 @@ public class CoursService implements IService<Cours> {
 
         return Cours;
     }
+
+
+    public Integer getCoursId() {
+        Integer id = null;
+       String req = "SELECT id FROM cours";
+
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            if (rs.next()) {
+                id = rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return id;
+    }
+
+
+
+
+
+
 
 
 }

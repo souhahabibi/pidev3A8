@@ -15,17 +15,17 @@ public class MainFX extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interface.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-       // primaryStage.setFullScreen(true);
+        // primaryStage.setFullScreen(true);
 
         primaryStage.setTitle("Gérer Cours");
         primaryStage.setScene(scene);
 
+        // Agrandir la fenêtre
+        primaryStage.setHeight(600); // Hauteur en pixels
+        primaryStage.setWidth(1000); // Largeur en pixels
+
         primaryStage.show();
     }
-
-
-
-
 
     public static void main(String[] args) {
         launch(args);

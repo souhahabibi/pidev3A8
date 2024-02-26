@@ -20,6 +20,13 @@
             <tabs>
                 <Tab text="Cours">
                     <content>
+
+                        <Label fx:id="titre" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="50.0" prefHeight="53.0" prefWidth="582.0" stylesheets="@style.css" text="Modifier Cours" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                                <Label layoutX="169.0" layoutY="136.0" text="Image" textFill="WHITE">

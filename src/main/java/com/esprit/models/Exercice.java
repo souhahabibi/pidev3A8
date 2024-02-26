@@ -2,7 +2,7 @@ package com.esprit.models;
 
 import java.util.Objects;
 
-public class Exercice {
+public class Exercice extends Cours {
 
 
     private  int idE;
