@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="First Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="cbd8ae7d54996a61d7bfb10d0cdecb39e592810b" />
+        <entry key="$PROJECT_DIR$/pidev3A8/tree/GestionCours" value="GestionCours" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HabibBJ&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="59c441e3-e172-4d0b-8991-ea6ed0aafd96" />
+        <option name="url" value="https://github.com/ayouta2002/SUSHIMIA_.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2cXclQnnL0THmHNzzxQUemMBoEg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;sdk&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/benjd/OneDrive/Bureau/pidev/ProjetJAVA&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4229885&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\benjd\OneDrive\Bureau\pidev\ProjetJAVA\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainFX" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.esprit.tests.MainFX" />
+      <module name="sudhimia" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\benjd\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="" />
+      <created>1708261516233</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708261516233</updated>
+      <workItem from="1708261517141" duration="6071000" />
+      <workItem from="1708270791973" duration="293000" />
+      <workItem from="1708271098007" duration="38000" />
+      <workItem from="1708271147165" duration="8652000" />
+      <workItem from="1708281002992" duration="940000" />
+      <workItem from="1708284399860" duration="7638000" />
+      <workItem from="1708330323156" duration="1028000" />
+      <workItem from="1708333604584" duration="152000" />
+      <workItem from="1708335718626" duration="1068000" />
+      <workItem from="1708343939007" duration="1520000" />
+      <workItem from="1708368192918" duration="9350000" />
+      <workItem from="1708424135263" duration="9011000" />
+      <workItem from="1708443229563" duration="6189000" />
+      <workItem from="1708465263972" duration="14000" />
+      <workItem from="1708465320585" duration="3296000" />
+      <workItem from="1708468670523" duration="2120000" />
+      <workItem from="1708510623831" duration="3840000" />
+      <workItem from="1708516308292" duration="11553000" />
+      <workItem from="1708557370652" duration="1450000" />
+      <workItem from="1708589788617" duration="2048000" />
+      <workItem from="1708592081710" duration="2912000" />
+      <workItem from="1708606877942" duration="290000" />
+      <workItem from="1708611720577" duration="1134000" />
+      <workItem from="1708612940861" duration="1329000" />
+      <workItem from="1708620966690" duration="86000" />
+      <workItem from="1708621182784" duration="8000" />
+      <workItem from="1708621247001" duration="3224000" />
+      <workItem from="1708642995073" duration="119000" />
+      <workItem from="1708643143201" duration="605000" />
+      <workItem from="1708677538375" duration="2000" />
+      <workItem from="1708685131870" duration="1520000" />
+      <workItem from="1708705423420" duration="142000" />
+      <workItem from="1708705587085" duration="9000" />
+      <workItem from="1708706106649" duration="1962000" />
+      <workItem from="1708708470956" duration="11742000" />
+      <workItem from="1708728377742" duration="9583000" />
+      <workItem from="1708761394954" duration="1604000" />
+      <workItem from="1708763036838" duration="9443000" />
+      <workItem from="1708772538747" duration="1048000" />
+      <workItem from="1708773598724" duration="26660000" />
+      <workItem from="1708802678844" duration="314000" />
+      <workItem from="1708803816379" duration="843000" />
+      <workItem from="1708804744758" duration="53000" />
+      <workItem from="1708808397972" duration="7550000" />
+      <workItem from="1708851084643" duration="6219000" />
+      <workItem from="1708857327387" duration="7102000" />
+      <workItem from="1708867146976" duration="4072000" />
+      <workItem from="1708883866327" duration="3973000" />
+      <workItem from="1708888012313" duration="9537000" />
+      <workItem from="1708903236781" duration="6863000" />
+      <workItem from="1708936460922" duration="1057000" />
+      <workItem from="1708937818941" duration="3513000" />
+      <workItem from="1708943415719" duration="4749000" />
+      <workItem from="1708957049926" duration="23000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit">
+      <option name="closed" value="true" />
+      <created>1708762180140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708762180140</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit">
+      <option name="closed" value="true" />
+      <created>1708762346121</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708762346121</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commit">
+      <option name="closed" value="true" />
+      <created>1708773616166</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708773616166</updated>
+    </task>
+    <task id="LOCAL-00004" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708775419716</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708775419716</updated>
+    </task>
+    <task id="LOCAL-00005" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708776765491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708776765491</updated>
+    </task>
+    <task id="LOCAL-00006" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708776852097</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708776852097</updated>
+    </task>
+    <task id="LOCAL-00007" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708776920236</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708776920236</updated>
+    </task>
+    <task id="LOCAL-00008" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1708944416602</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708944416602</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Projet" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First commit" />
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
