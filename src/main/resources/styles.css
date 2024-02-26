@@ -1,0 +1,17 @@
+
+.list-cell {
+    -fx-background-color: #f0f0f0; /* Couleur de fond des cellules de la liste */
+    -fx-padding: 10px; /* Marge interne des cellules de la liste */
+}
+
+.nom-label {
+    -fx-font-weight: bold; /* Texte en gras pour le nom de la salle */
+}
+
+.description-label {
+    -fx-wrap-text: true; /* Permet au texte de la description de se retourner s'il est trop long */
+}
+
+.lieu-label {
+    -fx-text-fill: #666666; /* Couleur du texte gris pour l'emplacement de la salle */
+}

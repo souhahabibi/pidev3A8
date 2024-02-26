@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientController">
+   <children>
+      <ScrollPane layoutX="33.0" layoutY="109.0" prefHeight="420.0" prefViewportHeight="217.0" prefViewportWidth="922.0" prefWidth="930.0">
+         <content>
+            <VBox fx:id="sallesContainer" layoutX="38.0" layoutY="114.0" />
+         </content>
+      </ScrollPane>
+      <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+         </image>
+      </ImageView>
+
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="530" layoutY="550">
+         <image>
+            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/communicate.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="580.0" layoutY="570.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 16px;" text="Contact us : 52 299 117  /  ESPRAT@gmail.com " />
+      <TextField fx:id="rechercheTF" layoutX="759.0" layoutY="38.0" onKeyTyped="#chercher" />
+   </children>
+</AnchorPane>

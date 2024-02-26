@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="601.0" prefWidth="1006.0" styleClass="gradient" stylesheets="@design.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterSalleController">
+    <children>
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="493.0" fitWidth="649.0" layoutX="209.0" layoutY="85.0" opacity="0.35" pickOnBounds="true">
+            <image>
+                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/Capture%20d'écran%202024-02-20%20141109.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="248.0" layoutY="145.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="nom:" />
+        <Label layoutX="227.0" layoutY="222.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="description:" />
+        <Label layoutX="533.0" layoutY="146.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="lieu:" />
+        <Label layoutX="406.0" layoutY="85.0" prefHeight="39.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 18px;" text="Ajouter une salle de sport " />
+        <Label layoutX="248.0" layoutY="376.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="image:" />
+        <!-- ImageView pour afficher l'image -->
+        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="213.0" layoutX="378.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true" />
+
+
+
+        <TextArea fx:id="descriptionTA" layoutX="326.0" layoutY="198.0" prefHeight="110.0" prefWidth="436.0" />
+        <TextField fx:id="lieuTF" layoutX="610.0" layoutY="140.0" prefHeight="31.0" prefWidth="151.0" />
+        <TextField fx:id="nomTF" layoutX="326.0" layoutY="140.0" prefHeight="31.0" prefWidth="161.0" />
+        <Button layoutX="646.0" layoutY="379.0" mnemonicParsing="false" onAction="#choisirImage" text="Upload" />
+        <Button fx:id="buttonAjouterSalle" layoutX="345.0" layoutY="516.0" mnemonicParsing="false" onAction="#ajouterSalle" styleClass="login-btn" stylesheets="@design.css" text="ajouter salle" />
+        <Button fx:id="buttonCancel" layoutX="662.0" layoutY="516.0" mnemonicParsing="false" onAction="#naviguezVersAccueil" styleClass="login-btn" stylesheets="@design.css" text="cancel" />
+        <Text fx:id="nomCS" fill="#ff0505" layoutX="326.0" layoutY="187.0" text="! non vide/uniquement des lettres" visible="false">
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font></Text>
+        <Text fx:id="lieuCS" fill="#ff0505" layoutX="610.0" layoutY="187.0" text="veuillez entrer lieu!" visible="false">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Text>
+        <Text fx:id="descCS" fill="#ff0505" layoutX="326.0" layoutY="327.0" text="Veuillez ajouter une description pour la salle!" visible="false" wrappingWidth="336.0">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Text>
+
+    </children>
+</AnchorPane>

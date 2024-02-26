@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterPersonneController">
+   <children>
+      <TextField fx:id="nomTF" layoutX="99.0" layoutY="61.0" promptText="Nom" />
+      <TextField fx:id="prenomTF" layoutX="99.0" layoutY="141.0" promptText="Prénom" />
+      <TextField fx:id="ageTF" layoutX="99.0" layoutY="221.0" promptText="Age" />
+      <Button layoutX="453.0" layoutY="309.0" mnemonicParsing="false" onAction="#ajouterPersonne" text="Ajouter" />
+      <Button layoutX="524.0" layoutY="309.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" text="Afficher" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="601.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MaterielClientController">
+   <children>
+      <ScrollPane layoutX="136.0" layoutY="25.0" prefHeight="542.0" prefViewportHeight="206.0" prefViewportWidth="879.0" prefWidth="698.0">
+         <content>
+            <VBox fx:id="materielsContainer" layoutX="73.0" layoutY="125.0" prefHeight="873.0" prefWidth="608.0"  >
+               <children>
+                  <Pane layoutX="53.0" layoutY="25.0" prefHeight="173.0" prefWidth="878.0" visible="false">
+                     <children>
+                        <ImageView fitHeight="119.0" fitWidth="205.0" layoutX="84.0" layoutY="15.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/images.jpg" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="357.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom :" wrappingWidth="37.55859375" />
+                        <Text layoutX="357.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="quantite :" wrappingWidth="62.4462890625" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
