@@ -170,7 +170,9 @@ public class AcceuilController {
     @FXML
     void AjouterCours(ActionEvent event) {
         // Vérifier si tous les champs sont remplis et qu'un bouton radio est sélectionné
-        if (imagePath != null && !nomTF.getText().isEmpty() && !descriptionTF.getText().isEmpty() && (rButton1.isSelected() || rButton2.isSelected() || rButton3.isSelected())) {
+        if (imagePath != null && !nomTF.getText().isEmpty() && !descriptionTF.getText().isEmpty() && (rButton1.isSelected() || rButton2.isSelected() || rButton3.isSelected()) && nomTF.getText().matches("[a-zA-Z]*"))
+
+        {
             // Récupérer le niveau à partir du bouton radio sélectionné
             String niveau = rButton1.isSelected() ? rButton1.getText() : rButton2.isSelected() ? rButton2.getText() : rButton3.getText();
             // Créer un nouveau cours

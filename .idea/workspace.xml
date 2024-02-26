@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="First Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AjouterExercice.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ModifierExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ModifierExercice.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +164,7 @@
       <workItem from="1708957049926" duration="23000" />
       <workItem from="1708957435109" duration="1963000" />
       <workItem from="1708978171054" duration="139000" />
-      <workItem from="1708983521561" duration="2212000" />
+      <workItem from="1708983521561" duration="4816000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

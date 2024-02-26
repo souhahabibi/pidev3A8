@@ -60,7 +60,7 @@ private  Exercice exercice;
 
     @FXML
     void AjouterExercice(ActionEvent event) {
-        if (imagePath != null && !nomTF.getText().isEmpty() && !etapeTR.getText().isEmpty()) {
+        if (imagePath != null && !nomTF.getText().isEmpty() && !etapeTR.getText().isEmpty() && nomTF.getText().matches("[a-zA-Z]*" ) ){
             // Créer un nouveau exercice
             Exercice nouveauExercice = new Exercice(Integer.parseInt(id.getText()), nomTF.getText(), etapeTR.getText(), imagePath);
             // Vérifier si l'exercice existe déjà
