@@ -5,12 +5,19 @@ import com.esprit.services.CoursService;
 import com.esprit.services.ExerciceService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ModifierExerciceController {
 
@@ -29,6 +36,9 @@ public class ModifierExerciceController {
     private Exercice exercice;
 
     private String imagePath;
+
+    @FXML
+    private Button btnAfficher;
 
     @FXML
     void choisirImage(ActionEvent event) {
@@ -84,6 +94,22 @@ public class ModifierExerciceController {
         etapeTR.setText(etape);
 
         this.exercice = exercice;
+    }
+
+
+
+
+
+    @FXML
+    void NaviguerVersAfficherEx(ActionEvent event) {
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("/Afficher.fxml"));
+            btnAfficher.getScene().setRoot(root);
+
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
 

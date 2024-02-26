@@ -65,8 +65,8 @@ public class AfficherExerciceController {
             private final HBox hBox = new HBox(35, imageView, vBox);
 
             {
-                imageView.setFitHeight(50);
-                imageView.setFitWidth(50);
+                imageView.setFitHeight(300);
+                imageView.setFitWidth(300);
                 hBox.setStyle("-fx-border-style: solid inside;"
                         + "-fx-border-width: 0;" + "-fx-border-insets: 5;");
                 nomLabel.setStyle("-fx-text-fill: white;"+"-fx-font-weight: bold;");

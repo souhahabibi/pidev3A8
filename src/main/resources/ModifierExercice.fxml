@@ -53,6 +53,7 @@
                            <font>
                               <Font size="33.0" />
                            </font></Label>
+                        <Button fx:id="btnAfficher" layoutX="500.0" layoutY="456.0" mnemonicParsing="false" onAction="#NaviguerVersAfficherEx" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Afficher" />
                             </children>
                         </AnchorPane>
 
