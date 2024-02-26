@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientController">
+   <children>
+
+      <VBox layoutX="149.0" layoutY="14.0" spacing="10">
+         <children>
+            <Label style="-fx-font-weight: bold;" text="N'HESITEZ PAS A NOUS RENDRE VISITE DANS NOTRE LOCAL POUR AVOIR VOTRE PRODUIT">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="50.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ListView fx:id="listView0" prefHeight="450.0" prefWidth="720.0">
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="20.0" />
+               </padding>
+            </ListView>
+
+         </children>
+      </VBox>
+      <HBox alignment="BOTTOM_CENTER" layoutX="50.0" layoutY="430.0" spacing="10">
+         <children>
+            <VBox spacing="5" />
+            <VBox spacing="5" />
+            <VBox spacing="5" />
+         </children>
+      </HBox>
+      <VBox layoutX="475.0" layoutY="430.0" spacing="5" />
+      <Label layoutX="555.0" layoutY="570.0" text="Esprat Gym" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="572.0" layoutY="542.0">
+         <image>
+            <Image url="@/instagram.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="198.0" layoutY="570.0" text="EspratGym@gmail.com" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="261.0" layoutY="542.0">
+         <image>
+            <Image url="@/e-mail.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="418.0" layoutY="570.0" text="71587965" />
+      <Label layoutX="711.0" layoutY="570.0" text="Esprat Gym" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="734.0" layoutY="542.0">
+         <image>
+            <Image url="@/social.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="436.0" layoutY="542.0">
+         <image>
+            <Image url="@/telephone.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="131.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonReturn" layoutX="28.0" layoutY="550.0" mnemonicParsing="false" onAction="#naviguezVersAcceuil" styleClass="login-btn" stylesheets="@style.css" text="return" />
+   </children>
+</AnchorPane>

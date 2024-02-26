@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import controllers.ModifierProduitController?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierProduitController">
+    <children>
+        <!-- Label principal -->
+        <Label layoutX="250.0" layoutY="14.0" style="-fx-font-weight: bold;" text="MODIFIER PRODUIT" />
+
+        <!-- Labels pour les champs de saisie -->
+        <Label layoutX="76.0" layoutY="57.0" text="Nom" />
+        <Label layoutX="76.0" layoutY="115.0" text="Quantité" />
+        <Label layoutX="76.0" layoutY="176.0" text="Coût" />
+        <Label layoutX="76.0" layoutY="237.0" text="Date d'expiration" />
+        <Label layoutX="76.0" layoutY="296.0" text="Fournisseur" /> <!-- Label pour le fournisseur -->
+        <Label layoutX="76.0" layoutY="200.0" text="Description" />
+
+        <!-- TextFields pour les champs de saisie -->
+        <TextField fx:id="nomTF" layoutX="193.0" layoutY="53.0" promptText="Nom" />
+        <TextField fx:id="quantiteTF" layoutX="193.0" layoutY="111.0" promptText="Quantité" />
+        <TextField fx:id="coutTF" layoutX="193.0" layoutY="170.0" promptText="Coût" />
+        <DatePicker fx:id="dateExpirationDP" layoutX="193.0" layoutY="230.0" promptText="Date d'expiration" />
+        <ComboBox fx:id="fournisseurCB" layoutX="193.0" layoutY="290.0"  /> <!-- Déplacé devant le label du fournisseur -->
+        <TextField fx:id="descriptionTF" layoutX="193.0" layoutY="200.0" promptText="Description" />
+
+        <!-- Bouton Ajouter -->
+        <Button layoutX="453.0" layoutY="350.0" mnemonicParsing="false" onAction="#modifierProduitAction" styleClass="login-btn" stylesheets="@style.css" text="Modifier" />
+        <!-- Bouton pour choisir une image -->
+        <Button fx:id="btnChooseImage" layoutX="193.0" layoutY="350.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="Choisir une image" />
+
+        <!-- Affichage de l'image choisie -->
+        <ImageView fx:id="imageView" layoutX="193.0" layoutY="390.0" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>

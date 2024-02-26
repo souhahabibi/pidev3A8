@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherFournisseurController">
+   <children>
+      <TabPane prefHeight="661.0" prefWidth="1110.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="GESTION PRODUIT">
+               <content>
+                  <TabPane prefHeight="622.0" prefWidth="985.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab text="Produit">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <!-- Label principal -->
+                                    <Label layoutX="325.0" layoutY="14.0" style="-fx-font-weight: bold;" text="LIST PRODUIT" />
+                                    <Button fx:id="buttonP_MODIFY" layoutX="420.0" layoutY="60.0" mnemonicParsing="false" onAction="#naviguezVersMODIFYPRODUIT" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="MODIFY" />
+                                    <ListView fx:id="listView0" layoutY="99.0" onMouseClicked="#isEnabled" prefHeight="454.0" prefWidth="981.0" />
+                                    <Button fx:id="buttonP_DELETE" layoutX="234.0" layoutY="60.0" mnemonicParsing="false" onAction="#deleteProduit" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="DELETE" />
+                                    <Button fx:id="buttonReturn" layoutX="45.0" layoutY="61.0" mnemonicParsing="false" onAction="#naviguezVersAcceuil" styleClass="login-btn" stylesheets="@style.css" text="return" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Fournisseur">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <!-- Label principal -->
+                                    <Label layoutX="332.0" layoutY="14.0" style="-fx-font-weight: bold;" text="LIST FOURNISSEUR" />
+                                    <Button fx:id="buttonF_MODIFY" layoutX="429.0" layoutY="60.0" mnemonicParsing="false" onAction="#naviguezVersMODIFYFOURNISSEUR" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="MODIFY" />
+                                    <Button fx:id="buttonF_DELETE" layoutX="271.0" layoutY="60.0" mnemonicParsing="false" onAction="#deleteFournisseur" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="DELETE" />
+                                    <Button fx:id="buttonF_ADD" layoutX="112.0" layoutY="60.0" mnemonicParsing="false" onAction="#naviguezVersADDFournisseur" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="ADD" />
+                                    <ListView fx:id="listView" editable="true" layoutX="7.0" layoutY="114.0" onMouseClicked="#isEnabled" prefHeight="446.0" prefWidth="1033.0" />
+                                    <Button fx:id="buttonF_PRODUITS" layoutX="582.0" layoutY="60.0" mnemonicParsing="false" onAction="#naviguezVersADDProduit" prefHeight="31.0" prefWidth="174.0" styleClass="login-btn" stylesheets="@style.css" text="ADD PRODUIT" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </content>
+            </Tab>
+         </tabs>
+         <padding>
+            <Insets left="150.0" />
+         </padding>
+      </TabPane>
+      <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true">
+         <image>
+            <Image url="@/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

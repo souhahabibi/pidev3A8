@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterProduitController">
+    <children>
+        <!-- Labels pour les champs de saisie -->
+        <Label layoutX="540.0" layoutY="140.0" text="Nom" />
+        <Label layoutX="535.0" layoutY="202.0" text="Quantité" />
+        <Label layoutX="540.0" layoutY="263.0" text="Coût" />
+        <Label layoutX="478.0" layoutY="332.0" text="Date d'expiration" />
+        <Label layoutX="515.0" layoutY="396.0" text="Fournisseur" />
+        <Label layoutX="518.0" layoutY="464.0" text="Description" />
+        <Label layoutX="535.0" layoutY="534.0" text="Image" />
+
+        <!-- Champs de saisie -->
+        <TextField fx:id="nomTF" layoutX="616.0" layoutY="135.0" promptText="Nom" />
+        <TextField fx:id="quantiteTF" layoutX="616.0" layoutY="197.0" promptText="Quantité" />
+        <TextField fx:id="coutTF" layoutX="616.0" layoutY="258.0" promptText="Coût" />
+        <DatePicker fx:id="dateExpirationDP" layoutX="616.0" layoutY="327.0" prefHeight="31.0" prefWidth="187.0" promptText="Date d'expiration" />
+        <TextField fx:id="idFournisseurTF" layoutX="616.0" layoutY="391.0" promptText="ID Fournisseur" />
+        <TextField fx:id="descriptionTF" layoutX="616.0" layoutY="459.0" promptText="Description du produit" />
+
+        <!-- Bouton pour choisir une image -->
+        <Button fx:id="btnChooseImage" layoutX="616.0" layoutY="524.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="31.0" prefWidth="187.0" styleClass="login-btn" stylesheets="@style.css" text="Choisir une image" />
+
+        <!-- Affichage de l'image choisie -->
+        <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="100.0" layoutX="193.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true" />
+
+        <!-- Bouton Ajouter -->
+        <Button layoutX="880.0" layoutY="544.0" mnemonicParsing="false" onAction="#ajouterProduitAction" styleClass="login-btn" stylesheets="@style.css" text="Ajouter" />
+        <Label layoutX="375.0" layoutY="48.0" prefWidth="250.0" text="AJOUTER PRODUIT" style="-fx-font-size: 24px; -fx-alignment: CENTER;" />
+        <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true">
+            <image>
+                <Image url="@/logo.png" />
+            </image>
+        </ImageView>
+
+    </children>
+</AnchorPane>

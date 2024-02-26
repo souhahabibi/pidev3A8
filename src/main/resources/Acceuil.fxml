@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcceuilController">
+    <children>
+        <Button fx:id="buttonAdmin" layoutX="578.0" layoutY="300.0" mnemonicParsing="false" onAction="#naviguezVersAdmin" prefHeight="112.0" prefWidth="235.0" style="-fx-border-color: red; -fx-border-radius: 10;" text="partie admin">
+            <graphic>
+                <ImageView fitHeight="100.0" fitWidth="103.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@/admin.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <Button fx:id="buttonClient" layoutX="187.0" layoutY="300.0" mnemonicParsing="false" onAction="#naviguezVersClient" prefHeight="112.0" prefWidth="235.0" style="-fx-border-color: red; -fx-border-radius: 10;" text="partie client">
+            <graphic>
+                <ImageView fitHeight="100.0" fitWidth="93.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@/client.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+    </children>
+</AnchorPane>
