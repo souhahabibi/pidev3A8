@@ -39,9 +39,40 @@ public class AjouterFournisseurController {
             return;
         }
 
-        // Valider que le numéro a exactement 8 chiffres
+        // Valider que le nom ne contient que des lettres
+        String nom = nomTF.getText();
+        if (!nom.matches("[a-zA-Z]+")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Le nom ne doit contenir que des lettres.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Valider que le prénom ne contient que des lettres
+        String prenom = prenomTF.getText();
+        if (!prenom.matches("[a-zA-Z]+")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Le prénom ne doit contenir que des lettres.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Valider que le numéro est un entier
         String numero = numeroTF.getText();
-        if (!numero.matches("\\d{8}")) {
+        try {
+            Integer.parseInt(numero);
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Le numéro doit être un entier.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Valider que le numéro a exactement 8 chiffres
+        if (numero.length() != 8) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setContentText("Le numéro doit contenir exactement 8 chiffres.");
@@ -53,7 +84,7 @@ public class AjouterFournisseurController {
             // Créer un objet Fournisseur à partir des données saisies
             Fournisseur fournisseur = new Fournisseur(
                     nomTF.getText(),
-                    prenomTF.getText(), // Assurez-vous de définir le prénom ici
+                    prenomTF.getText(),
                     Integer.parseInt(numeroTF.getText()),
                     typeTF.getText()
             );
@@ -69,11 +100,6 @@ public class AjouterFournisseurController {
             stage.setScene(new Scene(root));
             stage.show();
 
-        } catch (NumberFormatException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText("Le numéro doit être un entier.");
-            alert.showAndWait();
         } catch (SQLException | IOException e) {
             e.printStackTrace(); // Gérer les exceptions correctement
             Alert alert = new Alert(Alert.AlertType.ERROR);

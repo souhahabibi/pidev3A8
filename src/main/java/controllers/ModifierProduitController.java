@@ -133,7 +133,36 @@ public class ModifierProduitController  {
                 // Sinon, utilisez la nouvelle image sélectionnée
                 produit.setImage(imagePath);
             }
+            // Valider que le nom ne contient que des lettres
+            String prenom = nomTF.getText();
+            if (!prenom.matches("[a-zA-Z]+")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Le nom ne doit contenir que des lettres.");
+                alert.showAndWait();
+                return;
+            }
+            // Vérifier si la description contient du texte ordinaire ou des nombres entiers
+            String description = descriptionTF.getText();
+            if (!description.matches(".*[a-zA-Z].*") && !description.matches(".*\\d.*")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("La description doit contenir soit du texte ordinaire, soit des nombres entiers.");
+                alert.showAndWait();
+                return;
+            }
 
+            // Valider que le quantite est un entier
+            String numero = quantiteTF.getText();
+            try {
+                Integer.parseInt(numero);
+            } catch (NumberFormatException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Le quantite doit être un entier.");
+                alert.showAndWait();
+                return;
+            }
             // Appeler le service pour modifier le produit
             produitService.modifier(produit);
 
