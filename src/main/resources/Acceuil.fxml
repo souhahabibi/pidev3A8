@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.AcceuilController">
+   <children>
+      <ImageView fitHeight="111.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/esprat.png" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="7.0" prefHeight="615.0" prefWidth="1028.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Cours">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+
+                      <Button fx:id="btnAjouter" layoutX="189.0" layoutY="64.0" mnemonicParsing="false" onAction="#NaviguerVerAjouter" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
+                      <Button fx:id="btnAfficher" layoutX="438.0" layoutY="64.0" mnemonicParsing="false" onAction="#NaviguerVersAfficher" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Afficher" />
+
+
+                  </children>
+              </AnchorPane>
+
+                
+
+
+            </content>
+          </Tab>
+          <Tab text="Exercice">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnAjouter1" layoutX="194.0" layoutY="56.0" mnemonicParsing="false" onAction="#NaviguerVerAjouter1" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
+                        <Button fx:id="btnAfficher1" layoutX="419.0" layoutY="56.0" mnemonicParsing="false" onAction="#NaviguerVersAfficher2" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Afficher" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <padding>
+            <Insets left="100.0" />
+         </padding>
+      </TabPane>
+   </children>
+</AnchorPane>
