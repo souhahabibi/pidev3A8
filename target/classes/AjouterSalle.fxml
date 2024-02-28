@@ -15,11 +15,7 @@
                 <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="493.0" fitWidth="649.0" layoutX="209.0" layoutY="85.0" opacity="0.35" pickOnBounds="true">
-            <image>
-                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/Capture%20d'écran%202024-02-20%20141109.png" />
-            </image>
-        </ImageView>
+
         <Label layoutX="248.0" layoutY="145.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="nom:" />
         <Label layoutX="227.0" layoutY="222.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="description:" />
         <Label layoutX="533.0" layoutY="146.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="lieu:" />

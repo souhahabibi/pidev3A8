@@ -46,7 +46,7 @@ public class AdminController {
     @FXML
     public void initialize() {
         try {
-            sallesContainer.setSpacing(25);
+            sallesContainer.setSpacing(25);// Définition de l'espacement entre les éléments du conteneur
             displaySalles();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,9 +97,9 @@ public class AdminController {
         }
     }
     @FXML
-    public Pane createMaterielEntry(Materiel materiel) {
+    public Pane createMaterielEntry(Materiel materiel) throws SQLException {
         Pane materielPane = new Pane();
-        materielPane.setPrefSize(702, 207);
+        materielPane.setPrefSize(762, 207);
         materielPane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
 
         Image image = new Image("file:" + materiel.getImage());
@@ -126,7 +126,7 @@ public class AdminController {
         prix.setFont(Font.font("Arial", 16));
         prix.setEffect(new DropShadow());
 
-        Text salle = new Text(249, 170, "Salle : " + materiel.getFK_idSalle());
+        Text salle = new Text(249, 170, "Salle : " + s.selectSalleNameById(materiel.getFK_idSalle()));
         salle.setFont(Font.font("Arial", 16));
         salle.setEffect(new DropShadow());
 
@@ -160,7 +160,7 @@ public class AdminController {
 @FXML
     public Pane createSalleEntry(Salle salle) {
             Pane sallePane = new Pane();
-            sallePane.setPrefSize(712, 207);
+            sallePane.setPrefSize(880, 207);
             sallePane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
 
             Image image = new Image("file:" + salle.getImage());
@@ -237,7 +237,7 @@ public class AdminController {
             return sallePane;
         }
         @FXML
-    public Pane createAbonnementEntry(Abonnement abonnement) {
+    public Pane createAbonnementEntry(Abonnement abonnement) throws SQLException {
         Pane abonnementPane = new Pane();
         abonnementPane.setPrefSize(812, 230);
         abonnementPane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
@@ -246,7 +246,7 @@ public class AdminController {
 
             Text montantText = new Text(71, 180, "Montant : " + abonnement.getMontant());
             Text dureeText = new Text(329, 180, "Durée : " + abonnement.getDuree()+"mois");
-            Text salleText = new Text(578, 180, "Salle : " + abonnement.getFK_idSalle());
+            Text salleText = new Text(578, 180, "Salle : " +  s.selectSalleNameById(abonnement.getFK_idSalle()));
 
             ImageView descriptionImageView = new ImageView(new Image("file:///C:/Users/Cyrinechalghoumi/Downloads/file (1).png"));
             descriptionImageView.setFitHeight(30);

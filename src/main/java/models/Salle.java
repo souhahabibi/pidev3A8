@@ -69,7 +69,6 @@ public class Salle {
     @Override
     public String toString() {
         return "Salle{" +
-                "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +

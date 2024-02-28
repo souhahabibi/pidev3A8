@@ -72,6 +72,17 @@ public class SalleService implements IService<Salle>
         }
         return salles;
     }
+    public String selectSalleNameById(int id) throws SQLException {
+        String sql = "SELECT nom FROM salle WHERE id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return rs.getString("nom");
+            }
+        }
+        return  null;
+    }
 
 
 }

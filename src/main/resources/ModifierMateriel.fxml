@@ -17,11 +17,7 @@
             <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="495.0" fitWidth="701.0" layoutX="172.0" layoutY="62.0" opacity="0.35" pickOnBounds="true">
-         <image>
-            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/Capture%20d'écran%202024-02-20%20141109.png" />
-         </image>
-      </ImageView>
+
       <Label layoutX="393.0" layoutY="76.0" prefHeight="39.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 18px;" text="modifier un materiel" />
       <Label layoutX="180.0" layoutY="115.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="nom:" />
       <Label layoutX="180.0" layoutY="182.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="age:" />

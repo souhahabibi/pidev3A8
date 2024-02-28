@@ -12,4 +12,6 @@ public interface IService<T> {
     void supprimer(int id) throws SQLException;
 
     List<T> recuperer() throws SQLException;
+
+   // List<T> select(int id) throws SQLException;
 }

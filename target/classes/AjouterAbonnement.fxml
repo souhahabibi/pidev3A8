@@ -15,11 +15,7 @@
             <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="459.0" fitWidth="587.0" layoutX="241.0" layoutY="69.0" opacity="0.35" pickOnBounds="true">
-         <image>
-            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/s3.png" />
-         </image>
-      </ImageView>
+
       <Label layoutX="393.0" layoutY="76.0" prefHeight="39.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 18px;" text="Ajouter un abonnement" />
       <Label layoutX="327.0" layoutY="137.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="montant:" />
       <Label layoutX="332.0" layoutY="198.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="duree:" />

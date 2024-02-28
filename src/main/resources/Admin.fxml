@@ -30,7 +30,7 @@
                                           </ImageView>
                                           <ScrollPane layoutX="46.0" layoutY="120.0" prefHeight="382.0" prefViewportHeight="404.0" prefViewportWidth="985.0" prefWidth="906.0">
                                              <content>
-                                                <VBox fx:id="sallesContainer" layoutX="95.0" layoutY="132.0" prefHeight="1174.0" prefWidth="864.0" />
+                                                <VBox fx:id="sallesContainer" layoutX="95.0" layoutY="132.0" />
                                              </content>
                                           </ScrollPane>
                                           <Text layoutX="418.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la liste des salles" wrappingWidth="161.662109375">
@@ -55,7 +55,7 @@
                                        <children>
                                           <ScrollPane layoutX="100.0" layoutY="112.0" prefHeight="386.0" prefViewportHeight="320.0" prefViewportWidth="562.0" prefWidth="860.0">
                                              <content>
-                                                <VBox fx:id="materielsContainer" layoutX="171.0" layoutY="170.0" prefHeight="920.0" prefWidth="766.0" />
+                                                <VBox fx:id="materielsContainer" layoutX="171.0" layoutY="170.0" />
                                              </content>
                                           </ScrollPane>
                                           <Text layoutX="413.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la liste des materiels" wrappingWidth="161.662109375">
@@ -87,13 +87,13 @@
                                                 <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
                                              </image>
                                           </ImageView>
-                                          <Text layoutX="418.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la liste des abonnements" wrappingWidth="161.662109375"/>
+                                          <Text layoutX="418.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la liste des abonnements" wrappingWidth="161.662109375" />
                                           <ScrollPane layoutX="98.0" layoutY="116.0" prefHeight="383.0" prefViewportHeight="324.0" prefViewportWidth="941.0" prefWidth="883.0">
                                              <content>
-                                                <VBox fx:id="abonnementsContainer" layoutX="58.0" layoutY="116.0" prefHeight="1572.0" prefWidth="821.0" />
+                                                <VBox fx:id="abonnementsContainer" layoutX="58.0" layoutY="116.0" />
                                              </content>
                                           </ScrollPane>
-                                          <Button fx:id="buttonAAjouter" layoutX="767.0" layoutY="53.0" mnemonicParsing="false" onAction="#naviguezVersAjouterAbbonnement" prefHeight="31.0" prefWidth="156.0" styleClass="login-btn" stylesheets="@design.css"  text="ajouter" >
+                                          <Button fx:id="buttonAAjouter" layoutX="767.0" layoutY="53.0" mnemonicParsing="false" onAction="#naviguezVersAjouterAbbonnement" prefHeight="31.0" prefWidth="156.0" styleClass="login-btn" stylesheets="@design.css" text="ajouter">
                                               <graphic>
                                                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true">
                                                       <image>
