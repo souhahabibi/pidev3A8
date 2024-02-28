@@ -1,4 +1,3 @@
-controllers\ClientController$1.class
 tn\esprit\entites\Fournisseur.class
 test\Main.class
 utils\MyDatabase.class
@@ -15,5 +14,6 @@ test\MainFX.class
 tn\esprit\entites\Produit.class
 tn\esprit\services\ServiceFournisseur.class
 controllers\ModifierProduitController.class
+controllers\AcheterController.class
 controllers\ModifierFournisseurController.class
 controllers\ClientController.class

@@ -5,94 +5,199 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.ServiceProduit;
-
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import javafx.scene.text.Font;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.effect.DropShadow;
+import services.ServiceProduit;
+import javafx.scene.text.TextAlignment;
 
 public class ClientController {
+    ServiceProduit p = new ServiceProduit();
+    private ObservableList<tn.esprit.entites.Produit> produitsAchetes = FXCollections.observableArrayList();
     @FXML
-    private ListView<tn.esprit.entites.Produit> listView0;
-
-    private final ServiceProduit serviceProduit = new ServiceProduit();
+    private VBox Produit;
     @FXML
-    private Button buttonReturn;
+    private TextField rechercheTF;
 
     @FXML
-    void initialize() {
-
+    public void initialize() {
         try {
-            List<tn.esprit.entites.Produit> produits = serviceProduit.recuperer();
-            if (!produits.isEmpty()) {
-                ObservableList<tn.esprit.entites.Produit> observableList = FXCollections.observableList(produits);
-                listView0.setItems(observableList);
-                listView0.setCellFactory(param -> new ListCell<>() {
-                    @Override
-                    protected void updateItem(tn.esprit.entites.Produit produit, boolean empty) {
-                        super.updateItem(produit, empty);
-                        if (empty || produit == null) {
-                            setText(null);
-                            setGraphic(null);
-                        } else {
-                            // Créer un HBox pour afficher l'image, le nom et la description du produit
-                            HBox hBox = new HBox();
-                            hBox.setSpacing(10);
-
-                            // Créer une ImageView pour afficher l'image
-                            ImageView imageView = new ImageView(new Image(produit.getImage()));
-                            imageView.setFitWidth(150);
-                            imageView.setFitHeight(150);
-
-                            // Créer un VBox pour afficher le nom et la description du produit sur des lignes séparées
-                            VBox vBox = new VBox();
-                            Label nomLabel = new Label("Nom: ");
-                            Label descriptionLabel = new Label("Description: ");
-                            Label nomValueLabel = new Label(produit.getNom());
-                            Label descriptionValueLabel = new Label(produit.getDescription());
-                            nomLabel.setStyle("-fx-font-weight: bold;");
-                            descriptionLabel.setStyle("-fx-font-weight: bold;");
-                            vBox.getChildren().addAll(nomLabel, nomValueLabel, descriptionLabel, descriptionValueLabel);
-
-                            // Mettre le VBox au centre de l'image
-                            StackPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
-
-                            // Ajouter les éléments au HBox
-                            hBox.getChildren().addAll(imageView, vBox);
-
-                            // Définir le contenu de la cellule comme le HBox
-                            setGraphic(hBox);
-                        }
-                    }
-                });
-            }
+            Produit.setSpacing(25);
+            displayProduits();
         } catch (SQLException e) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Erreur lors de la récupération des produits : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
+    @FXML
+    private void displayProduits() throws SQLException {
+
+        List<tn.esprit.entites.Produit> produits = p.recuperer(); // Adjust this line to match your method for fetching competitions
+
+        for (tn.esprit.entites.Produit produit : produits) {
+            Pane produitEntry = createProduitEntry(produit);
+            Produit.getChildren().add(produitEntry);
+        }
+    }
+
+    public Pane createProduitEntry(tn.esprit.entites.Produit produit) {
+        Pane produitPane = new Pane();
+        produitPane.setPrefSize(912, 217);
+        produitPane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
+        // Créer une ImageView pour afficher l'image
+        ImageView imageView = new ImageView(new Image(produit.getImage()));
+        imageView.setFitWidth(150);
+        imageView.setFitHeight(150);
+        imageView.setLayoutX(14);
+        imageView.setLayoutY(27);
+
+        Text produitName = new Text(300, 38, "NOM :" + produit.getNom());
+        produitName.setFont(new Font("Arial", 21));
+        produitName.setEffect(new DropShadow());
+        produitName.setUnderline(true);
+
+        //description
+        TextArea produitDescription = new TextArea("DESCRIPTION : " + produit.getDescription());
+        produitDescription.setLayoutX(215);
+        produitDescription.setLayoutY(60);
+        produitDescription.setPrefHeight(91);
+        produitDescription.setPrefWidth(512);
+        produitDescription.setEditable(false);
+        produitDescription.setWrapText(true);
+        produitDescription.setFocusTraversable(false);
+        produitDescription.setStyle("-fx-background-color: transparent; -fx-border-color: transparent;");
+        produitDescription.setFont(new Font("Arial", 17));
+        produitDescription.setEffect(new DropShadow());
+        //cout
+        TextArea produitCout = new TextArea("PRIX(DT) : " + produit.getCout());
+        produitCout.setLayoutX(215);
+        produitCout.setLayoutY(90);
+        produitCout.setPrefHeight(91);
+        produitCout.setPrefWidth(512);
+        produitCout.setEditable(false);
+        produitCout.setWrapText(true);
+        produitCout.setFocusTraversable(false);
+        produitCout.setStyle("-fx-background-color: transparent; -fx-border-color: transparent;");
+        produitCout.setFont(new Font("Arial", 17));
+        produitCout.setEffect(new DropShadow());
+
+        Button acheterButton = new Button("Acheter");
+        acheterButton.setOnAction(event -> acheterProduit(produit));
+        acheterButton.setLayoutX(735);
+        acheterButton.setLayoutY(85);
+        acheterButton.setPrefSize(149, 49);
+        // Appliquer le style CSS au bouton Acheter
+        acheterButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #891b1b, #a7473e); " +
+                "-fx-background-radius: 5px; " +
+                "-fx-cursor: hand; " +
+                "-fx-text-fill: #fff; " +
+                "-fx-font-size: 14px;");
+
+// Définir un style CSS différent lorsque le bouton est survolé
+        acheterButton.setOnMouseEntered(event -> acheterButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #891b1b, #ff0000);"));
+        acheterButton.setOnMouseExited(event -> acheterButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #891b1b, #a7473e);"));
+        produitPane.getChildren().addAll(imageView, produitName, produitDescription,produitCout,acheterButton);
+
+        return produitPane;
+
+
+    }
+    private void acheterProduit(tn.esprit.entites.Produit produit) {
+        if (!produitsAchetes.contains(produit)) {
+            ajouterAuPanier(produit);
+        } else {
+            // Afficher une boîte de dialogue d'alerte pour indiquer que le produit est déjà ajouté au panier
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Ce produit est déjà ajouté au panier !");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void ouvrirPanier(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/acheter.fxml"));
+            Parent root = loader.load();
+
+            AcheterController controller = loader.getController(); // Utilisez AcheterController ici
+            controller.initData(produitsAchetes);
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Panier");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void ajouterAuPanier(tn.esprit.entites.Produit produit) {
+        produitsAchetes.add(produit);
+    }
+
+
+    @FXML
+    public void chercher() throws SQLException {
+        updateProduitDisplay(rechercheTF.getText().toLowerCase());
+    }
+    private void updateProduitDisplay(String recherche) throws SQLException {
+        Produit.getChildren().clear(); // Effacer les salles actuellement affichées
+        List<tn.esprit.entites.Produit> produits = p.recuperer(); // Récupérer toutes les salles depuis la base de données
+        for (tn.esprit.entites.Produit produit : produits ) {
+            // Vérifier si le nom de la salle contient le texte de recherche
+            if (produit.getNom().toLowerCase().contains(recherche)) {
+                Pane salleEntry = createProduitEntry(produit); // Créer une entrée pour la salle
+                Produit.getChildren().add(salleEntry); // Ajouter l'entrée à la liste des salles affichées
+            }
+        }
     }
     @FXML
-    void naviguezVersAcceuil(ActionEvent event) {
+    private void trierProduits(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Acceuil.fxml"));
-            buttonReturn.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
+            List<tn.esprit.entites.Produit> produits = p.recuperer(); // Récupérer la liste des produits
+            // Trier les produits par coût décroissant en utilisant un Comparator
+            Collections.sort(produits, Comparator.comparingDouble(tn.esprit.entites.Produit::getCout).reversed());
+            // Mettre à jour l'affichage des produits triés
+            afficherProduits(produits);
+        } catch (SQLException e) {
+            e.printStackTrace(); // ou tout autre gestion appropriée de l'exception
         }
     }
 
+    private void afficherProduits(List<tn.esprit.entites.Produit> produits) {
+        Produit.getChildren().clear(); // Effacer les produits affichés actuellement
+        for (tn.esprit.entites.Produit produit : produits) {
+            Pane produitEntry = createProduitEntry(produit); // Créer une entrée pour le produit
+            Produit.getChildren().add(produitEntry); // Ajouter l'entrée à la liste des produits affichés
+        }
+    }
 }
