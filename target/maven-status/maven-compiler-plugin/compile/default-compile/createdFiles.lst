@@ -15,5 +15,7 @@ tn\esprit\entites\Produit.class
 tn\esprit\services\ServiceFournisseur.class
 controllers\ModifierProduitController.class
 controllers\AcheterController.class
+services\Mailservice$1.class
 controllers\ModifierFournisseurController.class
+services\Mailservice.class
 controllers\ClientController.class

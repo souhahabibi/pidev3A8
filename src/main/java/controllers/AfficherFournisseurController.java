@@ -30,7 +30,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
-
+import services.Mailservice;
 
 
 public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Produit> {
@@ -374,6 +374,12 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
 
             // Finally, set the scene's root to switch to the new view
             buttonF_PRODUITS.getScene().setRoot(root); // Assuming buttonF_PRODUITS is the "ADD_PRODUIT" button
+            // Envoyer un e-mail pour informer de l'ajout du produit
+            String destinataire = "souhahbibi1@gmail.com";
+            String sujet = "Nouveau produit ajouté";
+            String contenu = "Un nouveau produit a été ajouté pour le fournisseur : " + selectedFournisseur.getNom();
+
+            Mailservice.envoyerEmailSansAuthentification(destinataire, sujet, contenu);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
