@@ -125,7 +125,7 @@ public class CoursService implements IService<Cours> {
 
     public Integer getCoursId() {
         Integer id = null;
-       String req = "SELECT id FROM cours";
+        String req = "SELECT C.id FROM cours C INNER JOIN exercice E ON C.id = E.id";
 
         try {
             Statement st = connection.createStatement();
@@ -138,7 +138,6 @@ public class CoursService implements IService<Cours> {
         }
 
         return id;
-    }
 
 
 
@@ -147,4 +146,5 @@ public class CoursService implements IService<Cours> {
 
 
 
-}
+
+}}

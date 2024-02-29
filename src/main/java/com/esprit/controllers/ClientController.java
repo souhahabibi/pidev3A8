@@ -80,27 +80,43 @@ public class ClientController {
                         "-fx-pref-width: 200px;" +
                         "-fx-pref-height: 35px;");
                 button.setOnAction(event -> {
-
                     Cours cours = getItem();
-                    int id = cours.getId();
+                    int courseId = cours.getId();
+
                     try {
-                        // Charger le fichier FXML pour la nouvelle scène
-                        Parent root = FXMLLoader.load(getClass().getResource("/ClientExercice.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ClientExercice.fxml"));
 
-                        // Créer une nouvelle scène
+                        // Set a custom controller factory to initialize the controller with the course ID
+                        loader.setControllerFactory(controllerClass -> {
+                            if (controllerClass == ClientExerciceController.class) {
+                                ClientExerciceController exerciceController = new ClientExerciceController();
+                                return exerciceController;
+                            } else {
+                                try {
+                                    return controllerClass.newInstance();
+                                } catch (Exception e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        });
+
+                        Parent root = loader.load();
+
+                        // Get the controller for the new scene
+                        ClientExerciceController exerciceController = loader.getController();
+
+                        // Pass the course ID to the new scene's controller
+                        exerciceController.initialize(courseId);
+
                         Scene scene = new Scene(root);
-
-                        // Obtenir la fenêtre principale
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                        // Définir la nouvelle scène sur la fenêtre principale
                         stage.setScene(scene);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
-
                 });
+
+
             }
 
             @Override

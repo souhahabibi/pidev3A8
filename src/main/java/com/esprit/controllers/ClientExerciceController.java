@@ -34,10 +34,10 @@ public class ClientExerciceController {
 
 
 
-    @FXML
-    void initialize() {
+   // @FXML
+ void initialize(int courseId) {
 
-        int courseId = cs.getCoursId();
+        //courseId = cs.getCoursId();
         List<Exercice> exercice = es.afficher2(courseId);
     ObservableList<Exercice> observableList2 = FXCollections.observableList(exercice);
         listView2.setItems(observableList2);
