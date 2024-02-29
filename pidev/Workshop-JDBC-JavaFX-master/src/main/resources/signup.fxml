@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="300.0">
+            <children>
+                <AnchorPane prefHeight="600.0" prefWidth="500.0" styleClass="gradient" stylesheets="@LoginDesign.css">
+                    <children>
+                  <ImageView fitHeight="600.0" fitWidth="899.0" layoutX="-4.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pexels-scott-webb-28080.jpg" />
+                     </image>
+                  </ImageView>
+                        <Button fx:id="loginbtn" layoutX="101.0" layoutY="492.0" mnemonicParsing="false" onAction="#naviguezVersSignIn" prefHeight="51.0" prefWidth="299.0" styleClass="login-btn" stylesheets="@LoginDesign.css" text="Login">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Button>
+                        <Label layoutX="202.0" layoutY="457.0" prefHeight="21.0" prefWidth="104.0" text="Have account?" textFill="#8c8484" />
+                  <ImageView fitHeight="287.0" fitWidth="291.0" layoutX="137.0" layoutY="80.0">
+                     <image>
+                        <Image url="@pidevlogo.png" />
+                     </image>
+                  </ImageView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" styleClass="white-form" stylesheets="@LoginDesign.css">
+                    <children>
+                        <Label layoutX="44.0" layoutY="46.0" prefHeight="31.0" prefWidth="158.0" styleClass="head-label" stylesheets="@LoginDesign.css" text="Sign Up" textFill="RED">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <TextField layoutX="61.0" layoutY="130.0" prefHeight="40.0" prefWidth="370.0" promptText="Email address" />
+                        <TextField layoutX="61.0" layoutY="309.0" prefHeight="40.0" prefWidth="370.0" promptText="Password" />
+                        <Button layoutX="60.0" layoutY="398.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="370.0" styleClass="login-btn" stylesheets="@LoginDesign.css" text="Sign Up" textFill="#891b1b">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Button>
+                  <TextField layoutX="61.0" layoutY="224.0" prefHeight="40.0" prefWidth="158.0" promptText="Username" />
+                  <TextField layoutX="273.0" layoutY="224.0" prefHeight="40.0" prefWidth="158.0" promptText="Contact Number" />
+                  <Label layoutX="61.0" layoutY="101.0" text="Enter you email address">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="61.0" layoutY="279.0" text="Enter your Password">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="273.0" layoutY="195.0" text="Contact Number">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="61.0" layoutY="195.0" text="Username">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
