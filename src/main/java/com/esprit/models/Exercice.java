@@ -13,6 +13,8 @@ public class Exercice extends Cours {
     private  String etape ;
     private String image ;
 
+    private  Cours cours;
+
 
 
     public String getEtape() {
@@ -22,6 +24,25 @@ public class Exercice extends Cours {
     public void setEtape(String etape) {
         this.etape = etape;
     }
+
+    public Cours getCours() {
+        return cours;
+    }
+
+    public void setCours(Cours cours) {
+        this.cours = cours;
+    }
+
+
+    public Exercice(int idE, Cours cours, String nom, String etape, String image) {
+        this.idE = idE;
+        this.cours = cours ;
+        this.nom = nom;
+        this.etape = etape;
+        this.image = image;
+    }
+
+
 
     public Exercice(int idE, int id, String nom, String etape, String image) {
         this.idE = idE;

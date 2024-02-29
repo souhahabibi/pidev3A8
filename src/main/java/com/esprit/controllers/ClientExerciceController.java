@@ -47,10 +47,10 @@ public class ClientExerciceController {
         private final Label nom = new Label("Nom: ");
         private final Text nomLabel= new Text();
         private final HBox nomBox = new HBox(nom, nomLabel);
-        private final Label etape = new Label("Etape: ");
+        //private final Label etape = new Label("Etape: ");
         private final Text etapeLabel = new Text();
-        private final HBox etapeBox = new HBox(etape, etapeLabel);
-        private final VBox vBox = new VBox(10,nomBox, etapeBox);
+        //private final HBox etapeBox = new HBox(etape, etapeLabel);
+        private final VBox vBox = new VBox(10,nomBox);
 
 
         private final HBox hBox = new HBox(35, imageView, vBox);
@@ -66,7 +66,7 @@ public class ClientExerciceController {
 
             // Rendre le texte des labels "Nom" et "Etape" en gras
             nom.setStyle("-fx-font-weight: bold;");
-            etape.setStyle("-fx-font-weight: bold;");
+            //etape.setStyle("-fx-font-weight: bold;");
         }
 
         @Override
