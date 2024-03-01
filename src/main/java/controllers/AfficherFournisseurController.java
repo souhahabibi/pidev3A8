@@ -1,4 +1,7 @@
 package controllers;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import javafx.geometry.Insets;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -349,10 +352,13 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/AjouterFournisseurs.fxml"));
             buttonF_ADD.getScene().setRoot(root);
+
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
+
+
 
     @FXML
     void naviguezVersADDProduit(ActionEvent event) {
@@ -374,7 +380,7 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
 
             // Finally, set the scene's root to switch to the new view
             buttonF_PRODUITS.getScene().setRoot(root); // Assuming buttonF_PRODUITS is the "ADD_PRODUIT" button
-            // Envoyer un e-mail pour informer de l'ajout du produit
+// Envoyer un e-mail pour informer de l'ajout du produit
             String destinataire = "souhahbibi1@gmail.com";
             String sujet = "Nouveau produit ajouté";
             String contenu = "Un nouveau produit a été ajouté pour le fournisseur : " + selectedFournisseur.getNom();
@@ -384,6 +390,7 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
             System.err.println(e.getMessage());
         }
     }
+
     @FXML
     void naviguezVersMODIFYFOURNISSEUR(ActionEvent event) {
 

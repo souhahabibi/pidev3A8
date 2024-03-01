@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import services.Mailservice;
 import services.ServiceProduit;
 import tn.esprit.entites.Produit;
 import java.io.File;
@@ -45,6 +46,7 @@ public class AjouterProduitController {
     private Button btnChooseImage;
     @FXML
     private ImageView imageView;
+    private tn.esprit.entites.Fournisseur selectedFournisseur;
 
     @FXML
     void choisirImage(ActionEvent event) {
@@ -74,6 +76,8 @@ public class AjouterProduitController {
         idFournisseurTF.setText(String.valueOf(fournisseur.getNom())); // Afficher l'ID du fournisseur
         // Set other fields as needed
     }
+
+
 
 
     @FXML
