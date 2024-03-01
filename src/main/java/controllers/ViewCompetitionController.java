@@ -1,5 +1,7 @@
 package controllers;
-
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.util.Properties;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,7 +63,7 @@ public class ViewCompetitionController {
       dateT.setText(String.valueOf(competition.getDate()));
       descriptionTA.setText(competition.getDescription());
         String videoId = competition.getVideoURL(); // Replace with your video ID
-        String content = "<iframe width=\"375\" height=\"185\" src=\"https://www.youtube.com/embed/" + videoId + "\" frameborder=\"0\" allowfullscreen></iframe>";
+        String content = "<iframe width=\"728\" height=\"370\" src=\"https://www.youtube.com/embed/" + videoId + "\" frameborder=\"0\" allowfullscreen></iframe>";
         videoWV.getEngine().loadContent(content);
 
 
@@ -107,6 +109,13 @@ public class ViewCompetitionController {
           checkclient();
       }
       else {
+          try {
+              sendEmail("oussema2khemiri5@gmail.com", "Competition Reservation :"+ competition.getNom(), "Your reservation has been Submitted successfully");
+              // Show confirmation to the user
+          } catch (MessagingException e) {
+              e.printStackTrace();
+              // Show error message to the user
+          }
           try {
               reservationService.ajouter(new Reservation(x,competition.getId(),0));
               this.competition.setCapacite(this.competition.getCapacite()-1);
@@ -177,5 +186,36 @@ public class ViewCompetitionController {
         }
 
         return clientFullName;
+    }
+    public void sendEmail(String to, String subject, String text) throws MessagingException {
+        final String from = "Khemiri.Oussema@esprit.tn"; // Change to your email
+        final String password = "azerty1QUERTY13+"; // Change to your email password
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp-mail.outlook.com"); // Change to your SMTP host
+        props.put("mail.smtp.port", "587"); // SMTP port (587 for TLS, 465 for SSL)
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true"); // Enable TLS
+
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(from, password);
+                    }
+                });
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject);
+            message.setText(text);
+
+            Transport.send(message);
+
+            System.out.println("Email sent successfully");
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

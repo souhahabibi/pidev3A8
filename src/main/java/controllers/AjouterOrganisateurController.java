@@ -36,7 +36,7 @@ public class AjouterOrganisateurController {
         if (!nomTF.getText().matches("[a-zA-Z]+") || nomTF.equals("")) {
             nomCS.setVisible(true);
             isValid = false;
-        }
+        }else nomCS.setVisible(false);
 
         try {
             int num = Integer.parseInt(numTF.getText());

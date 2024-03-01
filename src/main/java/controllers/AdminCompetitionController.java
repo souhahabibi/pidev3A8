@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.GaussianBlur;
@@ -31,6 +32,7 @@ import services.ReservationService;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class AdminCompetitionController {
@@ -123,22 +125,50 @@ public class AdminCompetitionController {
     @FXML
     void deleteOrganisateur(Organisateur organisateur)
     {
-        try {
-            organisateurService.supprimer(organisateur.getId());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText(null);
+        confirmAlert.setContentText("Are you sure you want to delete this organizer?");
+
+        // Show the confirmation dialog and wait for the user's response
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        // Check if the OK button was clicked
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // User chose OK, proceed with deletion
+            try {
+                organisateurService.supprimer(organisateur.getId());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            initialize(); // Re-initialize to reflect changes
+        } else {
+            // User chose CANCEL or closed the dialog, do not delete
         }
-        initialize();
     }
     @FXML
     void deleteCompetition(Competition competition)
     {
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText(null);
+        confirmAlert.setContentText("Are you sure you want to delete this competition?");
+
+        // Show the confirmation dialog and wait for the user's response
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        // Check if the OK button was clicked
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // User chose OK, proceed with deletion
             try {
                 competitionService.supprimer(competition.getId());
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            initialize();
+            initialize(); // Re-initialize to reflect changes
+        } else {
+            // User chose CANCEL or closed the dialog, do not delete
+        }
     }
     @FXML
     void naviguezVersADDORGANISATEUR(ActionEvent event) {
@@ -327,6 +357,15 @@ public class AdminCompetitionController {
     void naviguezVersCLIENT_AFFICHER_COMPETITION(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/ClientAfficherCompetitions.fxml"));
+            CompetitionContainer.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    @FXML
+    void naviguezVersSTATISTIQUE_COMPETITION(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/StatistiqueCompetition.fxml"));
             CompetitionContainer.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

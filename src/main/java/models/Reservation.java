@@ -5,12 +5,12 @@ import java.util.List;
 public class Reservation {
     private int id,fk_client_id,fk_competition_id,score;
 
-    public Reservation(int a,int b,int c,int d)
+    public Reservation(int id,int client_id,int competiton_id,int score)
     {
-        id=a;
-        fk_client_id=b;
-        fk_competition_id=c;
-        score=d;
+        this.id=id;
+        fk_client_id=client_id;
+        fk_competition_id=competiton_id;
+        this.score=score;
     }
     public Reservation(int b,int c,int d)
     {

@@ -68,18 +68,19 @@ public class ModifyCompetitionController {
         if (!nomTF.getText().matches("[a-zA-Z]+") || nomTF.equals("")) {
             nomCS.setVisible(true);
             isValid = false;
-        }
+        }else nomCS.setVisible(false);
 
         LocalDate today = LocalDate.now();
         if (localDate == null ) {
             dateCS.setVisible(true);
             isValid = false;
-        }
+        }else dateCS.setVisible(false);
+
         if(!(organisateurCB.getValue() instanceof Organisateur))
         {
             organisateurCS.setVisible(true);
             isValid=false;
-        }
+        }else organisateurCS.setVisible(false);
 
         try {
             int capacite = Integer.parseInt(capaciteTF.getText());
@@ -97,7 +98,7 @@ public class ModifyCompetitionController {
         if (DescriptionTA.getText().length() > 200 || DescriptionTA.getText().length() < 40) {
             descCS.setVisible(true);
             isValid = false;
-        }
+        }else descCS.setVisible(false);
 
         if (!isValid) {
             // If any validation fails, stop the process and show the errors
@@ -109,7 +110,7 @@ public class ModifyCompetitionController {
         competition.setDescription(DescriptionTA.getText());
         competition.setCapacite(Integer.parseInt(capaciteTF.getText()));
         competition.setVideoURL(videoTF.getText());
-        competition.setFk_organisateur_id(organisateurCB.getValue().getId());
+        competition.setFk_organisateur_id(organisateurCB.getValue());
 
         try {
             ps.modifier(competition);

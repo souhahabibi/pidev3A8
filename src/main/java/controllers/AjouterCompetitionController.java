@@ -67,13 +67,13 @@ public class AjouterCompetitionController {
         if (!nomTF.getText().matches("[a-zA-Z]+") || nomTF.equals("")) {
             nomCS.setVisible(true);
             isValid = false;
-        }
+        }else nomCS.setVisible(false);
 
         LocalDate today = LocalDate.now();
         if (localDate == null || !localDate.isAfter(today.plusDays(7))) {
             dayCS.setVisible(true);
             isValid = false;
-        }
+        }else dayCS.setVisible(false);
 
         try {
             int capacite = Integer.parseInt(capaciteTF.getText());
@@ -91,7 +91,7 @@ public class AjouterCompetitionController {
         if (DescriptionTA.getText().length() > 200 || DescriptionTA.getText().length() < 40) {
             descCS.setVisible(true);
             isValid = false;
-        }
+        }else descCS.setVisible(false);
 
         if (!isValid) {
             // If any validation fails, stop the process and show the errors
@@ -105,7 +105,7 @@ public class AjouterCompetitionController {
                     , videoTF.getText()
                     , sqlDate
                     , Integer.parseInt(capaciteTF.getText())
-                    , organisateur.getId() ));
+                    , this.organisateur ));
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

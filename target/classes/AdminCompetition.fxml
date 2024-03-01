@@ -32,6 +32,7 @@
                                              </content>
                                           </ScrollPane>
                                           <Button layoutX="771.0" layoutY="14.0" mnemonicParsing="false" onAction="#naviguezVersCLIENT_AFFICHER_COMPETITION" text="Client" />
+                                          <Button layoutX="33.0" layoutY="14.0" mnemonicParsing="false" onAction="#naviguezVersSTATISTIQUE_COMPETITION" text="Statistics" />
                                        </children>
                                     </AnchorPane>
                               </content>

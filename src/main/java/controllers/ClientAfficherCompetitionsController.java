@@ -190,7 +190,7 @@ public class ClientAfficherCompetitionsController {
        description.setStyle("-fx-border-color: #0085ff transparent; -fx-background-color: transparent; -fx-border-width: 0.5;");
        description.setEffect(new DropShadow());
 
-       Text competitionName = new Text(14, 52, competition.getNom());
+       Text competitionName = new Text(14, 40, competition.getNom());
        competitionName.setFont(new Font("Arial", 40));
        competitionName.setEffect(new DropShadow());
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatistiqueCompetitionController">
+   <children>
+      <ScrollPane layoutX="36.0" layoutY="151.0" prefHeight="418.0" prefWidth="943.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1183.0" prefWidth="924.0">
+               <children>
+                  <BarChart fx:id="dayofweekBarC" layoutX="128.0" layoutY="332.0" prefHeight="297.0" prefWidth="658.0">
+                      <xAxis>
+                          <CategoryAxis label="Day of the Week" />
+                      </xAxis>
+                      <yAxis>
+                          <NumberAxis label="Average Reservations" />
+                      </yAxis>
+                  </BarChart>
+                  <BarChart fx:id="monthlyBarC" layoutX="6.0" layoutY="14.0" prefHeight="297.0" prefWidth="902.0">
+                    <xAxis>
+                      <CategoryAxis label="Months" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="Average Reservations" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <StackedAreaChart fx:id="monthlyReservationsChart" layoutX="50.0" layoutY="664.0" prefHeight="448.0" prefWidth="826.0">
+                      <xAxis>
+                          <CategoryAxis label="Months" fx:id="xAxis" />
+                      </xAxis>
+                      <yAxis>
+                          <NumberAxis fx:id="yAxis" label="Average Reservations" />
+                      </yAxis>
+                  </StackedAreaChart>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Text fill="WHITE" layoutX="389.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics" wrappingWidth="221.6708984375">
+         <font>
+            <Font name="Bell MT" size="58.0" />
+         </font>
+      </Text>
+      <Button layoutX="36.0" layoutY="35.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" styleClass="login-btn" stylesheets="@design.css" text="Return" />
+   </children>
+</AnchorPane>

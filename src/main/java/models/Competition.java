@@ -6,7 +6,8 @@ public class Competition {
     private String nom,description,videoURL;
     private Date date;
     private int capacite;
-    private int fk_organisateur_id,id;
+    private int id;
+    private Organisateur fk_organisateur;
 
     public Competition(int id
                         ,String nom
@@ -14,7 +15,7 @@ public class Competition {
                         ,String videoURL
                         ,Date date
                         ,int capacite
-                        ,int fk_organisateur_id)
+                        ,Organisateur fk_organisateur)
     {
         this.id=id;
         this.nom=nom;
@@ -22,21 +23,21 @@ public class Competition {
         this.videoURL=videoURL;
         this.date=date;
         this.capacite=capacite;
-        this.fk_organisateur_id=fk_organisateur_id;
+        this.fk_organisateur=fk_organisateur;
     }
     public Competition(String nom
             ,String description
             ,String videoURL
             ,Date date
             ,int capacite
-            ,int fk_organisateur_id)
+            ,Organisateur fk_organisateur)
     {
         this.nom=nom;
         this.description=description;
         this.videoURL=videoURL;
         this.date=date;
         this.capacite=capacite;
-        this.fk_organisateur_id=fk_organisateur_id;
+        this.fk_organisateur=fk_organisateur;
     }
     public Competition(){}
 
@@ -88,12 +89,12 @@ public class Competition {
         this.videoURL = videoURL;
     }
 
-    public int getFk_organisateur_id() {
-        return fk_organisateur_id;
+    public Organisateur getFk_organisateur_id() {
+        return fk_organisateur;
     }
 
-    public void setFk_organisateur_id(int fk_organisateur_id) {
-        this.fk_organisateur_id = fk_organisateur_id;
+    public void setFk_organisateur_id(Organisateur fk_organisateur) {
+        this.fk_organisateur = fk_organisateur;
     }
 
     @Override

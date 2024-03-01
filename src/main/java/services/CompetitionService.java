@@ -21,7 +21,7 @@ public class CompetitionService implements IService<Competition> {
                 competition.getVideoURL() + "','" +
                 new java.sql.Date(competition.getDate().getTime()) + "'," +
                 competition.getCapacite() + "," +
-                competition.getFk_organisateur_id() + ")";
+                competition.getFk_organisateur_id().getId() + ")";
 
         Statement statement = connection.createStatement();
         statement.executeUpdate(sql);
@@ -36,7 +36,7 @@ public class CompetitionService implements IService<Competition> {
         preparedStatement.setString(3, competition.getVideoURL());
         preparedStatement.setDate(4, new java.sql.Date(competition.getDate().getTime()));
         preparedStatement.setInt(5, competition.getCapacite());
-        preparedStatement.setInt(6, competition.getFk_organisateur_id());
+        preparedStatement.setInt(6, competition.getFk_organisateur_id().getId());
         preparedStatement.setInt(7, competition.getId());
         preparedStatement.executeUpdate();
     }
@@ -66,11 +66,30 @@ public class CompetitionService implements IService<Competition> {
             o.setDescription(rs.getString("description"));
             o.setCapacite(rs.getInt("capacite"));
             o.setVideoURL(rs.getString("videoURL"));
-            o.setFk_organisateur_id(rs.getInt("fk_organisateur_id"));
+            o.setFk_organisateur_id(getOrganisateur(rs.getInt("fk_organisateur_id")));
 
             competitions.add(o);
         }
         return competitions;
     }
+    public Organisateur getOrganisateur(int id) throws SQLException {
+        Connection connection = MyDatabase.getInstance().getConnection();
+        String sql = "SELECT * FROM `organisateur` WHERE id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery(); // Use executeQuery for SELECT
 
+        if (resultSet.next()) {
+            // Assuming the column names in the database are 'id', 'nom', and 'numero'
+            int organisateurId = resultSet.getInt("id");
+            String nom = resultSet.getString("nom");
+            String numero = resultSet.getString("numero");
+
+            // Construct and return the Organisateur object
+            return new Organisateur(organisateurId, nom, numero);
+        } else {
+            // Handle the case where no Organisateur is found with the given ID
+            return null; // Or throw an exception as per your error handling strategy
+        }
+    }
 }
