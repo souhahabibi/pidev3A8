@@ -28,6 +28,7 @@
                                     <ListView fx:id="listView0" layoutY="99.0" onMouseClicked="#isEnabled" prefHeight="454.0" prefWidth="981.0" />
                                     <Button fx:id="buttonP_DELETE" layoutX="234.0" layoutY="60.0" mnemonicParsing="false" onAction="#deleteProduit" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="DELETE" />
                                     <Button fx:id="buttonReturn" layoutX="45.0" layoutY="61.0" mnemonicParsing="false" onAction="#naviguezVersAcceuil" styleClass="login-btn" stylesheets="@style.css" text="return" />
+
                                  </children>
                               </AnchorPane>
                            </content>

@@ -96,6 +96,16 @@ public class AjouterProduitController {
                 alert.showAndWait();
                 return;
             }
+
+            // Vérifier si tous les champs sont remplis
+            if (nomTF.getText().isEmpty() || quantiteTF.getText().isEmpty() || coutTF.getText().isEmpty() || dateExpirationDP.getValue() == null || idFournisseurTF.getText().isEmpty() || descriptionTF.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Veuillez remplir tous les champs.");
+                alert.showAndWait();
+                return;
+            }
             // Valider que le nom ne contient que des lettres
             String prenom = nomTF.getText();
             if (!prenom.matches("[a-zA-Z]+")) {

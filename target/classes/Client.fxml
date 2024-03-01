@@ -33,8 +33,9 @@
             <Image url="@moteur-de-recherche.png" />
          </image>
       </ImageView>
-      <Button layoutX="500.0" layoutY="38.0" onAction="#trierProduits" text="Trier par rapport prix" />
-      <Button layoutX="600.0" layoutY="38.0" onAction="#ouvrirPanier" text="Panier" />
+      <Button layoutX="500.0" layoutY="38.0" onAction="#trierProduits" styleClass="login-btn" stylesheets="@style.css" text="Trier/prix" />
+      <Button layoutX="600.0" layoutY="38.0" onAction="#ouvrirPanier" styleClass="login-btn" stylesheets="@style.css" text="Panier" />
+      <Button fx:id="buttonReturn" layoutX="21.0" layoutY="548.0" onAction="#naviguezVersAcceuil"  styleClass="login-btn" stylesheets="@style.css"  text="Return" />
 
    </children>
 </AnchorPane>

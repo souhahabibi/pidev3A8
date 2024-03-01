@@ -19,14 +19,19 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import services.ServiceProduit;
 import tn.esprit.entites.Fournisseur;
 import tn.esprit.entites.Produit;
 import tn.esprit.services.ServiceFournisseur;
 import javafx.collections.ObservableList;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -34,6 +39,19 @@ import java.util.List;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
 import services.Mailservice;
+//pdf
+import javafx.stage.FileChooser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import javax.swing.text.Document;
 
 
 public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Produit> {
@@ -62,6 +80,8 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
     private ListView<tn.esprit.entites.Produit> listView0;
     @FXML
     private Button buttonReturn;
+
+
     //@FXML
    // private TableColumn<tn.esprit.entites.Produit, String> imageCol;
 
@@ -221,6 +241,13 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
 
                             // Ajouter un espacement entre l'image et les champs
                             hBox.setSpacing(10);
+                           //pdf
+                            // Attacher un gestionnaire d'événements de double clic à la HBox
+                            hBox.setOnMouseClicked(event -> {
+                                if (event.getClickCount() == 2) {
+                                    downloadProductPDF(event, produit,20);
+                                }
+                            });
 
                             // Créer une bordure avec la couleur définie
                             BorderStroke borderStroke = new BorderStroke(
@@ -475,4 +502,64 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
             System.err.println(e.getMessage());
         }
     }
+    private void downloadProductPDF(Event event, Produit produit, int espacement) {
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage();
+            document.addPage(page);
+
+            try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 18);
+                contentStream.setNonStrokingColor(0x89, 0x1b, 0x1b); // Couleur du dégradé du bouton
+
+                // Ajout du titre
+                String title = "Votre Produit";
+                float titleWidth = PDType1Font.HELVETICA_BOLD.getStringWidth(title) / 1000 * 18;
+                float titleHeight = PDType1Font.HELVETICA_BOLD.getFontDescriptor().getFontBoundingBox().getHeight() / 1000 * 18;
+                float xTitle = (page.getMediaBox().getWidth() - titleWidth) / 2;
+                float yTitle = page.getMediaBox().getHeight() - titleHeight - 20;
+                contentStream.beginText();
+                contentStream.newLineAtOffset(xTitle, yTitle);
+                contentStream.showText(title);
+                contentStream.endText();
+
+                // Ajout de l'image
+                PDImageXObject image = PDImageXObject.createFromFile("C:\\Users\\souha\\Desktop\\pidev3A8\\pidev3A8\\src\\main\\resources/logo.png", document);
+                float imageWidth = 100; // Largeur de l'image
+                float imageHeight = 100; // Hauteur de l'image
+                float xImage = 50; // Coordonnée x pour placer l'image dans le coin supérieur gauche
+                float yImage = page.getMediaBox().getHeight() - imageHeight - 50; // Coordonnée y pour placer l'image dans le coin supérieur gauche
+                contentStream.drawImage(image, xImage, yImage, imageWidth, imageHeight);
+
+                // Déplacement du point d'écriture pour les détails du produit
+                float xDetails = 200; // Coordonnée x pour les détails du produit
+                float yDetails = yTitle - 50; // Coordonnée y pour les détails du produit
+                contentStream.beginText();
+                contentStream.setFont(PDType1Font.HELVETICA, 12);
+                contentStream.setNonStrokingColor(0x00, 0x00, 0x00); // Couleur du texte noir
+                contentStream.newLineAtOffset(xDetails, yDetails);
+
+                // Ajoutez les détails du produit au PDF
+                contentStream.showText("Nom du produit : " + produit.getNom());
+                contentStream.newLineAtOffset(0, -espacement);
+                contentStream.showText("Quantité : " + produit.getQuantite());
+                contentStream.newLineAtOffset(0, -espacement);
+                contentStream.showText("Coût : " + produit.getCout());
+
+                // Ajoutez d'autres détails du produit selon vos besoins
+
+                contentStream.endText();
+            }
+
+            // Spécifiez le chemin complet du fichier de sortie
+            String outputFile = "C:\\Users\\souha\\Desktop\\pdf\\output.pdf";
+
+            document.save(new File(outputFile));
+            System.out.println("Fichier PDF du produit créé avec succès !");
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la création du fichier PDF : " + e.getMessage());
+        }
+    }
+
+
 }
+

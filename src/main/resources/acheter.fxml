@@ -31,5 +31,6 @@
             </image>
         </ImageView>
         <Text layoutX="580.0" layoutY="570.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 16px;" text="Contact us : 52 299 117  /  ESPRAT@gmail.com " />
+      <Button layoutX="391.0" layoutY="548.0" mnemonicParsing="false" onAction="#PasserCommande" styleClass="login-btn" stylesheets="@style.css" text="passser commande" />
     </children>
 </AnchorPane>
