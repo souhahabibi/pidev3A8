@@ -30,7 +30,7 @@
                                        <graphic>
                                           <ImageView fitHeight="34.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add-button.png" />
+                                                <Image url="@flaticon/add-button.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
@@ -38,7 +38,7 @@
                                        <graphic>
                                           <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/note.png" />
+                                                <Image url="@flaticon/note.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
@@ -46,13 +46,13 @@
                                        <graphic>
                                           <ImageView fitHeight="36.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/removed.png" />
+                                                <Image url="@flaticon/removed.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
                                                 <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="16.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                        <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
                                                     </image>
                                                 </ImageView>
                                             </children>
@@ -65,7 +65,7 @@
                                             <children>
                                                 <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="16.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                        <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
                                                     </image>
                                                 </ImageView>
                                                 <ListView fx:id="listM" layoutX="208.0" layoutY="153.0" onMouseClicked="#isEnabled" opacity="0.68" prefHeight="308.0" prefWidth="650.0" />
@@ -73,7 +73,7 @@
                                        <graphic>
                                           <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add-button.png" />
+                                                <Image url="@flaticon/add-button.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
@@ -81,7 +81,7 @@
                                        <graphic>
                                           <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/note.png" />
+                                                <Image url="@flaticon/note.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
@@ -89,7 +89,7 @@
                                        <graphic>
                                           <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/removed.png" />
+                                                <Image url="@flaticon/removed.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
@@ -102,7 +102,7 @@
                                             <children>
                                                 <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="16.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                        <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
                                                     </image>
                                                 </ImageView>
                                                 <ListView fx:id="listA" layoutX="217.0" layoutY="152.0" onMouseClicked="#isEnabled" opacity="0.68" prefHeight="312.0" prefWidth="675.0" />
@@ -110,7 +110,7 @@
                                        <graphic>
                                           <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add-button.png" />
+                                                <Image url="@flaticon/add-button.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
@@ -118,7 +118,7 @@
                                        <graphic>
                                           <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/note.png" />
+                                                <Image url="@flaticon/note.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
@@ -126,7 +126,7 @@
                                        <graphic>
                                           <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/removed.png" />
+                                                <Image url="@flaticon/removed.png" />
                                              </image>
                                           </ImageView>
                                        </graphic></Button>

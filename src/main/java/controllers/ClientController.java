@@ -124,7 +124,7 @@ public class ClientController {
         materielsButton.setPrefSize(149, 49);
         materielsButton.setOnAction(event -> handleViewButtonAction(salle.getId()));
         // Set the button graphic if desired, assuming you have an image for it
-        ImageView imageView1 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/dumbbell.png"));
+        ImageView imageView1 = new ImageView(new Image("/flaticon/dumbbell.png"));
         imageView1.setFitWidth(30);
         imageView1.setFitHeight(30);
         materielsButton.setGraphic(imageView1);
@@ -135,7 +135,7 @@ public class ClientController {
         abonnementsButton.setPrefSize(149, 49);
         abonnementsButton.setOnAction(event->handleViewButtonActionAbonnement(salle.getId()));
         // Create an image view with the subscription image
-        ImageView imageView = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/subscription.png"));
+        ImageView imageView = new ImageView(new Image("/flaticon/subscription.png"));
         imageView.setFitWidth(30);
         imageView.setFitHeight(30);
         abonnementsButton.setGraphic(imageView);
@@ -150,7 +150,7 @@ public class ClientController {
         imageView2.setPickOnBounds(true);
 
         // Set the image to the image view
-        Image image1 = new Image("file:///Users/Cyrinechalghoumi/Downloads/map.png");
+        Image image1 = new Image("/flaticon/map.png");
         imageView2.setImage(image1);
 
 
@@ -162,7 +162,7 @@ public class ClientController {
         imageView3.setPickOnBounds(true);
 
         // Set the image to the image view
-        Image image2 = new Image("file:///Users/Cyrinechalghoumi/Downloads/schedule (1).png");
+        Image image2 = new Image("/flaticon/schedule (1).png");
         imageView3.setImage(image2);
         Text text = new Text();
         text.setLayoutX(277);

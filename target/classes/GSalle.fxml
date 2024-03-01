@@ -13,7 +13,7 @@
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="103.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/settings.png" />
+                  <Image url="@flaticon/settings.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -21,7 +21,7 @@
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="93.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/client.png" />
+                  <Image url="@flaticon/client.png" />
                </image>
             </ImageView>
          </graphic></Button>

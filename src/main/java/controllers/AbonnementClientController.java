@@ -121,7 +121,7 @@ public class AbonnementClientController {
         imageView3.setPickOnBounds(true);
 
         // Set the image to the image view
-        Image image2 = new Image("file:///Users/Cyrinechalghoumi/Downloads/file (1).png");
+        Image image2 = new Image("/flaticon/file (1).png");
         imageView3.setImage(image2);
 
         ImageView imageView = new ImageView();
@@ -132,7 +132,7 @@ public class AbonnementClientController {
         imageView.setPickOnBounds(true);
 
         // Set the image to the image view
-        Image image1 = new Image("file:///Users/Cyrinechalghoumi/Downloads/calendar (1).png");
+        Image image1 = new Image("/flaticon/calendar (1).png");
         imageView.setImage(image1);
 
         ImageView imageView1 = new ImageView();
@@ -143,7 +143,7 @@ public class AbonnementClientController {
         imageView1.setPickOnBounds(true);
 
         // Set the image to the image view
-        Image image = new Image("file:///Users/Cyrinechalghoumi/Downloads/saving.png");
+        Image image = new Image("/flaticon/saving.png");
         imageView1.setImage(image);
 
         TextArea Description = new TextArea("description : " +abonnement.getDescription());

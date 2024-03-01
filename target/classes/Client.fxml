@@ -18,13 +18,13 @@
       </ScrollPane>
       <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+            <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
          </image>
       </ImageView>
 
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="530" layoutY="550">
          <image>
-            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/communicate.png" />
+            <Image url="@flaticon/communicate.png" />
          </image>
       </ImageView>
       <Text layoutX="580.0" layoutY="570.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 16px;" text="Contact us : 52 299 117  /  ESPRAT@gmail.com " />

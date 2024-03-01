@@ -18,7 +18,7 @@
                      <children>
                         <ImageView fitHeight="119.0" fitWidth="205.0" layoutX="84.0" layoutY="15.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/images.jpg" />
+                              <Image url="@flaticon/images.jpg" />
                            </image>
                         </ImageView>
                         <Text layoutX="357.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom :" wrappingWidth="37.55859375" />
@@ -31,7 +31,7 @@
       </ScrollPane>
       <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+            <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
          </image>
       </ImageView>
    </children>

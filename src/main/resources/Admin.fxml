@@ -25,7 +25,7 @@
                                        <children>
                                           <ImageView fitHeight="116.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
                                              </image>
                                           </ImageView>
                                           <ScrollPane layoutX="46.0" layoutY="120.0" prefHeight="382.0" prefViewportHeight="404.0" prefViewportWidth="985.0" prefWidth="906.0">
@@ -41,7 +41,7 @@
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true">
                                                    <image>
-                                                      <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add-button.png" />
+                                                      <Image url="@flaticon/add-button.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic></Button>
@@ -56,7 +56,7 @@
                                        <children>
                                           <ImageView fitHeight="116.0" fitWidth="130.0" pickOnBounds="true">
                                              <image>
-                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
                                              </image>
                                           </ImageView>
                                           <Text layoutX="418.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la liste des abonnements" wrappingWidth="161.662109375" />

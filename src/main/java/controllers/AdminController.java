@@ -106,19 +106,19 @@ public class AdminController {
             salleDescription.setFont(Font.font("Arial", 16));
             salleDescription.setEffect(new DropShadow());
 
-            ImageView salleImageView1 = new ImageView(new Image("file:///C:/Users/Cyrinechalghoumi/Downloads/gym (1).png"));
+            ImageView salleImageView1 = new ImageView(new Image("/flaticon/gym (1).png"));
             salleImageView1.setFitHeight(30);
             salleImageView1.setFitWidth(30);
             salleImageView1.setLayoutX(275);
             salleImageView1.setLayoutY(15);
 
-            ImageView salleImageView2 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/map.png"));
+            ImageView salleImageView2 = new ImageView(new Image("/flaticon/map.png"));
             salleImageView2.setFitHeight(30);
             salleImageView2.setFitWidth(30);
             salleImageView2.setLayoutX(275);
             salleImageView2.setLayoutY(60);
 
-            ImageView salleImageView3 = new ImageView(new Image("file:///C:/Users/Cyrinechalghoumi/Downloads/file (1).png"));
+            ImageView salleImageView3 = new ImageView(new Image("/flaticon/file (1).png"));
             salleImageView3.setFitHeight(30);
             salleImageView3.setFitWidth(30);
             salleImageView3.setLayoutX(275);
@@ -132,7 +132,7 @@ public class AdminController {
 // Ajouter la classe de style et la feuille de style
             modifierButton.getStyleClass().add("login-btn");
             modifierButton.getStylesheets().add(getClass().getResource("/design.css").toExternalForm());
-            ImageView imageView1 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/note.png"));
+            ImageView imageView1 = new ImageView(new Image("/flaticon/note.png"));
             imageView1.setFitWidth(30);
             imageView1.setFitHeight(30);
             modifierButton.setGraphic(imageView1);
@@ -143,7 +143,7 @@ public class AdminController {
             supprimerButton.setOnAction(event -> deleteSalle(salle));
             supprimerButton.getStyleClass().add("login-btn");
             supprimerButton.getStylesheets().add(getClass().getResource("/design.css").toExternalForm());
-            ImageView imageView2 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/removed.png"));
+            ImageView imageView2 = new ImageView(new Image("/flaticon/removed.png"));
             imageView2.setFitWidth(30);
             imageView2.setFitHeight(30);
             supprimerButton.setGraphic(imageView2);
@@ -154,7 +154,7 @@ public class AdminController {
     materielsButton.setPrefSize(209, 49);
     materielsButton.setOnAction(event -> handleViewButtonAction(salle.getId()));
     // Set the button graphic if desired, assuming you have an image for it
-    ImageView imageView = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/dumbbell.png"));
+    ImageView imageView = new ImageView(new Image("/flaticon/dumbbell.png"));
     imageView.setFitWidth(30);
     imageView.setFitHeight(30);
     materielsButton.setGraphic(imageView);
@@ -165,7 +165,7 @@ public class AdminController {
     abonnementsButton.setPrefSize(209, 49);
     abonnementsButton.setOnAction(event->handleViewButtonActionAbonnement(salle.getId()));
     // Create an image view with the subscription image
-    ImageView imageView4 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/subscription.png"));
+    ImageView imageView4 = new ImageView(new Image("/flaticon/subscription.png"));
     imageView4.setFitWidth(30);
     imageView4.setFitHeight(30);
     abonnementsButton.setGraphic(imageView4);
