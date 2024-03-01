@@ -62,9 +62,9 @@ public class ViewCompetitionController {
       nomT.setText(competition.getNom());
       dateT.setText(String.valueOf(competition.getDate()));
       descriptionTA.setText(competition.getDescription());
-        String videoId = competition.getVideoURL(); // Replace with your video ID
-        String content = "<iframe width=\"728\" height=\"370\" src=\"https://www.youtube.com/embed/" + videoId + "\" frameborder=\"0\" allowfullscreen></iframe>";
-        videoWV.getEngine().loadContent(content);
+        String videoURL = "https://www.youtube.com/embed/" + competition.getVideoURL();
+        String embedHTML = "<html><body style='margin:0;padding:0;'><iframe width='100%' height='100%' src='" + videoURL + "' frameborder='0' allowfullscreen style='border: 0'></iframe></body></html>";
+        videoWV.getEngine().loadContent(embedHTML);
 
 
         LocalDate today = LocalDate.now();

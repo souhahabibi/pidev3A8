@@ -290,32 +290,32 @@ public class AdminCompetitionController {
         competitionPane.setPrefWidth(816.0);
         competitionPane.setStyle("-fx-background-color: linear-gradient(to bottom right,#891b1b ,#a7473e );");
         Text dateText = new Text("Date: " + competition.getDate().toString());
-        dateText.setLayoutX(253.0);
+        dateText.setLayoutX(280.0);
         dateText.setLayoutY(156.0);
 
         Text nomText = new Text("Nom: " + competition.getNom());
-        nomText.setLayoutX(253.0);
+        nomText.setLayoutX(280.0);
         nomText.setLayoutY(30.0);
 
         Text capaciteText = new Text("Capacite: " + competition.getCapacite());
-        capaciteText.setLayoutX(394.0);
+        capaciteText.setLayoutX(430.0);
         capaciteText.setLayoutY(156.0);
 
         WebView videoWebView = new WebView();
-        videoWebView.setLayoutX(14.0);
-        videoWebView.setLayoutY(14.0);
-        videoWebView.setPrefHeight(141.0);
-        videoWebView.setPrefWidth(224.0);
+        videoWebView.setLayoutX(5.0);
+        videoWebView.setLayoutY(5.0);
+        videoWebView.setPrefHeight(150.0);
+        videoWebView.setPrefWidth(270.0);
         // Embed YouTube video using videoID
         String videoURL = "https://www.youtube.com/embed/" + competition.getVideoURL();
-        String embedHTML = "<html><body><iframe width=\"215\" height=\"120\" src=\"" + videoURL + "\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
+        String embedHTML = "<html><body style='margin:0;padding:0;'><iframe width='100%' height='100%' src='" + videoURL + "' frameborder='0' allowfullscreen style='border: 0'></iframe></body></html>";
         videoWebView.getEngine().loadContent(embedHTML);
 
         TextArea descriptionTextArea = new TextArea(competition.getDescription());
-        descriptionTextArea.setLayoutX(250.0);
+        descriptionTextArea.setLayoutX(280.0);
         descriptionTextArea.setLayoutY(44.0);
         descriptionTextArea.setPrefHeight(89.0);
-        descriptionTextArea.setPrefWidth(475.0);
+        descriptionTextArea.setPrefWidth(450.0);
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setWrapText(true);
 
