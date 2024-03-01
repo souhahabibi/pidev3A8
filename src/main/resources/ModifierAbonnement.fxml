@@ -22,10 +22,8 @@
       <Label layoutX="306.0" layoutY="138.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="montant:" />
       <Label layoutX="306.0" layoutY="205.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="duree:" />
       <Label layoutX="288.0" layoutY="298.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="description:" />
-      <Label layoutX="312.0" layoutY="431.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14px;" text="salle:" />
       <TextField fx:id="montantTF" layoutX="422.0" layoutY="133.0" />
       <TextField fx:id="dureTF" layoutX="422.0" layoutY="200.0" />
-      <ChoiceBox fx:id="salleCB" layoutX="422.0" layoutY="425.0" prefHeight="31.0" prefWidth="187.0" />
       <Button fx:id="buttonModifier" layoutX="280.0" layoutY="492.0" mnemonicParsing="false" onAction="#modifierAbonnement" styleClass="login-btn" stylesheets="@design.css" text="modifier abonnement" />
       <Button fx:id="buttonCancel" layoutX="662.0" layoutY="492.0" mnemonicParsing="false" onAction="#naviguezVersAccueil" styleClass="login-btn" stylesheets="@design.css" text="cancel" />
       <TextArea fx:id="descriptionTF" layoutX="422.0" layoutY="262.0" prefHeight="124.0" prefWidth="288.0" />

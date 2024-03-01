@@ -31,18 +31,16 @@ import java.util.List;
 public class AdminController {
 
     SalleService s = new SalleService();
-    MaterielService m = new MaterielService();
     AbonnementService a = new AbonnementService();
     @FXML
     private VBox sallesContainer;
-    @FXML
-    private VBox materielsContainer;
+
     @FXML
     private VBox abonnementsContainer;
+
+
     @FXML
-    private Button buttonMAjouter;
-    @FXML
-    private Button buttonAAjouter;
+    private Button buttonAjouter;
     @FXML
     public void initialize() {
         try {
@@ -52,32 +50,18 @@ public class AdminController {
             e.printStackTrace();
             // Handle exception, possibly showing an error message to the user
         }
-        try {
-            materielsContainer.setSpacing(25);
-            displayMateriels();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle exception, possibly showing an error message to the user
-        }
-        try {
+
+      /*  try {
             abonnementsContainer.setSpacing(25);
             displayAbonnements();
         } catch (SQLException e) {
             e.printStackTrace();
             // Handle exception, possibly showing an error message to the user
-        }
+        }*/
     }
 
 
-    private void displayMateriels() throws SQLException {
 
-        List<Materiel> materiels = m.recuperer();
-
-        for (Materiel materiel : materiels) {
-            Pane materielEntry = createMaterielEntry(materiel);
-            materielsContainer.getChildren().add(materielEntry);
-        }
-    }
     private void displaySalles() throws SQLException {
 
         List<Salle> salles = s.recuperer(); // Adjust this line to match your method for fetching competitions
@@ -87,80 +71,11 @@ public class AdminController {
             sallesContainer.getChildren().add(salleEntry);
         }
     }
-    private void displayAbonnements() throws SQLException {
 
-        List<Abonnement> abonnements = a.recuperer(); // Adjust this line to match your method for fetching competitions
-
-        for (Abonnement abonnement : abonnements) {
-            Pane abonnementEntry = createAbonnementEntry(abonnement);
-            abonnementsContainer.getChildren().add(abonnementEntry);
-        }
-    }
-    @FXML
-    public Pane createMaterielEntry(Materiel materiel) throws SQLException {
-        Pane materielPane = new Pane();
-        materielPane.setPrefSize(762, 207);
-        materielPane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
-
-        Image image = new Image("file:" + materiel.getImage());
-        ImageView materielImageView = new ImageView();
-        materielImageView.setImage(image);
-        materielImageView.setFitHeight(172);
-        materielImageView.setFitWidth(189);
-        materielImageView.setLayoutX(23);
-        materielImageView.setLayoutY(10);
-
-        Text materielName = new Text(249, 37, "Nom : " + materiel.getNom());
-        materielName.setFont(Font.font("Arial", 16));
-        materielName.setEffect(new DropShadow());
-
-        Text age = new Text(249, 68, "Age : " + materiel.getAge());
-        age.setFont(Font.font("Arial", 16));
-        age.setEffect(new DropShadow());
-
-        Text quantite = new Text(249, 102, "Quantité : " + materiel.getQuantite());
-        quantite.setFont(Font.font("Arial", 16));
-        quantite.setEffect(new DropShadow());
-
-        Text prix = new Text(249, 136, "Prix : " + materiel.getPrix());
-        prix.setFont(Font.font("Arial", 16));
-        prix.setEffect(new DropShadow());
-
-        Text salle = new Text(249, 170, "Salle : " + s.selectSalleNameById(materiel.getFK_idSalle()));
-        salle.setFont(Font.font("Arial", 16));
-        salle.setEffect(new DropShadow());
-
-        Button modifierButton = new Button("Modifier");
-        modifierButton.setLayoutX(542);
-        modifierButton.setLayoutY(37);
-        modifierButton.setPrefSize(159, 31);
-        modifierButton.setOnAction(event -> naviguezVersMODIFYMateriel(null, materiel));
-        modifierButton.getStyleClass().add("login-btn");
-        modifierButton.getStylesheets().add(getClass().getResource("/design.css").toExternalForm());
-        ImageView imageView1 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/note.png"));
-        imageView1.setFitWidth(30);
-        imageView1.setFitHeight(30);
-        modifierButton.setGraphic(imageView1);
-        Button supprimerButton = new Button("Supprimer");
-        supprimerButton.setLayoutX(542);
-        supprimerButton.setLayoutY(126);
-        supprimerButton.setPrefSize(159, 31);
-        supprimerButton.setOnAction(event -> deleteMateriel(materiel));
-        supprimerButton.getStyleClass().add("login-btn");
-        supprimerButton.getStylesheets().add(getClass().getResource("/design.css").toExternalForm());
-        ImageView imageView2 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/removed.png"));
-        imageView2.setFitWidth(30);
-        imageView2.setFitHeight(30);
-        supprimerButton.setGraphic(imageView2);
-        materielPane.getChildren().addAll(materielImageView, materielName, age, quantite, prix, salle, modifierButton, supprimerButton);
-
-        return materielPane;
-
-    }
 @FXML
     public Pane createSalleEntry(Salle salle) {
             Pane sallePane = new Pane();
-            sallePane.setPrefSize(880, 207);
+            sallePane.setPrefSize(880, 287);
             sallePane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
 
             Image image = new Image("file:" + salle.getImage());
@@ -211,7 +126,7 @@ public class AdminController {
 
             Button modifierButton = new Button("Modifier");
             modifierButton.setLayoutX(680);
-            modifierButton.setLayoutY(40);
+            modifierButton.setLayoutY(20);
             modifierButton.setPrefSize(159, 31);
             modifierButton.setOnAction(event -> naviguezVersMODIFY(null, salle));
 // Ajouter la classe de style et la feuille de style
@@ -223,7 +138,7 @@ public class AdminController {
             modifierButton.setGraphic(imageView1);
             Button supprimerButton = new Button("Supprimer");
             supprimerButton.setLayoutX(680);
-            supprimerButton.setLayoutY(150);
+            supprimerButton.setLayoutY(90);
             supprimerButton.setPrefSize(159, 31);
             supprimerButton.setOnAction(event -> deleteSalle(salle));
             supprimerButton.getStyleClass().add("login-btn");
@@ -232,72 +147,80 @@ public class AdminController {
             imageView2.setFitWidth(30);
             imageView2.setFitHeight(30);
             supprimerButton.setGraphic(imageView2);
-            sallePane.getChildren().addAll(salleImageView,salleImageView2,salleImageView3, salleName, salleLieu, salleDescription,salleImageView1, modifierButton, supprimerButton);
+    // Assuming you want to add buttons for materials and subscriptions similar to your FXML example
+    Button materielsButton = new Button(" matériels");
+    materielsButton.setLayoutX(200);
+    materielsButton.setLayoutY(220);
+    materielsButton.setPrefSize(209, 49);
+    materielsButton.setOnAction(event -> handleViewButtonAction(salle.getId()));
+    // Set the button graphic if desired, assuming you have an image for it
+    ImageView imageView = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/dumbbell.png"));
+    imageView.setFitWidth(30);
+    imageView.setFitHeight(30);
+    materielsButton.setGraphic(imageView);
+
+    Button abonnementsButton = new Button(" abonnements");
+    abonnementsButton.setLayoutX(505);
+    abonnementsButton.setLayoutY(220);
+    abonnementsButton.setPrefSize(209, 49);
+    abonnementsButton.setOnAction(event->handleViewButtonActionAbonnement(salle.getId()));
+    // Create an image view with the subscription image
+    ImageView imageView4 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/subscription.png"));
+    imageView4.setFitWidth(30);
+    imageView4.setFitHeight(30);
+    abonnementsButton.setGraphic(imageView4);
+            sallePane.getChildren().addAll(salleImageView,salleImageView2,salleImageView3, salleName, salleLieu, salleDescription,salleImageView1, modifierButton, supprimerButton,materielsButton,abonnementsButton);
 
             return sallePane;
         }
-        @FXML
-    public Pane createAbonnementEntry(Abonnement abonnement) throws SQLException {
-        Pane abonnementPane = new Pane();
-        abonnementPane.setPrefSize(812, 230);
-        abonnementPane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
-            Text descriptionText = new Text(112, 50, "Description : " + abonnement.getDescription());
-            descriptionText.setWrappingWidth(443);
 
-            Text montantText = new Text(71, 180, "Montant : " + abonnement.getMontant());
-            Text dureeText = new Text(329, 180, "Durée : " + abonnement.getDuree()+"mois");
-            Text salleText = new Text(578, 180, "Salle : " +  s.selectSalleNameById(abonnement.getFK_idSalle()));
+    private void handleViewButtonAction(int id) {
+        try {
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MaterielAdmin.fxml"));
 
-            ImageView descriptionImageView = new ImageView(new Image("file:///C:/Users/Cyrinechalghoumi/Downloads/file (1).png"));
-            descriptionImageView.setFitHeight(30);
-            descriptionImageView.setFitWidth(45);
-            descriptionImageView.setLayoutX(17);
-            descriptionImageView.setLayoutY(40);
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
 
-            ImageView montantImageView = new ImageView(new Image("file:///C:/Users/Cyrinechalghoumi/Downloads/saving.png"));
-            montantImageView.setFitHeight(30);
-            montantImageView.setFitWidth(45);
-            montantImageView.setLayoutX(17);
-            montantImageView.setLayoutY(161);
+            // Now that the FXML is loaded, get the controller
+            MaterielAdminController controller = loader.getController();
 
-            ImageView dureeImageView = new ImageView(new Image("file:///C:/Users/Cyrinechalghoumi/Downloads/calendar (1).png"));
-            dureeImageView.setFitHeight(37);
-            dureeImageView.setFitWidth(44);
-            dureeImageView.setLayoutX(279);
-            dureeImageView.setLayoutY(161);
-
-            ImageView salleImageView = new ImageView(new Image("file:///C:/Users/Cyrinechalghoumi/Downloads/gym (1).png"));
-            salleImageView.setFitHeight(37);
-            salleImageView.setFitWidth(44);
-            salleImageView.setLayoutX(525);
-            salleImageView.setLayoutY(161);
-            Button modifierButton = new Button("Modifier");
-            modifierButton.setLayoutX(642);
-            modifierButton.setLayoutY(27);
-            modifierButton.setPrefSize(159, 31);
-            modifierButton.setOnAction(event -> naviguezVersMODIFYAbonnement(null, abonnement));
-            modifierButton.getStyleClass().add("login-btn");
-            modifierButton.getStylesheets().add(getClass().getResource("/design.css").toExternalForm());
-            ImageView imageView1 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/note.png"));
-            imageView1.setFitWidth(30);
-            imageView1.setFitHeight(30);
-            modifierButton.setGraphic(imageView1);
-            Button supprimerButton = new Button("Supprimer");
-            supprimerButton.setLayoutX(642);
-            supprimerButton.setLayoutY(100);
-            supprimerButton.setPrefSize(159, 31);
-            supprimerButton.setOnAction(event -> deleteAbonnement(abonnement));
-            supprimerButton.getStyleClass().add("login-btn");
-            supprimerButton.getStylesheets().add(getClass().getResource("/design.css").toExternalForm());
-            ImageView imageView2 = new ImageView(new Image("file:///Users/Cyrinechalghoumi/Downloads/removed.png"));
-            imageView2.setFitWidth(30);
-            imageView2.setFitHeight(30);
-            supprimerButton.setGraphic(imageView2);
-            abonnementPane.getChildren().addAll(descriptionText, montantText, dureeText, salleText, descriptionImageView, montantImageView, dureeImageView, salleImageView, modifierButton, supprimerButton);
+            // Here, you retrieve the selected item from your ListView
 
 
-        return abonnementPane;
+            controller.setMateriel(id);
+
+            // Finally, set the scene's root to switch to the new view
+            sallesContainer.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
     }
+    private void handleViewButtonActionAbonnement(int id) {
+        try {
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AbonnementAdmin.fxml"));
+
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
+
+            // Now that the FXML is loaded, get the controller
+            AbonnementAdminController controller = loader.getController();
+
+            // Here, you retrieve the selected item from your ListView
+
+
+            controller.setAbonnement(id);
+
+            // Finally, set the scene's root to switch to the new view
+            sallesContainer.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+
+
 
 
         @FXML
@@ -312,72 +235,7 @@ public class AdminController {
 
     }
 
-    @FXML
-    void naviguezVersAjouterMateriel(ActionEvent event) {
-        ObservableList<Salle> observableList = null;
-        try {
-            List<Salle> Salles = s.recuperer();
-            observableList = FXCollections.observableList(Salles);
-        } catch (SQLException e) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-
-        }
-
-        try {
-            // Correctly create an FXMLLoader instance pointing to your FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterMateriel.fxml"));
-
-            // Load the FXML and get the root node in one step
-            Parent root = loader.load();
-
-            // Now that the FXML is loaded, get the controller
-            AjouterMaterielController controller = loader.getController();
-
-            // If an item is selected, pass it to the controller of the next scene
-            controller.setMateriel(observableList);
-            // Finally, set the scene's root to switch to the new view
-            buttonMAjouter.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-    }
-    @FXML
-    void naviguezVersAjouterAbbonnement(ActionEvent event) {
-        ObservableList<Salle> observableList = null;
-        try {
-            List<Salle> Salles = s.recuperer();
-            observableList = FXCollections.observableList(Salles);
-        } catch (SQLException e) {
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-
-        }
-
-        try {
-            // Correctly create an FXMLLoader instance pointing to your FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterAbonnement.fxml"));
-
-            // Load the FXML and get the root node in one step
-            Parent root = loader.load();
-
-            // Now that the FXML is loaded, get the controller
-            AjouterAbonnementController controller = loader.getController();
-
-            // If an item is selected, pass it to the controller of the next scene
-            controller.setAbonnement(observableList);
-            // Finally, set the scene's root to switch to the new view
-            buttonAAjouter.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-    }
 
     @FXML
     void deleteSalle(Salle salle){
@@ -391,29 +249,8 @@ public class AdminController {
             System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
         }
     }
-    @FXML
-    void deleteMateriel(Materiel materiel){
 
-        try {
-            m.supprimer(materiel.getId());
-            // Nettoyer le contenu du conteneur avant de réafficher les salles
-            materielsContainer.getChildren().clear();
-            initialize();
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
-        }
-    }
-    void deleteAbonnement(Abonnement abonnement){
 
-        try {
-            a.supprimer(abonnement.getId());
-            // Nettoyer le contenu du conteneur avant de réafficher les salles
-            abonnementsContainer.getChildren().clear();
-            initialize();
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
-        }
-    }
     @FXML
     void naviguezVersMODIFY(ActionEvent event,Salle salle) {
 
@@ -442,70 +279,7 @@ public class AdminController {
         }
     }
 
-    @FXML
-    void naviguezVersMODIFYMateriel(ActionEvent event,Materiel materiel) {
-        ObservableList<Salle> observableList = null;
-        try {
-            List<Salle> salles = s.recuperer();
-            observableList = FXCollections.observableList(salles);
-        } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-        }
 
-        try {
-            // Correctly create an FXMLLoader instance pointing to your FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierMateriel.fxml"));
-
-            // Load the FXML and get the root node in one step
-            Parent root = loader.load();
-
-            // Now that the FXML is loaded, get the controller
-            ModifierMaterielController controller = loader.getController();
-
-                controller.setMateriel(materiel,observableList);
-
-
-            // Finally, set the scene's root to switch to the new view
-            buttonMAjouter.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-    }
-    @FXML
-    void naviguezVersMODIFYAbonnement(ActionEvent event,Abonnement abonnement) {
-        ObservableList<Salle> observableList = null;
-        try {
-            List<Salle> salles = s.recuperer();
-            observableList = FXCollections.observableList(salles);
-        } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-        }
-
-        try {
-            // Correctly create an FXMLLoader instance pointing to your FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierAbonnement.fxml"));
-
-            // Load the FXML and get the root node in one step
-            Parent root = loader.load();
-
-            // Now that the FXML is loaded, get the controller
-            ModifierAbonnementController controller = loader.getController();
-
-            controller.setAbonnement(abonnement,observableList);
-
-
-            // Finally, set the scene's root to switch to the new view
-            buttonAAjouter.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-    }
 
     }
 

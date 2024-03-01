@@ -44,7 +44,7 @@ public class AjouterAbonnementController {
 
     @FXML
     private Text descriptionCS;
-
+    private  int x=0;
 
     private final AbonnementService ps = new AbonnementService();
     private Abonnement abonnement;
@@ -99,13 +99,6 @@ public class AjouterAbonnementController {
             descriptionCS.setVisible(false);
         }
 
-        // Validation de la salle
-        if (salleCB.getValue() == null) {
-            salleCS.setVisible(true);
-            isValid = false;
-        } else {
-            salleCS.setVisible(false);
-        }
 
         // Si l'une des validations a échoué, arrêtez le processus
         if (!isValid) {
@@ -122,7 +115,7 @@ public class AjouterAbonnementController {
                     montant,
                     duree,
                     descriptionTF.getText(),
-                    salleCB.getValue().getId()
+                    x
             ));
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -141,16 +134,30 @@ public class AjouterAbonnementController {
     @FXML
     void naviguezVersAccueil(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
-            buttonCancel.getScene().setRoot(root);
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AbonnementAdmin.fxml"));
+
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
+
+            // Now that the FXML is loaded, get the controller
+            AbonnementAdminController controller = loader.getController();
+
+            // Here, you retrieve the selected item from your ListView
+
+
+            controller.setAbonnement(x);
+
+            // Finally, set the scene's root to switch to the new view
+            buttonAjouter.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
 
-    public void setAbonnement(ObservableList<Salle> observableList) {
-        salleCB.setItems(observableList);
-    }
+    public void setSalleName(int id) {
+        x=id;
 
+    }
 
 }

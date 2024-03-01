@@ -42,8 +42,6 @@ public class ModifierMaterielController {
     @FXML
     private Button buttonCancel;
 
-    @FXML
-    private ChoiceBox<Salle> salle_TF;
 
     @FXML
     private TextField quantite_TF;
@@ -53,19 +51,33 @@ public class ModifierMaterielController {
 
     @FXML
     private Text ageCS;
-    @FXML
-    private Text salleCS;
+
     @FXML
     private Text prixCS;
     @FXML
     private Text nomCS;
 
+
     private final MaterielService ps = new MaterielService();
     @FXML
     void naviguezVersAccueil(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
-            buttonCancel.getScene().setRoot(root);
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MaterielAdmin.fxml"));
+
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
+
+            // Now that the FXML is loaded, get the controller
+            MaterielAdminController controller = loader.getController();
+
+            // Here, you retrieve the selected item from your ListView
+
+
+            controller.setMateriel(materiel.getFK_idSalle());
+
+            // Finally, set the scene's root to switch to the new view
+            buttonMModifier.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
@@ -140,13 +152,7 @@ public class ModifierMaterielController {
             }
         }
 
-        // Validation de la salle
-        if (salle_TF.getValue() == null) {
-            salleCS.setVisible(true);
-            isValid = false;
-        } else {
-            salleCS.setVisible(false);
-        }
+
 
         // Si l'une des validations a échoué, arrêtez le processus
         if (!isValid) {
@@ -169,7 +175,7 @@ public class ModifierMaterielController {
             materiel.setAge(age);
             materiel.setQuantite(quantite);
             materiel.setPrix(prix);
-            materiel.setFK_idSalle(salle_TF.getValue().getId());
+
             Image image = new Image("file:" + materiel.getImage());
             imageView.setImage(image);
             materiel.setImage(imagePath);
@@ -190,14 +196,14 @@ public class ModifierMaterielController {
     }
 
     @FXML
-    public void setMateriel(Materiel selectedMateriel, ObservableList<Salle> observableList) {
+    public void setMateriel(Materiel selectedMateriel) {
 
         this.materiel=selectedMateriel;
         nom_TF.setText(selectedMateriel.getNom());
         age_TF.setText(String.valueOf(selectedMateriel.getAge()));
         quantite_TF.setText(String.valueOf(selectedMateriel.getQuantite()));
         prix_TF.setText(String.valueOf(selectedMateriel.getPrix()));
-        salle_TF.setItems(observableList);
+        //salle_TF.setItems(observableList);
     Image image = new Image("file:" + selectedMateriel.getImage());
     imageView.setImage(image);
     }

@@ -15,7 +15,7 @@ public class Materiel {
      this.image = image;
  }
 
-    public Materiel(String nom, int age, int quantite, int prix,int FK_idSalle,String image){
+    public Materiel(String nom, int age, int quantite, int prix,String image,int FK_idSalle){
 
         this.nom = nom;
         this.age = age;

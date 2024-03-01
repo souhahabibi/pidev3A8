@@ -31,8 +31,7 @@ public class AjouterMaterielController {
     @FXML
     private TextField nom_TF;
 
-    @FXML
-    private ChoiceBox<Salle> salleCB;
+
 
     @FXML
     private TextField age_TF;
@@ -59,7 +58,7 @@ public class AjouterMaterielController {
     private Text prixCS;
     @FXML
     private Text nomCS;
-
+    private  int x=0;
 
     private final MaterielService ps = new MaterielService();
     private Materiel materiel;
@@ -132,13 +131,13 @@ public class AjouterMaterielController {
             }
         }
 
-        // Validation de la salle
+       /* // Validation de la salle
         if (salleCB.getValue() == null) {
             salleCS.setVisible(true);
             isValid = false;
         } else {
             salleCS.setVisible(false);
-        }
+        }*/
 
         // Si l'une des validations a échoué, arrêtez le processus
         if (!isValid) {
@@ -155,8 +154,8 @@ public class AjouterMaterielController {
                     age,
                     quantite,
                     prix,
-                    salleCB.getValue().getId(),
-                    imagePath
+                    imagePath,
+                    x
             ));
             naviguezVersAccueil(null);
         } catch (SQLException e) {
@@ -200,14 +199,32 @@ public class AjouterMaterielController {
     @FXML
     void naviguezVersAccueil(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
-            buttonCancel.getScene().setRoot(root);
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MaterielAdmin.fxml"));
+
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
+
+            // Now that the FXML is loaded, get the controller
+            MaterielAdminController controller = loader.getController();
+
+            // Here, you retrieve the selected item from your ListView
+
+
+            controller.setMateriel(x);
+
+            // Finally, set the scene's root to switch to the new view
+            buttonAjouter.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
 
-    public void setMateriel(ObservableList<Salle> observableList) {
-        salleCB.setItems(observableList);
-    }
+
+  public void setSalleName(int id) {
+        x=id;
+
+  }
+
+
 }

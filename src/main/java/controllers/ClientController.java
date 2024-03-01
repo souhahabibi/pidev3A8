@@ -115,6 +115,7 @@ public class ClientController {
         Text salleLieu = new Text(600, 172, "Lieu: " + salle.getLieu()); // Adjusted X to align with the map icon
         salleLieu.setFont(new Font("Arial", 14));
         salleLieu.setEffect(new DropShadow());
+        salleLieu.setOnMouseClicked(event->naviguezVersWeb(salle.getLieu()));
 
         // Assuming you want to add buttons for materials and subscriptions similar to your FXML example
         Button materielsButton = new Button("Matériels");
@@ -229,5 +230,26 @@ public class ClientController {
             System.err.println(e.getMessage());
         }
     }
+    private void naviguezVersWeb(String search) {
+        try {
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TestMap.fxml"));
 
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
+
+            // Now that the FXML is loaded, get the controller
+            TestMapController controller = loader.getController();
+
+            // Here, you retrieve the selected item from your ListView
+
+
+            controller.setWeb(search);
+
+            // Finally, set the scene's root to switch to the new view
+            sallesContainer.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 }

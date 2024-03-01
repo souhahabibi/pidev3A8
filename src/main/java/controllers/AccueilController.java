@@ -278,7 +278,7 @@ public class AccueilController {
             AjouterMaterielController controller = loader.getController();
 
                 // If an item is selected, pass it to the controller of the next scene
-                controller.setMateriel(observableList);
+                //controller.setMateriel(observableList);
             // Finally, set the scene's root to switch to the new view
             buttonMSupprimer.getScene().setRoot(root);
         } catch (IOException e) {
@@ -310,7 +310,7 @@ public class AccueilController {
             AjouterAbonnementController controller = loader.getController();
 
             // If an item is selected, pass it to the controller of the next scene
-            controller.setAbonnement(observableList);
+        //    controller.setAbonnement(observableList);
             // Finally, set the scene's root to switch to the new view
             buttonASupprimer.getScene().setRoot(root);
         } catch (IOException e) {
@@ -379,7 +379,7 @@ public class AccueilController {
             // Check if an item is actually selected
             if (selectedMateriel != null) {
                 // If an item is selected, pass it to the controller of the next scene
-                controller.setMateriel(selectedMateriel,observableList);
+            //    controller.setMateriel(selectedMateriel,observableList);
             } else {
                 // Handle the case where no item is selected (optional)
                 System.out.println("No item selected");
@@ -421,7 +421,7 @@ public class AccueilController {
             // Check if an item is actually selected
             if (selectedAbonnement != null) {
                 // If an item is selected, pass it to the controller of the next scene
-                controller.setAbonnement(selectedAbonnement,observableList);
+              //  controller.setAbonnement(selectedAbonnement,observableList);
             } else {
                 // Handle the case where no item is selected (optional)
                 System.out.println("No item selected");

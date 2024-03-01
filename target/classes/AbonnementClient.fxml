@@ -17,7 +17,7 @@
       </ScrollPane>
       <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+            <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png"  />
          </image>
       </ImageView>
       <CheckBox fx:id="montantCB" layoutX="781.0" layoutY="32.0" mnemonicParsing="false" onAction="#triMontant" prefHeight="21.0" prefWidth="90.0" text="montant" />
@@ -26,7 +26,7 @@
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add%20(1).png" />
+                  <Image url="@flaticon/add%20(1).png" />
                </image>
             </ImageView>
          </graphic>

@@ -17,8 +17,7 @@ import java.sql.SQLException;
 
 public class ModifierAbonnementController {
 private Abonnement abonnement;
-    @FXML
-    private ChoiceBox<Salle> salleCB;
+
 
     @FXML
     private Button buttonCancel;
@@ -38,8 +37,6 @@ private Abonnement abonnement;
     private Text montantCS;
 
     @FXML
-    private Text salleCS;
-    @FXML
     private Text dureeCS;
 
     @FXML
@@ -48,8 +45,22 @@ private Abonnement abonnement;
     @FXML
     void naviguezVersAccueil(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
-            buttonCancel.getScene().setRoot(root);
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AbonnementAdmin.fxml"));
+
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
+
+            // Now that the FXML is loaded, get the controller
+            AbonnementAdminController controller = loader.getController();
+
+            // Here, you retrieve the selected item from your ListView
+
+
+            controller.setAbonnement(this.abonnement.getFK_idSalle());
+
+            // Finally, set the scene's root to switch to the new view
+            dureTF.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
@@ -105,13 +116,6 @@ private Abonnement abonnement;
             descriptionCS.setVisible(false);
         }
 
-        // Validation de la salle
-        if (salleCB.getValue() == null) {
-            salleCS.setVisible(true);
-            isValid = false;
-        } else {
-            salleCS.setVisible(false);
-        }
 
         // Si l'une des validations a échoué, arrêtez le processus
         if (!isValid) {
@@ -127,7 +131,7 @@ private Abonnement abonnement;
             abonnement.setMontant(montant);
             abonnement.setDuree(duree);
             abonnement.setDescription(descriptionTF.getText());
-            abonnement.setFK_idSalle(salleCB.getValue().getId());
+           // abonnement.setFK_idSalle(salleCB.getValue().getId());
 
             ps.modifier(abonnement);
         } catch (NumberFormatException e) {
@@ -144,14 +148,14 @@ private Abonnement abonnement;
         naviguezVersAccueil(null);
     }
 
-    public void setAbonnement(Abonnement selectedAbonnement, ObservableList<Salle> observableList) {
+    public void setAbonnement(Abonnement selectedAbonnement) {
 
         this.abonnement=selectedAbonnement;
         montantTF.setText(String.valueOf(selectedAbonnement.getMontant()));
         dureTF.setText(String.valueOf(selectedAbonnement.getDuree()));
         descriptionTF.setText(selectedAbonnement.getDescription());
 
-        salleCB.setItems(observableList);
+       // salleCB.setItems(observableList);
     }
 
 }
