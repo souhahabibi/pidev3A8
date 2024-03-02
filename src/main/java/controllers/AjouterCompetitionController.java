@@ -2,7 +2,6 @@ package controllers;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-import com.twilio.Twilio;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +14,6 @@ import javafx.scene.text.Text;
 import models.Competition;
 import models.Organisateur;
 import services.CompetitionService;
-import services.OrganisateurService;
 import utils.MyDatabase;
 
 import java.io.IOException;
@@ -121,7 +119,7 @@ public class AjouterCompetitionController {
     @FXML
     void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AdminCompetition.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             nomTF.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuButton;
 import models.Competition;
 import models.Organisateur;
 import models.Reservation;
@@ -133,7 +132,7 @@ public class HomePageController {
     @FXML
     void naviguezVersCLIENT_AFFICHER_COMPETITION(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/ClientAfficherCompetitions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Client.fxml"));
             buttonO_ADD.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

@@ -12,8 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -180,7 +178,7 @@ public class StatistiqueCompetitionController {
     @FXML
     void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AdminCompetition.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             monthlyBarC.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

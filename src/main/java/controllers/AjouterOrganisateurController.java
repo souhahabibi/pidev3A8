@@ -72,7 +72,7 @@ public class AjouterOrganisateurController {
     @FXML
     void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AdminCompetition.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             numTF.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
