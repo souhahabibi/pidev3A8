@@ -10,16 +10,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import models.Competition;
@@ -33,9 +27,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-public class AdminCompetitionController {
+public class AdminController {
     OrganisateurService organisateurService = new OrganisateurService();
     CompetitionService competitionService = new CompetitionService();
     ReservationService reservationService = new ReservationService();
@@ -356,7 +349,7 @@ public class AdminCompetitionController {
     @FXML
     void naviguezVersCLIENT_AFFICHER_COMPETITION(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/ClientAfficherCompetitions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Client.fxml"));
             CompetitionContainer.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

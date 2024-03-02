@@ -13,8 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import models.Organisateur;
-import services.OrganisateurService;
 import javafx.scene.control.ListView;
 import utils.MyDatabase;
 
@@ -103,7 +101,7 @@ public class ModifyScoresController {
     @FXML
     void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AdminCompetition.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             scoreTF.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

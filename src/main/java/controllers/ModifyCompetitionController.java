@@ -10,13 +10,11 @@ import javafx.scene.text.Text;
 import models.Competition;
 import models.Organisateur;
 import services.CompetitionService;
-import services.OrganisateurService;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 
 public class ModifyCompetitionController {
     private final CompetitionService ps = new CompetitionService();
@@ -125,7 +123,7 @@ public class ModifyCompetitionController {
     @FXML
     void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AdminCompetition.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             nomTF.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

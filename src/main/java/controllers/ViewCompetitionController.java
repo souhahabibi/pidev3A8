@@ -161,7 +161,7 @@ public class ViewCompetitionController {
     @FXML
     void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/ClientAfficherCompetitions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Client.fxml"));
             joinB.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

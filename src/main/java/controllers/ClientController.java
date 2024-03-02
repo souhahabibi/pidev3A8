@@ -1,7 +1,5 @@
 package controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,21 +15,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.web.WebView;
 import models.Competition;
-import models.Organisateur;
 import services.CompetitionService;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ClientAfficherCompetitionsController {
+public class ClientController {
     CompetitionService competitionService = new CompetitionService();
 
     @FXML
