@@ -1,9 +1,13 @@
 package controllers;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -158,7 +162,16 @@ public class AbonnementClientController {
         Description.setFont(new Font("Arial", 15));
         Description.setEffect(new DropShadow());
 
-
+        Button smsButton = new Button("sms");
+        smsButton.setLayoutX(605);
+        smsButton.setLayoutY(65);
+        smsButton.setPrefSize(69, 49);
+        smsButton.setOnAction(event->handleViewButtonActionAbonnement(abonnement));
+        // Create an image view with the subscription image
+        /*ImageView imageView = new ImageView(new Image("/flaticon/subscription.png"));
+        imageView.setFitWidth(30);
+        imageView.setFitHeight(30);
+        abonnementsButton.setGraphic(imageView);*/
 
         Text montant = new Text(105, 102, "montant: " + abonnement.getMontant()); // Adjusted X to align with the map icon
         montant.setEffect(new DropShadow());
@@ -166,8 +179,17 @@ public class AbonnementClientController {
         duree.setEffect(new DropShadow());
 
         // Add all components to the pane
-        abonnementPane.getChildren().addAll( Description,montant, duree,imageView3,imageView, imageView1);
+        abonnementPane.getChildren().addAll( Description,montant, duree,imageView3,imageView, imageView1,smsButton);
 
         return abonnementPane;
+    }
+    private void handleViewButtonActionAbonnement(Abonnement abonnement) {
+        String message="je veux reserver ce abonnement de "+ String.valueOf(abonnement.getDuree())+" mois "+"et son montant ="+String.valueOf(abonnement.getMontant())+" dt "+",merci.";
+        Twilio.init("AC898ac81c6ea24c35f79b08c18e6abbdb", "0fbf8e7bd5a9bbaa3b34000c81ab18fd");
+        Message twilioMessage = Message.creator(
+                        new PhoneNumber("+21652299117"),
+                        new PhoneNumber("+19898502390"), // Twilio phone number
+                        message)
+                .create();
     }
 }

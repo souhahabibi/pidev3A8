@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -240,14 +241,25 @@ public class AdminController {
     @FXML
     void deleteSalle(Salle salle){
 
-        try {
-            s.supprimer(salle.getId());
-            // Nettoyer le contenu du conteneur avant de réafficher les salles
-            sallesContainer.getChildren().clear();
-            initialize();
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
-        }
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation de suppression");
+        confirmationAlert.setHeaderText("Confirmer la suppression");
+        confirmationAlert.setContentText("Êtes-vous sûr de vouloir supprimer cette salle ?");
+
+        // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+        confirmationAlert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // Si l'utilisateur confirme la suppression, procéder à la suppression
+                try {
+                    s.supprimer(salle.getId());
+                    // Nettoyer le contenu du conteneur avant de réafficher les salles
+                    sallesContainer.getChildren().clear();
+                    initialize();
+                } catch (SQLException e) {
+                    System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
+                }
+            }
+        });
     }
 
 

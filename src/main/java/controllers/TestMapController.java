@@ -37,12 +37,6 @@ public class TestMapController {
        String googleMapsURL = "https://www.google.com/maps/search/" + search;
 
        webMap.getEngine().load(googleMapsURL);
-       Twilio.init("AC898ac81c6ea24c35f79b08c18e6abbdb", "0fbf8e7bd5a9bbaa3b34000c81ab18fd");
-       Message twilioMessage = Message.creator(
-                       new PhoneNumber("+21652299117"),
-                       new PhoneNumber("+19898502390"), // Twilio phone number
-                       "secondtry")
-               .create();
 
   }
     @FXML

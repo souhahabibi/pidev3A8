@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -114,15 +115,26 @@ public class AbonnementAdminController {
         return abonnementPane;
     }
     void deleteAbonnement(Abonnement abonnement){
+// Créer une boîte de dialogue de confirmation
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation de suppression");
+        confirmationAlert.setHeaderText("Confirmer la suppression");
+        confirmationAlert.setContentText("Êtes-vous sûr de vouloir supprimer cet abonnement ?");
 
-        try {
-            a.supprimer(abonnement.getId());
-            // Nettoyer le contenu du conteneur avant de réafficher les salles
-            abonnementsContainer.getChildren().clear();
-            setAbonnement(x);
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
-        }
+        // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+        confirmationAlert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // Si l'utilisateur confirme la suppression, procéder à la suppression
+                try {
+                    a.supprimer(abonnement.getId());
+                    // Nettoyer le contenu du conteneur avant de réafficher les salles
+                    abonnementsContainer.getChildren().clear();
+                    setAbonnement(x);
+                } catch (SQLException e) {
+                    System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
+                }
+            }
+        });
     }
     @FXML
     void naviguezVersMODIFYAbonnement(ActionEvent event, Abonnement abonnement) {

@@ -3,11 +3,14 @@ package controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,12 +20,19 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import models.Materiel;
 import models.Salle;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import services.AbonnementService;
 import services.MaterielService;
 import services.SalleService;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MaterielAdminController {
@@ -131,14 +141,25 @@ public class MaterielAdminController {
     @FXML
     void deleteMateriel(Materiel materiel){
 
-        try {
-            m.supprimer(materiel.getId());
-            // Nettoyer le contenu du conteneur avant de réafficher les salles
-            materielsContainer.getChildren().clear();
-            setMateriel(x);
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la suppression de la salle : " + e.getMessage());
-        }
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation de suppression");
+        confirmationAlert.setHeaderText("Confirmer la suppression");
+        confirmationAlert.setContentText("Êtes-vous sûr de vouloir supprimer ce matériel ?");
+
+        // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+        confirmationAlert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // Si l'utilisateur confirme la suppression, procéder à la suppression
+                try {
+                    m.supprimer(materiel.getId());
+                    // Nettoyer le contenu du conteneur avant de réafficher les salles
+                    materielsContainer.getChildren().clear();
+                    setMateriel(x);
+                } catch (SQLException e) {
+                    System.err.println("Erreur lors de la suppression du matériel : " + e.getMessage());
+                }
+            }
+        });
     }
     @FXML
     void naviguezVersMODIFYMateriel(ActionEvent event, Materiel materiel) {
@@ -187,5 +208,86 @@ public class MaterielAdminController {
             System.err.println(e.getMessage());
         }
     }
+
+    private void drawCell(PDPageContentStream contentStream, float x, float y, float width, float height, String text, PDImageXObject image) throws IOException {
+        contentStream.setNonStrokingColor(0, 0, 0);
+        contentStream.addRect(x, y, width, height);
+        contentStream.stroke();
+        // Draw the image if it's not null
+        if (image != null) {
+            contentStream.drawImage(image, x, y, width, height);
+        }
+        // Draw the text if it's not null
+        if (text != null && !text.isEmpty()) {
+            contentStream.beginText();
+            // Center-align text horizontally and vertically
+            contentStream.newLineAtOffset(x + (width - getTextWidth(text)) / 2, y + height / 2);
+            contentStream.showText(text);
+            contentStream.endText();
+        }
+    }
+
+    private float getTextWidth(String text) throws IOException {
+        return PDType1Font.TIMES_ROMAN.getStringWidth(text) / 1000 * 10; // Font size is 10
+    }
+
+    public void downloadProductPDF() {
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage();
+            document.addPage(page);
+
+            try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+                // Add the logo at the top of the page
+                PDImageXObject logo = PDImageXObject.createFromFile("C:\\Workshop-JDBC-JavaFX-master__2\\src\\main\\resources\\flaticon\\418597714_683613163937422_3465083466212055398_n.png", document);
+                contentStream.drawImage(logo, 50, page.getMediaBox().getHeight() - 100, 100, 100);
+                // Add the title
+                String title = "Liste des Matériels";
+                float fontSize = 24;
+                float titleWidth = PDType1Font.HELVETICA_BOLD.getStringWidth(title) / 1000 * fontSize;
+                float titleHeight = PDType1Font.HELVETICA_BOLD.getFontDescriptor().getFontBoundingBox().getHeight() / 1000 * fontSize;
+                float xTitle = (page.getMediaBox().getWidth() - titleWidth) / 2;
+                float yTitle = page.getMediaBox().getHeight() - 50 - titleHeight; // Place the title 50 points from the top
+                contentStream.beginText();
+                contentStream.setFont(PDType1Font.HELVETICA_BOLD, fontSize);
+                contentStream.newLineAtOffset(xTitle, yTitle);
+                contentStream.showText(title);
+                contentStream.endText();
+                // Define the positions for the table
+                float margin = 70;
+                float yPosition = page.getMediaBox().getHeight() - 200; // Position to start the table
+                float rowHeight = 100;
+                float cellMargin = 5;
+                float yStart = yPosition;
+                contentStream.setFont(PDType1Font.TIMES_ROMAN, 10);
+                drawCell(contentStream, margin, yPosition, 100, rowHeight, "Image",null);
+                drawCell(contentStream, margin + 100, yPosition, 100, rowHeight, "Nom",null);
+                drawCell(contentStream, margin + 200, yPosition, 100, rowHeight, "Quantité",null);
+                drawCell(contentStream, margin + 300, yPosition, 100, rowHeight, "Coût",null);
+                yPosition -= rowHeight;
+                // Create the table to display materials' information
+                List<Materiel> materiels = new MaterielService().select(x);
+                for (Materiel materiel : materiels) {
+
+                    // Draw table headers
+
+
+                    PDImageXObject image = PDImageXObject.createFromFile(materiel.getImage(), document);
+                    drawCell(contentStream, margin, yPosition, 100, rowHeight, "", image); // Placeholder for image
+                    drawCell(contentStream, margin + 100, yPosition, 100, rowHeight, materiel.getNom(),null);
+                    drawCell(contentStream, margin + 200, yPosition, 100, rowHeight, String.valueOf(materiel.getQuantite()),null);
+                    drawCell(contentStream, margin + 300, yPosition, 100, rowHeight, String.valueOf(materiel.getPrix()),null);
+                    yPosition -= rowHeight;
+                }
+            }
+
+            // Specify the full path for the output file
+            String outputFile = "C:\\Users\\Cyrinechalghoumi\\Downloads\\output7.pdf";
+            document.save(new File(outputFile));
+            System.out.println("PDF file created successfully!");
+        } catch (IOException | SQLException e) {
+            System.err.println("Error creating PDF file: " + e.getMessage());
+        }
+    }
+
 
 }

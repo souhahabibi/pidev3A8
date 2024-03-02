@@ -1,6 +1,9 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.DropShadow;
@@ -15,6 +18,7 @@ import models.Salle;
 import services.MaterielService;
 import services.SalleService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -35,6 +39,15 @@ public class MaterielClientController {
         }
     }
     @FXML
+    void naviguezVersClient(ActionEvent event) {//Event=représente l'événement déclenché avec l'élément graphique associé.
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Client.fxml"));//charger le fichier FXML
+            materielsContainer.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    @FXML
     private void displayMateriels(int id) throws SQLException {
 
         List<Materiel> materiels = s.select(id); // Adjust this line to match your method for fetching competitions
@@ -47,7 +60,7 @@ public class MaterielClientController {
     @FXML
     public Pane createMaterielEntry(Materiel materiel ) {
         Pane materielPane = new Pane();
-        materielPane.setPrefSize(912, 300); // Adjusted to match your FXML Pane size
+        materielPane.setPrefSize(712, 200); // Adjusted to match your FXML Pane size
         materielPane.setStyle("-fx-border-color: #8B0000; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
         Image image = new Image("file:" + materiel.getImage());
 

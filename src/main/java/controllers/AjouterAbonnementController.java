@@ -117,6 +117,7 @@ public class AjouterAbonnementController {
                     descriptionTF.getText(),
                     x
             ));
+
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");

@@ -15,12 +15,21 @@ import javafx.stage.FileChooser;
 import models.Personne;
 import models.Salle;
 import services.SalleService;
+import utils.MyDatabase;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class AjouterSalleController {
+    Connection connection;
     @FXML
     ImageView imageView;
     @FXML
@@ -82,6 +91,11 @@ public class AjouterSalleController {
         // Si toutes les validations sont passées, ajoutez la salle
         try {
             ps.ajouter(new Salle(nomTF.getText(), descriptionTA.getText(), lieuTF.getText(), imagePath));
+            try {
+                sendEmail(null," annoncement de l'ouverture de notre nouvelle salle"," ouverture d'une nouvelle salle "+nomTF.getText()+" à "+lieuTF +"+ ,merci");
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
             naviguezVersAccueil(null);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -97,7 +111,62 @@ public class AjouterSalleController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+    private void mailerSender(){
+        try {
+            // Connect to the database and retrieve email addresses
+            connection = MyDatabase.getInstance().getConnection();
+            String selectQuery = "SELECT email FROM personne"; // Adjust your query accordingly
+            PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
+            // Iterate through the result set and send email to each address
+            while (resultSet.next()) {
+                String to = resultSet.getString("email");
+                String subject = "Your Subject Here"; // Set your email subject
+                String text = "Your Email Body Here"; // Set your email body
+
+                sendEmail(to, subject, text);
+            }
+
+            // Close database connections
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException | MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+    public void sendEmail(String to, String subject, String text) throws MessagingException {
+        final String from = "cyrine.chalghoumi@esprit.tn"; // Change to your email
+        final String password = "Kuj69132"; // Change to your email password
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp-mail.outlook.com"); // Change to your SMTP host
+        props.put("mail.smtp.port", "587"); // SMTP port (587 for TLS, 465 for SSL)
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true"); // Enable TLS
+
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(from, password);
+                    }
+                });
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject);
+            message.setText(text);
+
+            Transport.send(message);
+
+            System.out.println("Email sent successfully");
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     void choisirImage(ActionEvent event) {
 
