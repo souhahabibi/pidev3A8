@@ -29,10 +29,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CoachMealMangagementController implements Initializable {
@@ -153,18 +150,45 @@ public class CoachMealMangagementController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            System.out.println("test");
+            usersList.getItems().clear();
+
+            // Populate the usersList ComboBox with usernames
+            List<String> usernames = userService.getAll().stream()
+                    .map(User::getUsername)
+                    .collect(Collectors.toList());
+
+            // Add unique usernames to the ComboBox
+            Set<String> uniqueUsernames = new LinkedHashSet<>(usernames);
+            usersList.getItems().addAll(uniqueUsernames);
+            searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+                searchMeal();
+            });
             for (MealTime b : MealTime.values()) {
                 Meal_time.getItems().add(b.toString());
             }
-            for (User u : userService.getAll()) {
-                usersList.getItems().add(u.getUsername());
-            }
+
+
         } catch (Exception e) {
             System.out.println("error");
         }
         show();
     }
+    private void searchMeal() {
+        String searchQuery = searchField.getText().trim();
 
+        if (!searchQuery.isEmpty()) {
+            List<Meal> searchResults = meals.stream()
+                    .filter(meal -> meal.getName().toLowerCase().contains(searchQuery.toLowerCase()))
+                    .collect(Collectors.toList());
+
+            // Update the UI with the search results
+            show(searchResults);
+        } else {
+            // If the search query is empty, show all meals
+            show(meals);
+        }
+    }
     public void show() {
         meals.setAll(getData());
         System.out.println(meals);
@@ -352,6 +376,7 @@ public class CoachMealMangagementController implements Initializable {
        // imgMeal.setImage(img);
        // return file;
    // }
+
        @FXML
        void create(ActionEvent event) {
            try {
@@ -466,43 +491,41 @@ public class CoachMealMangagementController implements Initializable {
                     .filter(meal -> meal.getName().toLowerCase().contains(searchQuery.toLowerCase()))
                     .collect(Collectors.toList());
 
-            if (!searchResults.isEmpty()) {
-                // Set the chosen meal to the first result
-                setChosenMeal(searchResults.get(0));
-
-                // Update the UI to display the search results
-                meals.setAll(searchResults);
-                show();
-
-                // Show an alert to ask if the user wants to see the chosen meal
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Search Results");
-                alert.setHeaderText(null);
-                alert.setContentText("Your meal is found. Do you want to see it?");
-
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.isPresent() && result.get() == ButtonType.OK) {
-                    // Handle the case where the user wants to see the chosen meal
-                    // You can open a new window, display details, etc.
-                }
-            } else {
-                // No matching meals found
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Search Results");
-                alert.setHeaderText(null);
-                alert.setContentText("No meals found matching the search criteria.");
-                alert.show();
-            }
+            // Update the UI with the search results
+            show(searchResults);
         } else {
-            // Empty search query
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Empty Search Query");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter a meal name to search.");
-            alert.show();
+            // If the search query is empty, show all meals
+            show(meals);
         }
     }
 
+    public void show(List<Meal> displayMeals) {
+        grid.getChildren().clear(); // Clear the existing grid
+
+        int column = 0;
+        int row = 1;
+
+        try {
+            for (int i = 0; i < displayMeals.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/item.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                MealController itemController = fxmlLoader.getController();
+                itemController.setData(displayMeals.get(i), myListener);
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import tn.esprit.entities.Meal;
+import tn.esprit.services.APIs.SendMail;
 import tn.esprit.services.Impl.MealImpl;
 
 import javax.swing.*;
@@ -21,7 +22,15 @@ import java.net.URL;
 import java.nio.file.*;
 import java.util.ResourceBundle;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
 public class CreateMealController implements Initializable {
+
+    private final String ACCOUNT_SID = "AC5a4eb19d8a6ba01904d59307be80a6ff";
+    private final String AUTH_TOKEN = "461e062a1dd65eb6755af986bf99c874";
+
 
     private static CreateMealController instance;
     public CreateMealController() {
@@ -126,6 +135,18 @@ public class CreateMealController implements Initializable {
 
                     Meal m = new Meal(Meal_Name.getText(), path, RecipeText.getText(), Integer.parseInt(Calories.getText()));
                     service.save(m);
+                    String destinataire = "yosri.selmi369@gmail.com";
+                    String sujet = "Nouveau produit ajouté";
+                    String contenu = "Un nouveau produit a été ajouté pour le fournisseur : ";
+
+                    SendMail.envoyerEmailSansAuthentification(destinataire, sujet, contenu);
+                    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+                    Message twilioMessage = Message.creator(
+                                    new PhoneNumber("+21695359282"),  // User's phone number
+                                    new PhoneNumber("+13346211559"),  // Twilio phone number
+                                    "New meal added: " + m.getName())
+                            .create();
+
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");

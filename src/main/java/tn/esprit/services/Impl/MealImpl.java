@@ -177,7 +177,7 @@ public class MealImpl implements IMealService {
         return meal;
     }
     public List<Ingredient> getMealIngredients(Meal meal) {
-        String req = "select * from ingredients_meal where meal_id=?";
+        String req = "select * from ingredient_meal where meal_id=?";
         List<Ingredient> ingredients = new ArrayList<Ingredient>();
         Ingredient ingred = null;
         try {
