@@ -5,9 +5,9 @@ public class Abonnement {
    private int montant;
     private int duree;
     private  String description;
-    private int FK_idSalle;
+    private Salle FK_idSalle;
 
-   public Abonnement(int id,int montant,int duree ,String description , int FK_idSalle){
+   public Abonnement(int id,int montant,int duree ,String description , Salle FK_idSalle){
        this.id=id;
        this.montant=montant;
        this.duree=duree;
@@ -15,7 +15,7 @@ public class Abonnement {
        this.FK_idSalle=FK_idSalle;
    }
 
-    public Abonnement(int montant,int duree ,String description , int FK_idSalle){
+    public Abonnement(int montant,int duree ,String description , Salle FK_idSalle){
 
         this.montant=montant;
         this.duree=duree;
@@ -42,7 +42,7 @@ public class Abonnement {
         return description;
     }
 
-    public int getFK_idSalle() {
+    public Salle getFK_idSalle() {
         return FK_idSalle;
     }
 
@@ -62,7 +62,7 @@ public class Abonnement {
         this.description = description;
     }
 
-    public void setFK_idSalle(int FK_idSalle) {
+    public void setFK_idSalle(Salle FK_idSalle) {
         this.FK_idSalle = FK_idSalle;
     }
 

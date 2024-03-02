@@ -107,7 +107,7 @@ public class MaterielAdminController {
         prix.setFont(Font.font("Arial", 16));
         prix.setEffect(new DropShadow());
 
-        Text salle = new Text(249, 170, "Salle : " + s.selectSalleNameById(materiel.getFK_idSalle()));
+        Text salle = new Text(249, 170, "Salle : " + s.selectSalleNameById(materiel.getFK_idSalle().getId()));
         salle.setFont(Font.font("Arial", 16));
         salle.setEffect(new DropShadow());
 
@@ -289,5 +289,13 @@ public class MaterielAdminController {
         }
     }
 
-
+    @FXML
+    void naviguezVersClient(ActionEvent event) {//Event=représente l'événement déclenché avec l'élément graphique associé.
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));//charger le fichier FXML
+            materielsContainer.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 }

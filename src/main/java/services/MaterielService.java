@@ -10,6 +10,7 @@ import java.util.List;
 
 public class MaterielService implements IService<Materiel> {
     private Connection connection;
+    SalleService ss = new SalleService();
 
     public MaterielService() {
         connection = MyDatabase.getInstance().getConnection();
@@ -26,7 +27,7 @@ public class MaterielService implements IService<Materiel> {
             statement.setInt(2, materiel.getAge());
             statement.setInt(3, materiel.getQuantite());
             statement.setDouble(4, materiel.getPrix());
-            statement.setInt(5, materiel.getFK_idSalle());
+            statement.setInt(5, materiel.getFK_idSalle().getId());
             // Assuming image is a byte array
             statement.setString(6, materiel.getImage());
 
@@ -47,7 +48,7 @@ public class MaterielService implements IService<Materiel> {
         preparedStatement.setInt(2, materiel.getAge());
         preparedStatement.setInt(3, materiel.getQuantite());
         preparedStatement.setInt(4, materiel.getPrix());
-        preparedStatement.setInt(5, materiel.getFK_idSalle());
+        preparedStatement.setInt(5, materiel.getFK_idSalle().getId());
         preparedStatement.setString(6, materiel.getImage());
         preparedStatement.setInt(7, materiel.getId());
 
@@ -78,7 +79,7 @@ public class MaterielService implements IService<Materiel> {
             s.setAge(rs.getInt("age"));
             s.setQuantite(rs.getInt("quantite"));
             s.setPrix(rs.getInt("prix"));
-            s.setFK_idSalle(rs.getInt("FK_idSalle"));
+            s.setFK_idSalle(ss.getsalle(rs.getInt("FK_idSalle")));
             s.setImage(rs.getString("image"));
 
 
@@ -104,7 +105,7 @@ public class MaterielService implements IService<Materiel> {
                     s.setAge(rs.getInt("age"));
                     s.setQuantite(rs.getInt("quantite"));
                     s.setPrix(rs.getInt("prix"));
-                    s.setFK_idSalle(rs.getInt("FK_idSalle"));
+                    s.setFK_idSalle(ss.getsalle(rs.getInt("FK_idSalle")));
                     s.setImage(rs.getString("image"));
                     materiels.add(s);
                 }

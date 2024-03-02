@@ -1,11 +1,12 @@
 package models;
 
 public class Materiel {
- private int id,quantite,prix,age,FK_idSalle;
+ private int id,quantite,prix,age;
     private String nom ,image;
+    private Salle FK_idSalle;
 
  //constructeurs
- public Materiel(int id, String nom, int age, int quantite, int prix,int FK_idSalle,String image){
+ public Materiel(int id, String nom, int age, int quantite, int prix,Salle FK_idSalle,String image){
      this.id=id;
      this.nom = nom;
      this.age = age;
@@ -15,7 +16,7 @@ public class Materiel {
      this.image = image;
  }
 
-    public Materiel(String nom, int age, int quantite, int prix,String image,int FK_idSalle){
+    public Materiel(String nom, int age, int quantite, int prix,String image,Salle FK_idSalle){
 
         this.nom = nom;
         this.age = age;
@@ -69,11 +70,11 @@ public class Materiel {
         this.prix = prix;
     }
 
-    public int getFK_idSalle() {
+    public Salle getFK_idSalle() {
         return FK_idSalle;
     }
 
-    public void setFK_idSalle(int FK_idSalle) {
+    public void setFK_idSalle(Salle FK_idSalle) {
         this.FK_idSalle = FK_idSalle;
     }
 

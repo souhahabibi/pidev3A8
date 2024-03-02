@@ -74,7 +74,7 @@ public class ModifierMaterielController {
             // Here, you retrieve the selected item from your ListView
 
 
-            controller.setMateriel(materiel.getFK_idSalle());
+            controller.setMateriel(materiel.getFK_idSalle().getId());
 
             // Finally, set the scene's root to switch to the new view
             buttonMModifier.getScene().setRoot(root);

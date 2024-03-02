@@ -92,7 +92,7 @@ public class AjouterSalleController {
         try {
             ps.ajouter(new Salle(nomTF.getText(), descriptionTA.getText(), lieuTF.getText(), imagePath));
             try {
-                sendEmail(null," annoncement de l'ouverture de notre nouvelle salle"," ouverture d'une nouvelle salle "+nomTF.getText()+" à "+lieuTF +"+ ,merci");
+                sendEmail("cirin.chalghoumi@gmail.com"," annoncement de l'ouverture de notre nouvelle salle"," ouverture d'une nouvelle salle "+nomTF.getText()+" à "+lieuTF +"+ ,merci");
             } catch (MessagingException e) {
                 throw new RuntimeException(e);
             }

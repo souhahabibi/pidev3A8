@@ -83,6 +83,24 @@ public class SalleService implements IService<Salle>
         }
         return  null;
     }
-
+public  Salle getsalle(int id){
+    Salle salle = null;
+    String sql = "SELECT * FROM salle WHERE id = ?";
+    try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        statement.setInt(1, id);
+        ResultSet rs = statement.executeQuery();
+        if (rs.next()) {
+            salle = new Salle();
+            salle.setId(rs.getInt("id"));
+            salle.setNom(rs.getString("nom"));
+            salle.setDescription(rs.getString("description"));
+            salle.setLieu(rs.getString("lieu"));
+            salle.setImage(rs.getString("image"));
+        }
+    } catch (SQLException e) {
+        System.err.println("Erreur lors de la récupération des détails de la salle : " + e.getMessage());
+    }
+    return salle;
+}
 
 }

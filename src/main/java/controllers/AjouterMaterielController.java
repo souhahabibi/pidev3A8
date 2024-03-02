@@ -61,6 +61,7 @@ public class AjouterMaterielController {
     private  int x=0;
 
     private final MaterielService ps = new MaterielService();
+    private final SalleService ss = new SalleService();
     private Materiel materiel;
     @FXML
     void ajouterMateriel(ActionEvent event) {
@@ -155,7 +156,7 @@ public class AjouterMaterielController {
                     quantite,
                     prix,
                     imagePath,
-                    x
+                    ss.getsalle(x)
             ));
             naviguezVersAccueil(null);
         } catch (SQLException e) {

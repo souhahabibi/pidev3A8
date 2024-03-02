@@ -33,6 +33,15 @@ public class AbonnementAdminController {
     AbonnementService a = new AbonnementService();
     private int x;
     @FXML
+    void naviguezVersClient(ActionEvent event) {//Event=représente l'événement déclenché avec l'élément graphique associé.
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));//charger le fichier FXML
+            abonnementsContainer.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    @FXML
     public void setAbonnement(int id) {
         x=id;
         try {
@@ -62,7 +71,7 @@ public class AbonnementAdminController {
 
         Text montantText = new Text(71, 180, "Montant : " + abonnement.getMontant());
         Text dureeText = new Text(329, 180, "Durée : " + abonnement.getDuree()+"mois");
-        Text salleText = new Text(578, 180, "Salle : " +  s.selectSalleNameById(abonnement.getFK_idSalle()));
+        Text salleText = new Text(578, 180, "Salle : " +  s.selectSalleNameById(abonnement.getFK_idSalle().getId()));
 
         ImageView descriptionImageView = new ImageView(new Image("/flaticon/file (1).png"));
         descriptionImageView.setFitHeight(30);

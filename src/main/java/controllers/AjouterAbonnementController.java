@@ -11,6 +11,7 @@ import models.Materiel;
 import models.Salle;
 import services.AbonnementService;
 import services.MaterielService;
+import services.SalleService;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -48,6 +49,7 @@ public class AjouterAbonnementController {
 
     private final AbonnementService ps = new AbonnementService();
     private Abonnement abonnement;
+    SalleService ss = new SalleService();
 
     @FXML
     void ajouterAbonnement(ActionEvent event) {
@@ -115,7 +117,7 @@ public class AjouterAbonnementController {
                     montant,
                     duree,
                     descriptionTF.getText(),
-                    x
+                    ss.getsalle(x)
             ));
 
         } catch (NumberFormatException e) {

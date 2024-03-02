@@ -49,26 +49,6 @@
                                     </AnchorPane>
                               </content>
                             </Tab>
-
-                              <Tab text="abonnements">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ImageView fitHeight="116.0" fitWidth="130.0" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Text layoutX="418.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la liste des abonnements" wrappingWidth="161.662109375" />
-                                          <ScrollPane layoutX="98.0" layoutY="116.0" prefHeight="383.0" prefViewportHeight="324.0" prefViewportWidth="941.0" prefWidth="883.0">
-                                             <content>
-                                                <VBox fx:id="abonnementsContainer" layoutX="58.0" layoutY="116.0" />
-                                             </content>
-                                          </ScrollPane>
-
-                                       </children></AnchorPane>
-                                 </content>
-                              </Tab>
                           </tabs>
                         </TabPane>
                      </children>

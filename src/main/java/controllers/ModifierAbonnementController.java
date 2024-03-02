@@ -57,7 +57,7 @@ private Abonnement abonnement;
             // Here, you retrieve the selected item from your ListView
 
 
-            controller.setAbonnement(this.abonnement.getFK_idSalle());
+            controller.setAbonnement(this.abonnement.getFK_idSalle().getId());
 
             // Finally, set the scene's root to switch to the new view
             dureTF.getScene().setRoot(root);

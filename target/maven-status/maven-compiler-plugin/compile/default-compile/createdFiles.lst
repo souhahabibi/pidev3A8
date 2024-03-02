@@ -13,6 +13,7 @@ services\PersonneService.class
 controllers\TestMapController.class
 controllers\MaterielClientController.class
 controllers\AfficherPersonnesController.class
+controllers\AjouterSalleController$1.class
 models\Abonnement.class
 test\Main.class
 utils\MyDatabase.class
