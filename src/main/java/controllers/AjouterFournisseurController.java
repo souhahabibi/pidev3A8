@@ -95,20 +95,20 @@ public class AjouterFournisseurController {
             serviceFournisseur.ajouter(fournisseur);
 
             // Charger le fichier afficherFournisseur.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/AfficherFournisseurs.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
 
             // Afficher la nouvelle scène avec les données du fournisseur ajouté
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
             // Envoyer un SMS pour indiquer qu'un nouveau fournisseur est ajouté
-            Twilio.init("AC1a44aabedb725c79e6704984db67fe7e", "3a8cb25262bfe1b901a443e331a7518e");
-            Message twilioMessage = Message.creator(
-                    new PhoneNumber("+21620185787"), // Numéro de téléphone du destinataire
-                    new PhoneNumber("+15189636614"), // Numéro Twilio
-                    "Un nouveau fournisseur est ajouté"
-            ).create();
-            System.out.println("SMS envoyé avec succès : " + twilioMessage.getSid()); // Pour vérification dans la console
+           // Twilio.init("AC1a44aabedb725c79e6704984db67fe7e", "3a8cb25262bfe1b901a443e331a7518e");
+           // Message twilioMessage = Message.creator(
+                 //   new PhoneNumber("+21620185787"), // Numéro de téléphone du destinataire
+                  //  new PhoneNumber("+15189636614"), // Numéro Twilio
+                    //"Un nouveau fournisseur est ajouté"
+           // ).create();
+            //System.out.println("SMS envoyé avec succès : " + twilioMessage.getSid()); // Pour vérification dans la console
 
         } catch (SQLException | IOException e) {
             e.printStackTrace(); // Gérer les exceptions correctement

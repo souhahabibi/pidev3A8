@@ -12,7 +12,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Application.setUserAgentStylesheet(new NordDark().getUserAgentStylesheet());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Acceuil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Admin.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Gérer fournisseurs");

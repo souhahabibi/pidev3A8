@@ -10,6 +10,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -84,7 +85,7 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
 
 
     //@FXML
-   // private TableColumn<tn.esprit.entites.Produit, String> imageCol;
+    // private TableColumn<tn.esprit.entites.Produit, String> imageCol;
 
     private final ImageView imageView = new ImageView();
     private final double IMAGE_SIZE = 100; // Taille de l'image
@@ -563,7 +564,5 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
             System.err.println("Erreur lors de la création du fichier PDF : " + e.getMessage());
         }
     }
-
-
 }
 

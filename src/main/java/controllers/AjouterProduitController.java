@@ -182,7 +182,7 @@ public class AjouterProduitController {
             produitService.ajouter(produit);
 
             // Charger le fichier AfficherProduits.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherFournisseurs.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Admin.fxml"));
             Parent root = loader.load();
 
             // Afficher la nouvelle scène avec les données du produit ajouté

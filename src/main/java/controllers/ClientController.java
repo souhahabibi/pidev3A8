@@ -93,6 +93,7 @@ public class ClientController {
         Text produitText = new Text("Double clic pour générer le QR code");
         produitText.setLayoutX(500);
         produitText.setLayoutY(200);
+
         produitPane.setOnMouseClicked(event -> {
             generateQRCode(produit);
         });

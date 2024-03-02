@@ -68,6 +68,7 @@ public class ModifierProduitController  {
     public void setProduit(tn.esprit.entites.Produit produit, ObservableList<tn.esprit.entites.Fournisseur> observableList) throws SQLException {
         this.produit = produit;
 
+
         nomTF.setText(produit.getNom());
         quantiteTF.setText(String.valueOf(produit.getQuantite())); // Convertir int en String
         coutTF.setText(String.valueOf(produit.getCout())); // Convertir float en String
@@ -78,7 +79,6 @@ public class ModifierProduitController  {
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         LocalDate localDate = sqlDate.toLocalDate();
         dateExpirationDP.setValue(localDate);
-
 
 
         // Utiliser la liste observable pour les fournisseurs
@@ -185,7 +185,7 @@ public class ModifierProduitController  {
     @FXML
         void naviguezVersAffichage (ActionEvent event){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AfficherFournisseurs.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             nomTF.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
@@ -205,5 +205,46 @@ public class ModifierProduitController  {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }}
+    }
+    @FXML
+    public void setProduits(tn.esprit.entites.Produit selectedMateriel) {
+
+        this.produit=selectedMateriel;
+        nomTF.setText(selectedMateriel.getNom());
+        descriptionTF.setText(String.valueOf(selectedMateriel.getDescription()));
+        quantiteTF.setText(String.valueOf(selectedMateriel.getQuantite()));
+        coutTF.setText(String.valueOf(selectedMateriel.getCout()));
+        //salle_TF.setItems(observableList);
+        Image image = new Image( selectedMateriel.getImage());
+        imageView.setImage(image);
+        // Convertir java.sql.Date en LocalDate directement
+        java.util.Date utilDate = produit.getDate_expiration();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        LocalDate localDate = sqlDate.toLocalDate();
+        dateExpirationDP.setValue(localDate);
+        // Récupération des fournisseurs depuis la base de données
+        List<tn.esprit.entites.Fournisseur> fournisseurs;
+        try {
+            fournisseurs = serviceFournisseur.recuperer();
+        } catch (SQLException e) {
+            // Gérer l'exception
+            e.printStackTrace();
+            return;
+        }
+
+        // Ajout des fournisseurs dans le ComboBox
+        fournisseurCB.getItems().addAll(fournisseurs);
+
+
+        // Recherche du fournisseur associé au produit
+        Fournisseur fournisseurProduit = produit.getFournisseur();
+        if (fournisseurProduit != null) {
+            // Récupérer le nom du fournisseur associé au produit
+            String nomFournisseurProduit = fournisseurProduit.getNom();
+            // Sélectionner le fournisseur dans le ComboBox
+            fournisseurCB.setValue(fournisseurProduit);
+        }
+
+    }
+}
 
