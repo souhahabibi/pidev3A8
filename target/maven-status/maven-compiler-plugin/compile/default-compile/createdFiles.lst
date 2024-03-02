@@ -1,0 +1,10 @@
+controllers\GestionCouponsController$1.class
+controllers\LoginController.class
+controllers\RestPasswordController$1.class
+controllers\NewPasswordController.class
+controllers\CheckController.class
+controllers\RestPasswordController.class
+controllers\ProfileController.class
+controllers\VerifieAccountController.class
+controllers\AddUserController$1.class
+services\Codes.class

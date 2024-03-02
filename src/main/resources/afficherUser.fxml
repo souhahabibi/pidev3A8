@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherUserController">
+   <children>
+      <TableView fx:id="tableviewUser" layoutY="173.0" prefHeight="433.0" prefWidth="1000.0">
+        <columns>
+          <TableColumn fx:id="nomCol" prefWidth="105.0" text="Nom" />
+          <TableColumn fx:id="emailCol" prefWidth="104.0" text="email" />
+            <TableColumn fx:id="numeroCol" prefWidth="109.0" text="numero" />
+            <TableColumn fx:id="poidsCol" minWidth="0.0" prefWidth="105.0" text="poids" />
+            <TableColumn fx:id="tailleCol" minWidth="0.0" prefWidth="115.0" text="taille" />
+            <TableColumn fx:id="specialiteCol" prefWidth="109.0" text="specialite" />
+            <TableColumn fx:id="niveauCol" maxWidth="356.0" prefWidth="135.0" text="niveau" />
+            <TableColumn fx:id="roleCol" prefWidth="81.0" text="role" />
+            <TableColumn fx:id="recommandationCol" prefWidth="136.0" text="recommandation" />
+        </columns>
+      </TableView>
+      <Button fx:id="modifierButton" layoutX="750.0" layoutY="105.0" mnemonicParsing="false" onAction="#naviguezVersModification" text="Modifier" />
+      <Button fx:id="supprimerButton" layoutX="870.0" layoutY="105.0" mnemonicParsing="false" onAction="#supprimerUser" text="Supprimer" />
+      <Button fx:id="coupon" layoutX="24.0" layoutY="98.0" mnemonicParsing="false" onAction="#naviguezVersCoupon" prefHeight="38.0" prefWidth="102.0" text="Ajouter Coupon" />
+   </children>
+</AnchorPane>
