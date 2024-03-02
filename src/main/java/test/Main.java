@@ -71,7 +71,7 @@ public class Main {
             System.out.println("Format de date invalide, veuillez entrer la date au format dd/MM/yyyy");
             return;
         }
-        nouveauProduit.setId_fournisseur(5); // ID du fournisseur auquel ce produit appartient
+        //nouveauProduit.setId_fournisseur(5); // ID du fournisseur auquel ce produit appartient
         serviceProduit.ajouter(nouveauProduit);
         // Modification d'un produit existant
        // Produit produitAModifier = serviceProduit.afficher().get(0); // par exemple, le premier produit

@@ -88,7 +88,14 @@ public class ClientController {
         produitPane.setId("produitPane" + produit.getId_produit());
         produitPane.setPrefSize(912, 217);
         produitPane.setStyle("-fx-border-color: #666666; -fx-border-radius: 10; -fx-border-width: 1; -fx-background-color: rgba(200,200,200,0.4);-fx-background-radius: 11; ");
-
+//qr
+        //QR
+        Text produitText = new Text("Double clic pour générer le QR code");
+        produitText.setLayoutX(500);
+        produitText.setLayoutY(200);
+        produitPane.setOnMouseClicked(event -> {
+            generateQRCode(produit);
+        });
         ImageView imageView = new ImageView(new Image(produit.getImage()));
         imageView.setFitWidth(150);
         imageView.setFitHeight(150);
@@ -124,19 +131,8 @@ public class ClientController {
         produitCout.setFont(new Font("Arial", 17));
         produitCout.setEffect(new DropShadow());
 
-        Button acheterButton = new Button("Acheter");
-        acheterButton.setOnAction(event -> acheterProduit(produit));
-        acheterButton.setLayoutX(735);
-        acheterButton.setLayoutY(85);
-        acheterButton.setPrefSize(149, 49);
-        acheterButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #891b1b, #a7473e); " +
-                "-fx-background-radius: 5px; " +
-                "-fx-cursor: hand; " +
-                "-fx-text-fill: #fff; " +
-                "-fx-font-size: 14px;");
-        acheterButton.setOnMouseEntered(event -> acheterButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #891b1b, #ff0000);"));
-        acheterButton.setOnMouseExited(event -> acheterButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #891b1b, #a7473e);"));
-        produitPane.getChildren().addAll(imageView, produitName, produitDescription, produitCout, acheterButton);
+
+        produitPane.getChildren().addAll(imageView, produitName, produitDescription, produitCout,produitText);
 
         return produitPane;
     }
@@ -160,21 +156,17 @@ public class ClientController {
 
 
 
-    @FXML
 
+
+    @FXML
     private void ouvrirPanier(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/acheter.fxml"));
             Parent root = loader.load();
 
-            AcheterController controller = loader.getController();
+            AcheterController controller = loader.getController(); // Récupérer le contrôleur du fichier FXML chargé
             if (controller != null) {
-                // Si le contrôleur existe déjà, utilisez-le
-                controller.initData(produitsAchetes);
-            } else {
-                // Si le contrôleur n'existe pas, créez une nouvelle instance
-                controller = new AcheterController();
-                controller.initData(produitsAchetes);
+                controller.initData(produitsAchetes); // Initialiser les données du contrôleur
             }
 
             Scene scene = new Scene(root);
@@ -186,6 +178,7 @@ public class ClientController {
             e.printStackTrace();
         }
     }
+
 
     public void ajouterAuPanier(tn.esprit.entites.Produit produit) {
         produitsAchetes.add(produit);
@@ -234,4 +227,48 @@ public class ClientController {
             System.err.println(e.getMessage());
         }
     }
+    private void generateQRCode(tn.esprit.entites.Produit produit) {
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        String information = "NOM: " + produit.getNom() + "\n" + "Description : " + produit.getDescription() + "\n" + "Prix : " + produit.getCout() + "\n";
+        int width = 100;
+        int height = 100;
+
+        BufferedImage bufferedImage = null;
+        try {
+            BitMatrix byteMatrix = qrCodeWriter.encode(information, BarcodeFormat.QR_CODE, width, height);
+            bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    bufferedImage.setRGB(j, i, byteMatrix.get(j, i) ? Color.BLACK.getRGB() : Color.WHITE.getRGB());
+                }
+            }
+
+            // Convert BufferedImage to JavaFX Image
+            WritableImage writableImage = new WritableImage(width, height);
+            PixelWriter pixelWriter = writableImage.getPixelWriter();
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    pixelWriter.setArgb(x, y, bufferedImage.getRGB(x, y));
+                }
+            }
+
+            // Create ImageView for the QR code image
+            ImageView imageViewQRCode = new ImageView(writableImage);
+            imageViewQRCode.setLayoutX(600);
+            imageViewQRCode.setLayoutY(65);
+            // Find the product pane corresponding to the clicked product
+            Pane productPane = (Pane) Produit.getChildren().stream()
+                    .filter(node -> node.getId().equals("produitPane" + produit.getId_produit()))
+                    .findFirst().orElse(null);
+
+            // Add the QR code image to the product pane
+            if (productPane != null) {
+                productPane.getChildren().add(imageViewQRCode);
+            }
+
+        } catch (WriterException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 }

@@ -9,20 +9,20 @@ import java.util.Date;
         private int quantite;
         private float cout;
         private Date date_expiration;
-        private int id_fournisseur; // Clé étrangère
+        private tn.esprit.entites.Fournisseur fournisseur; // Référence à l'objet Fournisseur
         private String description;
         private String image;
 
         public Produit() {
         }
 
-        public Produit(int id_produit, String nom, int quantite, float cout, Date date_expiration, int id_fournisseur, String description, String image) {
+        public Produit(int id_produit, String nom, int quantite, float cout, Date date_expiration, tn.esprit.entites.Fournisseur fournisseur, String description, String image) {
             this.id_produit = id_produit;
             this.nom = nom;
             this.quantite = quantite;
             this.cout = cout;
             this.date_expiration = date_expiration;
-            this.id_fournisseur = id_fournisseur;
+            this.fournisseur = fournisseur;
             this.description = description;
             this.image = image;
         }
@@ -67,12 +67,12 @@ import java.util.Date;
             this.date_expiration = date_expiration;
         }
 
-        public int getId_fournisseur() {
-            return id_fournisseur;
+        public tn.esprit.entites.Fournisseur getFournisseur() {
+            return fournisseur;
         }
 
-        public void setId_fournisseur(int id_fournisseur) {
-            this.id_fournisseur = id_fournisseur;
+        public void setFournisseur(tn.esprit.entites.Fournisseur fournisseur) {
+            this.fournisseur = fournisseur;
         }
 
         public String getDescription() {
@@ -99,7 +99,7 @@ import java.util.Date;
                     ", quantite=" + quantite +
                     ", cout=" + cout +
                     ", date_expiration=" + date_expiration +
-                    ", id_fournisseur=" + id_fournisseur +
+                    ", fournisseur=" + fournisseur +
                     ", description='" + description + '\'' +
                     ", image='" + image + '\'' +
                     '}';

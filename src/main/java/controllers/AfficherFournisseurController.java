@@ -19,6 +19,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
@@ -140,7 +141,7 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
                             vBox.getChildren().addAll(nomBox, prenomBox, numBox, typeBox);
 
 // Définir le style de fond pour chaque VBox
-                           // vBox.setStyle("-fx-background-color: linear-gradient(to bottom right, #cccccc, #999999);");
+                            // vBox.setStyle("-fx-background-color: linear-gradient(to bottom right, #cccccc, #999999);");
 
 // Définir un remplissage autour de chaque cellule pour créer un espace entre les fournisseurs
                             setPadding(new Insets(10)); // Vous pouvez ajuster la valeur selon vos besoins
@@ -209,7 +210,7 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
                             // Récupérer le nom du fournisseur à partir de son ID
                             String nomFournisseur = null;
                             try {
-                                nomFournisseur = serviceFournisseur.recupererNomFournisseurParId(produit.getId_fournisseur());
+                                nomFournisseur = serviceFournisseur.recupererNomFournisseurParId(produit.getFournisseur().getId_fournisseur());
                             } catch (SQLException ex) {
                                 ex.printStackTrace(); // Gérer l'erreur de récupération du nom du fournisseur
                             }
@@ -236,12 +237,15 @@ public class AfficherFournisseurController extends ListCell<tn.esprit.entites.Pr
                                     new HBox(descriptionFieldLabel, descriptionValueLabel)
                             );
 
-                            // Ajouter la photo et les champs au HBox
+
+
+                            // Ajoutez la photo, les champs et le bouton "Modifier" au HBox
                             hBox.getChildren().addAll(imageView, vBox);
 
                             // Ajouter un espacement entre l'image et les champs
                             hBox.setSpacing(10);
-                           //pdf
+                            //pdf
+
                             // Attacher un gestionnaire d'événements de double clic à la HBox
                             hBox.setOnMouseClicked(event -> {
                                 if (event.getClickCount() == 2) {

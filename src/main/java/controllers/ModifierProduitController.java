@@ -19,8 +19,7 @@ import tn.esprit.services.ServiceFournisseur;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -56,7 +55,7 @@ public class ModifierProduitController  {
     @FXML
     private ComboBox<Fournisseur> fournisseurCB;
 
-
+    private Connection connection;
 
 
 
@@ -74,14 +73,13 @@ public class ModifierProduitController  {
         coutTF.setText(String.valueOf(produit.getCout())); // Convertir float en String
         descriptionTF.setText(String.valueOf(produit.getDescription()));
        imageView.setImage(new Image(produit.getImage()));
-
-        // Convertir java.util.Date en LocalDate
-        java.util.Date date = produit.getDate_expiration();
-        Date sqlDate = new Date(date.getTime());
-
-        Instant instant = date.toInstant();
-        LocalDate localDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
+// Convertir java.sql.Date en LocalDate directement
+        java.util.Date utilDate = produit.getDate_expiration();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        LocalDate localDate = sqlDate.toLocalDate();
         dateExpirationDP.setValue(localDate);
+
+
 
         // Utiliser la liste observable pour les fournisseurs
         fournisseurCB.setItems(observableList);
@@ -89,7 +87,7 @@ public class ModifierProduitController  {
         // Sélectionner le fournisseur associé au produit dans le ComboBox
         Fournisseur fournisseurAssocie = null;
         for (Fournisseur fournisseur : observableList) {
-            if (fournisseur.getId_fournisseur() == produit.getId_fournisseur()) {
+            if (fournisseur.getId_fournisseur() == produit.getFournisseur().getId_fournisseur()) {
                 fournisseurAssocie = fournisseur;
                 break;
             }
@@ -122,7 +120,8 @@ public class ModifierProduitController  {
             produit.setDate_expiration(Date.valueOf(dateExpirationDP.getValue()));
             produit.setQuantite(quantite);
             produit.setCout(cout);
-            produit.setId_fournisseur(fournisseurCB.getValue().getId_fournisseur());
+           // produit.setFournisseur(fournisseur);
+            produit.setFournisseur(fournisseurCB.getValue());
             produit.setDescription(descriptionTF.getText());
 
             // Vérifier si une nouvelle image a été sélectionnée
@@ -206,5 +205,5 @@ public class ModifierProduitController  {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-}
+    }}
+

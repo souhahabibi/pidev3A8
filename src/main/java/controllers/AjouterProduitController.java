@@ -173,7 +173,7 @@ public class AjouterProduitController {
                     quantite,
                     cout,
                     dateExpiration,
-                    fournisseur.getId_fournisseur(), // Utiliser l'ID du fournisseur
+                    fournisseur, // Utiliser l'ID du fournisseur
                     descriptionTF.getText(), // Ajouter la description
                     imagePath
             );

@@ -80,11 +80,11 @@ public class AcheterController implements Initializable {
         // Récupérer le nom du fournisseur
         String nomFournisseur = null;
         try {
-            nomFournisseur = serviceFournisseur.recupererNomFournisseurParId(produit.getId_fournisseur());
+            nomFournisseur = serviceFournisseur.recupererNomFournisseurParId(produit.getFournisseur().getId_fournisseur());
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        // Label idFournisseurLabel = new Label("Fournisseur:");
+         Label idFournisseurLabel = new Label("Fournisseur:");
         Label idFournisseurValueLabel = new Label(nomFournisseur != null ? nomFournisseur : "N/A");
         Label descriptionLabel = new Label("Description:");
         Label descriptionValueLabel = new Label(produit.getDescription());
@@ -107,7 +107,7 @@ public class AcheterController implements Initializable {
                 new HBox(quantiteFieldLabel, quantiteValueLabel),
                 new HBox(coutFieldLabel, coutValueLabel),
                 new HBox(dateExpirationFieldLabel, dateExpirationValueLabel),
-                new HBox(new Label("Fournisseur: "), idFournisseurValueLabel),
+               new HBox(new Label("Fournisseur: "), idFournisseurValueLabel),
                 new HBox(descriptionLabel, descriptionValueLabel)
         );
 
