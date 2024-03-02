@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -13,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import tn.esprit.services.Impl.MealImpl;
 import tn.esprit.entities.Meal;
 
@@ -134,8 +137,24 @@ public class MealsController implements Initializable {
     }
 
     public void afficheDescetIngred(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Recipe.fxml"));
+            Parent root = loader.load();
+            RecipeController recipeController = loader.getController();
+            recipeController.initializeData(idp);
+
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+        System.err.println(e.getMessage());
+    }
     }
 
     public void addTOlist(ActionEvent actionEvent) {
     }
+
+
 }

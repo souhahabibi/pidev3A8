@@ -22,7 +22,7 @@ public class MainFx extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/market.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Gérer personnes");
+        primaryStage.setTitle("Gérer diet");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -36,7 +36,7 @@ public class MealController {
         this.meal = meal;
         this.myListener = myListener;
         nameLabel.setText(meal.getName());
-        priceLable.setText(String.valueOf( meal.getRecipe()));
+        priceLable.setText(String.valueOf( meal.getCalories()));
         String path = "C:\\Users\\WIKI\\IdeaProjects\\PidevProject\\src\\main\\resources\\img\\" + meal.getImageUrl();
         System.out.println(getClass().getResourceAsStream(path));
        Image image = new Image(path);

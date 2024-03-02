@@ -46,15 +46,14 @@ public class MealImpl implements IMealService {
     }
 
     public void update(Meal entity) {
-        String req = "update meal set name=?,image_url=?,Recipe=?,mealTime=? where id=?";
+        String req = "update meal set name=?,Recipe=?,Calories=? where id=?";
         try {
             preparedStatement = con.prepareStatement(req);
 
             preparedStatement.setString(1,entity.getName());
-            preparedStatement.setString(2,entity.getImageUrl());
-            preparedStatement.setString(3,entity.getRecipe());
-            preparedStatement.setString(4,entity.getMealTime().toString());
-            preparedStatement.setInt(5,entity.getId());
+            preparedStatement.setString(2,entity.getRecipe());
+            preparedStatement.setInt(3,entity.getCalories());
+            preparedStatement.setInt(4,entity.getId());
 
             preparedStatement.execute();
         } catch (SQLException throwables) {
@@ -108,8 +107,7 @@ public class MealImpl implements IMealService {
                 meal = new Meal(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5));
+                        rs.getString(4));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -161,41 +159,25 @@ public class MealImpl implements IMealService {
         return meal;
     }
 
-    //public Meal addRecipe(int idMeal, int idRecipe) {
-      //  String req = "insert into recipe_meal (recipe_id, meal_id) VALUES (?,?)";
-        //Meal meal = new Meal();
-        //try {
-          //  preparedStatement =con.prepareStatement(req);
-           // preparedStatement.setInt(1,idRecipe);
-            //preparedStatement.setInt(2,idMeal);
-
-            //preparedStatement.execute();
-       // } catch (SQLException throwables) {
-         //   throwables.printStackTrace();
-        //}
-        //meal = getById(idMeal);
-        //meal.getRecipes().add(recipeDao.getById(idRecipe));
-        //return meal;
-    //}
-
-    //public Meal addRecipes(int idMeal, List<Recipe> recipes) {
-      //  Meal meal = getById(idMeal);
-      //  meal.getRecipes().addAll(recipes);
-      //  return meal;
-   // }
-
     @Override
-    public Meal addIngredient(int idMeal, int idRecipe) {
-        return null;
-    }
+    public Meal addIngredient(int idMeal, int idIngredient) {
+       String req = "insert into ingredient_meal (ingredient_id, meal_id) VALUES (?,?)";
+        Meal meal = new Meal();
+        try {
+          preparedStatement =con.prepareStatement(req);
+          preparedStatement.setInt(1,idIngredient);
+          preparedStatement.setInt(2,idMeal);
 
-    @Override
-    public Meal addIngredients(int idMeal, List<Ingredient> ingredients) {
-        return null;
+            preparedStatement.execute();
+       } catch (SQLException throwables) {
+           throwables.printStackTrace();
+        }
+        meal = getById(idMeal);
+        meal.getIngredients().add(ingredient.getById(idIngredient));
+        return meal;
     }
-
     public List<Ingredient> getMealIngredients(Meal meal) {
-        String req = "select * from ingredient_meal where meal_id=?";
+        String req = "select * from ingredients_meal where meal_id=?";
         List<Ingredient> ingredients = new ArrayList<Ingredient>();
         Ingredient ingred = null;
         try {
@@ -205,13 +187,18 @@ public class MealImpl implements IMealService {
             rs = preparedStatement.executeQuery();
             while (rs.next()){
                 ingred = ingredient.getById(rs.getInt(1));
-
                 ingredients.add(ingred);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return ingredients;
+    }
+
+    public Meal addIngredients(int idMeal, List<Ingredient> ingredients) {
+       Meal meal = getById(idMeal);
+      meal.getIngredients().addAll(ingredients);
+      return meal;
     }
 
 
@@ -252,4 +239,47 @@ public class MealImpl implements IMealService {
         }
         return meals;
     }
+    public boolean isMealAttributedToUser(UsersMeal usersMeal) {
+        String checkReq = "select * from usersmeal where userId=? and mealId=?";
+        try {
+            preparedStatement = con.prepareStatement(checkReq);
+            preparedStatement.setInt(1, usersMeal.getUserId());
+            preparedStatement.setInt(2, usersMeal.getMealId());
+            rs = preparedStatement.executeQuery();
+            return rs.next();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+    // Inside MealImpl class
+
+    public List<Ingredient> getMealIngredients(int mealId) {
+        List<Ingredient> ingredients = new ArrayList<>();
+
+        try {
+           String query = "SELECT i.id, i.name FROM ingredient i " +
+                   "JOIN ingredient_meal im ON i.id = im.ingredient_id " +
+                   "WHERE im.meal_id = ?";
+            preparedStatement = con.prepareStatement(query);
+            preparedStatement.setInt(1, mealId);
+            rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+               Ingredient ingredient = new Ingredient();
+                ingredient.setId(rs.getInt("id"));
+                ingredient.setName(rs.getString("name"));
+               ingredients.add(ingredient);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        //} finally {
+            // Close resources (ResultSet, PreparedStatement, etc.)
+            // Handle exceptions and resource closing appropriately
+        }
+
+        return ingredients;
+    }
+
+
 }

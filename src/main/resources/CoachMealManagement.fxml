@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -27,39 +26,23 @@
                     <children>
                         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
                             <children>
-                                <Label prefHeight="49.0" prefWidth="128.0" text="Meal" textFill="#878787">
+                        <ImageView fitHeight="148.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/logo.png" />
+                           </image>
+                        </ImageView>
+                                <Label prefHeight="50.0" prefWidth="112.0" text="Meal" textFill="#878787">
                                     <font>
                                         <Font name="Cambria Bold" size="40.0" />
                                     </font>
                                 </Label>
-                                <Label text="List" textFill="#878787">
+                                <Label prefHeight="50.0" prefWidth="123.0" text="List" textFill="#878787">
                                     <font>
                                         <Font name="Cambria" size="40.0" />
                                     </font>
                                 </Label>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@css/style.css" VBox.vgrow="NEVER">
-                            <VBox.margin>
-                                <Insets left="30.0" right="30.0" />
-                            </VBox.margin>
-                            <children>
-                                <TextField prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent" stylesheets="@css/style.css">
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                    <font>
-                                        <Font name="Cambria" size="18.0" />
-                                    </font>
-                                </TextField>
-                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@css/style.css" text="Search" textFill="WHITE" />
-                            </children>
-                            <styleClass>
-                                <String fx:value="search-box" />
-                                <String fx:value="shadow" />
-                            </styleClass>
-                        </HBox>
-                        <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
                         <VBox fx:id="chosenMealCard" alignment="CENTER" prefHeight="406.0" prefWidth="334.0" stylesheets="@css/style.css">
                             <VBox.margin>
                                 <Insets left="50.0" right="50.0" />
@@ -67,12 +50,12 @@
                             <children>
                                 <HBox prefHeight="60.0" prefWidth="335.0">
                                     <children>
-                                        <Label fx:id="MealNameLable" prefHeight="48.0" prefWidth="276.0" text="Peach" textFill="WHITE">
+                                        <Label fx:id="MealNameLable" prefHeight="48.0" prefWidth="276.0" text="Meal" textFill="WHITE">
                                             <font>
                                                 <Font name="Cambria" size="36.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="CaloriesProp" prefHeight="57.0" prefWidth="171.0" text="\$2.99" textFill="WHITE">
+                                        <Label fx:id="CaloriesProp" prefHeight="44.0" prefWidth="223.0" text="Calories" textFill="WHITE">
                                             <font>
                                                 <Font name="Cambria" size="36.0" />
                                             </font>
@@ -94,18 +77,6 @@
                                     <VBox.margin>
                                         <Insets top="20.0" />
                                     </VBox.margin>
-                           <children>
-                              <AnchorPane prefHeight="63.0" prefWidth="326.0">
-                                 <children>
-                                    <ComboBox fx:id="Meal_time" layoutX="109.0" layoutY="1.0" prefWidth="150.0" />
-                                    <Label layoutX="28.0" layoutY="1.0" text="Meal time">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children>
                                 </HBox>
                                 <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                            <children>
@@ -133,8 +104,11 @@
                         </VBox>
                         <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="Add_To_Client" layoutX="77.0" layoutY="26.0" mnemonicParsing="false" onAction="#AddToClient" prefHeight="37.0" prefWidth="117.0" text="Add to client" />
-                        <Button fx:id="Delete_btn" layoutX="225.0" layoutY="24.0" mnemonicParsing="false" onAction="#DeleteMeal" prefHeight="37.0" prefWidth="117.0" text="Delete" />
+                        <Button fx:id="Add_To_Client" layoutX="73.0" layoutY="27.0" mnemonicParsing="false" onAction="#AddToClient" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Add to client" />
+                        <Button fx:id="Delete_btn" layoutX="226.0" layoutY="28.0" mnemonicParsing="false" onAction="#DeleteMeal" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Delete" />
+                        <Button fx:id="updatemeal" layoutX="73.0" layoutY="80.0" mnemonicParsing="false" onAction="#update" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Update" />
+                        <Button fx:id="addIngred" layoutX="226.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddIngredient" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Add Ingredient" />
+                        <Button fx:id="createmeal" layoutX="120.0" layoutY="138.0" mnemonicParsing="false" onAction="#create" prefHeight="37.0" prefWidth="191.0" styleClass="login-btn" stylesheets="@css/css.css" text="Create a new meal" />
                      </children></Pane>
                     </children>
                 </VBox>
@@ -142,76 +116,34 @@
             <center>
                 <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                     <children>
-                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
-                            <VBox.margin>
-                                <Insets left="20.0" right="20.0" />
-                            </VBox.margin>
-                            <children>
-                                <Label prefHeight="29.0" prefWidth="88.0" text="language" textFill="#878787">
-                                    <font>
-                                        <Font name="Cambria Bold" size="18.0" />
-                                    </font>
-                                </Label>
-                                <Label prefHeight="29.0" prefWidth="77.0" text="English" textFill="#878787" underline="true">
-                                    <font>
-                                        <Font name="Cambria" size="18.0" />
-                                    </font>
-                                </Label>
-                                <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS" />
-                                <Label prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
-                                    <font>
-                                        <Font name="Cambria" size="18.0" />
-                                    </font>
-                                </Label>
-                                <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../resources/img/healthyfood.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                        </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <Pane prefHeight="84.0" prefWidth="96.0" />
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="852.0" styleClass="free-delivery-card" stylesheets="@css/style.css">
+                                <Pane prefHeight="100.0" prefWidth="166.0" />
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="520.0" styleClass="free-delivery-card" stylesheets="@css/style.css">
                                     <children>
                                         <VBox alignment="CENTER" prefHeight="94.0" prefWidth="786.0">
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <AnchorPane prefHeight="200.0" prefWidth="784.0">
+                                          <AnchorPane prefHeight="100.0" prefWidth="616.0">
                                              <children>
-                                                <Label layoutX="-5.0" layoutY="44.0" prefHeight="40.0" prefWidth="101.0" text="Meal Name">
-                                                   <padding>
-                                                      <Insets left="20.0" top="20.0" />
-                                                   </padding>
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="Meal_Name" layoutX="94.0" layoutY="57.0" prefHeight="28.0" prefWidth="119.0">
-                                                   <padding>
-                                                      <Insets left="30.0" top="20.0" />
-                                                   </padding>
-                                                </TextField>
-                                                <Label layoutX="4.0" layoutY="-5.0" prefHeight="19.0" prefWidth="78.0" text="Calories">
-                                                   <padding>
-                                                      <Insets left="20.0" top="20.0" />
-                                                   </padding>
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="Calories" layoutX="100.0" layoutY="9.0" prefHeight="28.0" prefWidth="119.0">
-                                                   <padding>
-                                                      <Insets left="30.0" top="20.0" />
-                                                   </padding>
-                                                </TextField>
-                                                <Button fx:id="Import_btn" layoutX="468.0" layoutY="15.0" mnemonicParsing="false" onAction="#importimg" prefHeight="26.0" prefWidth="92.0" text="Import image" />
-                                                <Button fx:id="add_btn" layoutX="326.0" layoutY="69.0" mnemonicParsing="false" onAction="#addMeal" prefHeight="26.0" prefWidth="63.0" text="Add" />
-                                                <ImageView fx:id="imgMeal" fitHeight="89.0" fitWidth="127.0" layoutX="607.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label layoutX="284.0" layoutY="19.0" text="Recipe" />
-                                                <TextArea fx:id="RecipeText" layoutX="335.0" layoutY="8.0" prefHeight="49.0" prefWidth="98.0" />
+                                                <HBox alignment="CENTER" layoutX="108.0" layoutY="29.0" prefHeight="38.0" prefWidth="311.0" stylesheets="@../../../../../Downloads/CodingBoothDesk-farouk/src/gui/style.css">
+                                                   <children>
+                                                      <TextField fx:id="searchField" prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent" stylesheets="@../../../../../Downloads/CodingBoothDesk-farouk/src/gui/style.css">
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                         <font>
+                                                            <Font name="Cambria" size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Button mnemonicParsing="false" onAction="#searchMeal" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../../../../../Downloads/CodingBoothDesk-farouk/src/gui/style.css" text="Search" textFill="WHITE" />
+                                                   </children>
+                                                   <styleClass>
+                                                      <String fx:value="search-box" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                </HBox>
                                              </children>
                                           </AnchorPane>
                                        </children>

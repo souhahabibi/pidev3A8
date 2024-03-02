@@ -1,28 +1,40 @@
 package tn.esprit.entities;
 
 public class Ingredient {
+
     private int id;
     private String name;
     private int calorie;
     private int totalFat;
     private int protein;
+    private String imgUrl;
 
-    public Ingredient(int id, String name, int calorie, int totalFat, int protein) {
+    public Ingredient(int id, String name, int calorie, int totalFat, int protein,String imgUrl) {
         this.id = id;
         this.name = name;
         this.calorie = calorie;
         this.totalFat = totalFat;
         this.protein = protein;
+        this.imgUrl=imgUrl;
     }
 
-    public Ingredient(String name, int calorie, int totalFat, int protein) {
+    public Ingredient(String name, int calorie, int totalFat, int protein,String imgUrl ) {
         this.name = name;
         this.calorie = calorie;
         this.totalFat = totalFat;
         this.protein = protein;
+        this.imgUrl=imgUrl;
     }
 
     public Ingredient() {
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public int getId() {

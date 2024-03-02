@@ -48,7 +48,7 @@ public class RegimeImpl implements IRegimeService {
         try {
             preparedStatement = con.prepareStatement(req);
             preparedStatement.setDate(1,Date.valueOf(entity.getStartDate()));
-            preparedStatement.setDate(2,Date.valueOf(entity.getStartDate()));
+            preparedStatement.setDate(2,Date.valueOf(entity.getEndDate()));
             preparedStatement.setInt(3,entity.getDuration());
             preparedStatement.setString(4,entity.getDescription());
             preparedStatement.setString(5,entity.getGoal().toString());

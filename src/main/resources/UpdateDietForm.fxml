@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/Darktheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.FillDietFormController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/Darktheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.UpdateDietFormController">
     <children>
       <ImageView fitHeight="98.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -63,14 +63,8 @@
                               </font>
                         </Label>
                           <TextArea fx:id="desc_textArea" layoutX="208.0" layoutY="291.0" prefHeight="186.0" prefWidth="632.0" />
-                          <Button fx:id="send_btn" layoutX="213.0" layoutY="503.0" mnemonicParsing="false" onAction="#pushRegime" prefHeight="32.0" prefWidth="161.0" styleClass="login-btn" stylesheets="@css/css.css" text="send" />
-                        <Button fx:id="seeForm" layoutX="413.0" layoutY="504.0" mnemonicParsing="false" onAction="#ViewForm" prefHeight="32.0" prefWidth="161.0" styleClass="login-btn" stylesheets="@css/css.css" text="View Form" />
-                        <Button fx:id="seeBMI" layoutX="614.0" layoutY="504.0" mnemonicParsing="false" onAction="#BMI" prefHeight="32.0" prefWidth="161.0" styleClass="login-btn" stylesheets="@css/css.css" text="BMI" />
-                        <Label layoutX="231.0" layoutY="20.0" text="Check your BMI first so you can provide us with informations in the description ">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Label>
+                          <Button fx:id="send_btn" layoutX="213.0" layoutY="503.0" mnemonicParsing="false" onAction="#pushRegime" prefHeight="32.0" prefWidth="161.0" text="send" />
+                        <Button fx:id="seeForm" layoutX="413.0" layoutY="504.0" mnemonicParsing="false" onAction="#ViewForm" prefHeight="32.0" prefWidth="161.0" text="View Form" />
                      </children>
                   </AnchorPane>
             </content>

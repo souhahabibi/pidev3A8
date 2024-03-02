@@ -39,6 +39,44 @@ public class AfficheMealAndClientController implements Initializable {
 
         UserImpl userService = new UserImpl();
 
+
+        @Override
+        public void initialize(URL url, ResourceBundle resourceBundle) {
+
+                ObservableList<String> items = FXCollections.observableArrayList();
+
+                for (UsersMeal item : service.getAllUsersMeals()) {
+                        User u = userService.getAll().stream().filter(user -> user.getId() == item.getUserId()).findFirst().orElse(null);
+                        System.out.println(u);
+                        Meal m = service.getAll().stream().filter(meal -> meal.getId() == item.getMealId()).findFirst().orElse(null);
+
+
+                        if (u != null && m != null) {
+                                // Check if the Meal object is not null before accessing its properties
+                                String mealName = (m.getName() != null) ? m.getName() : "Unknown Meal";
+                                String recipe = (m.getRecipe() != null) ? m.getRecipe() : "Unknown Recipe";
+
+                                String userMealInfo = "Username: " + u.getUsername() + ", Email: " + u.getEmail() +
+                                        ", Meal Name: " + mealName + ", Recipe: " + recipe;
+                                // User u = userService.getById(item.getUserId());
+
+                                // Meal m = service.getById(item.getMealId());
+                                //System.out.println("ddddddddddddddddddddd");
+                                // System.out.println(u.getUsername());
+                                // listView.getItems().add(u.getUsername());
+                                items.add(u.getUsername());
+
+                                items.add(u.getEmail());
+                                items.add(m.getName());
+                                items.add(m.getRecipe());
+
+
+                        }
+
+                        listView.setItems(items);
+
+                }
+        }
         @FXML
         void modifier(ActionEvent event) {
 
@@ -46,34 +84,6 @@ public class AfficheMealAndClientController implements Initializable {
 
         @FXML
         void supprimer(ActionEvent event) {
-
-        }
-
-        @Override
-        public void initialize(URL url, ResourceBundle resourceBundle) {
-
-                ObservableList<String> items =FXCollections.observableArrayList();
-
-                for (UsersMeal item : service.getAllUsersMeals()){
-                        User u = userService.getAll().stream().filter(user -> user.getId() == item.getUserId()).findFirst().orElse(null);
-                        System.out.println(u);
-                        Meal m = service.getAll().stream().filter(meal -> meal.getId()== item.getMealId()).findFirst().orElse(null);
-                       // User u = userService.getById(item.getUserId());
-
-                       // Meal m = service.getById(item.getMealId());
-                        //System.out.println("ddddddddddddddddddddd");
-                       // System.out.println(u.getUsername());
-                       // listView.getItems().add(u.getUsername());
-                        items.add(u.getUsername());
-
-                        items.add(u.getEmail());
-                        items.add(m.getName());
-                        items.add(m.getRecipe());
-
-
-                }
-
-listView.setItems(items);
 
         }
 }

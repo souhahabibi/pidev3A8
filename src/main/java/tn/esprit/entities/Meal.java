@@ -8,7 +8,7 @@ public class Meal {
     private String name;
     private String imageUrl;
     private String Recipe;
-    private MealTime mealTime;
+
 
     private int Calories;
 
@@ -25,7 +25,9 @@ public class Meal {
 
 
     private ObservableList<Ingredient> ingredients;
-    public Meal(int id, String name, String imageUrl, String Recipe, String mealTime) {
+
+
+    public Meal(int id, String name, String imageUrl, String Recipe) {
         regimes =FXCollections.observableArrayList();
         ingredients=FXCollections.observableArrayList();
         favoritedBy =FXCollections.observableArrayList();
@@ -33,22 +35,27 @@ public class Meal {
         this.name = name;
         this.imageUrl = imageUrl;
         this.Recipe = Recipe;
-        this.mealTime= MealTime.valueOf(mealTime.toString());
     }
 
-    public Meal(String name, String imageUrl, String Recipe,String mealTime) {
+    public Meal(String name, String imageUrl, String Recipe) {
         regimes =FXCollections.observableArrayList();
         ingredients=FXCollections.observableArrayList();
         favoritedBy =FXCollections.observableArrayList();
         this.name = name;
         this.imageUrl = imageUrl;
         this.Recipe = Recipe;
-        this.mealTime= MealTime.valueOf(mealTime.toString());
+
 
     }
     public Meal(String name, String imageUrl, String Recipe,int Calories) {
         this.name = name;
         this.imageUrl = imageUrl;
+        this.Recipe = Recipe;
+        this.Calories = Calories;
+
+    }
+    public Meal(String name,String Recipe,int Calories) {
+        this.name = name;
         this.Recipe = Recipe;
         this.Calories = Calories;
 
@@ -125,13 +132,8 @@ public class Meal {
         this.Recipe = Recipe;
     }
 
-    public MealTime getMealTime() {
-        return mealTime;
-    }
 
-    public void setMealTime(MealTime mealTime) {
-        this.mealTime = mealTime;
-    }
+
 
 
 

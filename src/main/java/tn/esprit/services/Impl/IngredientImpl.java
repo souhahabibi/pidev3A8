@@ -2,6 +2,7 @@ package tn.esprit.services.Impl;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import tn.esprit.entities.ingredientMeal;
 import tn.esprit.services.IIngredientService;
 import tn.esprit.entities.Ingredient;
 import tn.esprit.utils.MyDatabase;
@@ -21,13 +22,14 @@ public class IngredientImpl implements IIngredientService {
 
 
     public Ingredient save(Ingredient entity) {
-        String req = "insert into ingredients ( name, calories, total_fat, protein) VALUES (?,?,?,?)";
+        String req = "insert into ingredients ( name, calories, total_fat, protein, imgUrl) VALUES (?,?,?,?,?)";
         try {
             preparedStatement = con.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1,entity.getName());
             preparedStatement.setInt(2,entity.getCalorie());
             preparedStatement.setInt(3,entity.getTotalFat());
             preparedStatement.setInt(4,entity.getProtein());
+            preparedStatement.setString(5,entity.getImgUrl());
             preparedStatement.execute();
 
             rs = preparedStatement.getGeneratedKeys();
@@ -42,15 +44,16 @@ public class IngredientImpl implements IIngredientService {
     }
 
     public void update(Ingredient entity) {
-        String req = "update ingredients set name=?,calories=?,total_fat=?,protein=? where id=?";
+        String req = "update ingredients set name=?,calories=?,total_fat=?,protein=?,imgUrl=? where id=?";
         try {
             preparedStatement = con.prepareStatement(req);
             preparedStatement.setString(1,entity.getName());
             preparedStatement.setInt(2,entity.getCalorie());
             preparedStatement.setInt(3,entity.getTotalFat());
             preparedStatement.setInt(4,entity.getProtein());
+            preparedStatement.setString(5,entity.getImgUrl());
 
-            preparedStatement.setInt(5,entity.getId());
+            preparedStatement.setInt(6,entity.getId());
 
             preparedStatement.execute();
         } catch (SQLException throwables) {
@@ -80,7 +83,8 @@ public class IngredientImpl implements IIngredientService {
                         ,rs.getString(2)
                         ,rs.getInt(3)
                         ,rs.getInt(5)
-                        ,rs.getInt(4));
+                        ,rs.getInt(4)
+                        ,rs.getString(6));
                 ingredients.add(p1);
             }
         } catch (SQLException throwables) {
@@ -100,7 +104,7 @@ public class IngredientImpl implements IIngredientService {
                 ingredient = new Ingredient(rs.getInt(1),
                         rs.getString(2),
                         rs.getInt(3),
-                        rs.getInt(4),rs.getInt(5));
+                        rs.getInt(4),rs.getInt(5),rs.getString(6));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -120,7 +124,7 @@ public class IngredientImpl implements IIngredientService {
                 throwables.printStackTrace();
             }
         }else {
-            String req = "select * from ingredients where name=? and calories=? and total_fat=? and protein=?";
+            String req = "select * from ingredients where name=? and calories=? and total_fat=? and protein=? ";
             try {
                 preparedStatement = con.prepareStatement(req);
                 preparedStatement.setString(1,ingredient.getName());
@@ -154,4 +158,17 @@ public class IngredientImpl implements IIngredientService {
         }
         return ingredient;
     }
+    public void saveAssociation(ingredientMeal association) {
+        String req = "insert into ingredient_meal (ingredient_id, meal_id) VALUES (?,?)";
+        try {
+            preparedStatement = con.prepareStatement(req);
+            preparedStatement.setInt(1, association.getIdIngredient());
+            preparedStatement.setInt(2, association.getIdMeal());
+
+            preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 }

@@ -2,13 +2,18 @@ package tn.esprit.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import tn.esprit.services.IRegimeService;
 import tn.esprit.services.Impl.RegimeImpl;
 import tn.esprit.entities.Goal;
 import tn.esprit.entities.Regime;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,11 +33,18 @@ public class FillDietFormController implements Initializable {
     private Button send_btn;
 
     @FXML
+    private Button seeForm;
+
+    @FXML
+    private Button seeBMI;
+
+    @FXML
     private DatePicker startDate;
 
     IRegimeService regime = new RegimeImpl();
     @FXML
     private ChoiceBox goal;
+    private Regime pushedRegime;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -67,8 +79,8 @@ public class FillDietFormController implements Initializable {
             } else {
                 int durationValue = Integer.parseInt(duration.getText());
                 int clientId = 1;
-                Regime r = new Regime(startDate.getValue(), endDate.getValue(), durationValue, desc_textArea.getText(), typeBut, clientId);
-                regime.save(r);
+                pushedRegime = new Regime(startDate.getValue(), endDate.getValue(), durationValue, desc_textArea.getText(), typeBut, clientId);
+                regime.save(pushedRegime);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
@@ -76,6 +88,8 @@ public class FillDietFormController implements Initializable {
                 alert.setContentText("Regime added successfully!");
                 alert.show();
 
+                startDate.setValue(null);
+                endDate.setValue(null);
                 duration.setText("");
                 desc_textArea.setText("");
             }
@@ -89,5 +103,45 @@ public class FillDietFormController implements Initializable {
     }
 
 
+    public void ViewForm(ActionEvent actionEvent) {
+        try {
+            // Check if a regime has been pushed
+            if (!isRegimePushed()) {
+                // Display an error alert if no regime has been pushed
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Please push a regime before viewing the form!");
+                alert.show();
+                return;  // Exit the function if no regime has been pushed
+            }
+
+            // Load the form only if a regime has been pushed
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherRegime.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+    private boolean isRegimePushed() {
+        // Check if the pushedRegime variable is not null
+        return pushedRegime != null;
+    }
+    @FXML
+    void BMI(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/BMI.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+
+    }
 
 }
