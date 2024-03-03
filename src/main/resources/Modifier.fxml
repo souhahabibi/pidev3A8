@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.ModifierController">
 
@@ -72,6 +71,7 @@
                                    </font>
                                </RadioButton>
                         <Button fx:id="btnAfficher" layoutX="489.0" layoutY="386.0" mnemonicParsing="false" onAction="#NaviguerVersAfficher" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Afficher" />
+                        <ImageView fx:id="imgC" fitHeight="104.0" fitWidth="145.0" layoutX="489.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </AnchorPane>
 

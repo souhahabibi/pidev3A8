@@ -9,10 +9,15 @@ import com.esprit.services.ExerciceService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
-
+import java.io.IOException;
+import java.nio.file.*;
 
 
 public class AjouterExerciceController {
@@ -35,11 +40,17 @@ private  Exercice exercice;
     @FXML
     private TextArea etapeTR;
 
+    private String imagePath2;
+
+    @FXML
+    private ImageView imgC;
+
+
     @FXML
     private  TextField id;
 
 
-
+        /*
     @FXML
     void choisirImage(ActionEvent event) {
         try {
@@ -57,6 +68,57 @@ private  Exercice exercice;
             e.printStackTrace();
         }
     }
+*/
+
+    @FXML
+    File choisirImage(ActionEvent event) {
+        File file = null;
+        Path to1 = null;
+        String m = null;
+        JFileChooser chooser = new JFileChooser();
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "JPG & PNG Images", "jpg", "jpeg", "PNG");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            m = chooser.getSelectedFile().getAbsolutePath();
+            String imagePath2;
+            file = chooser.getSelectedFile();
+            String fileName = file.getName();
+            String imagePath = file.getPath().replace("\\", "/");
+
+            if (chooser.getSelectedFile() != null) {
+
+                try {
+                    java.nio.file.Path from = Paths.get(chooser.getSelectedFile().toURI());
+                    to1 = Paths.get(imagePath + "\\" + fileName);
+
+                    CopyOption[] options = new CopyOption[]{
+                            StandardCopyOption.REPLACE_EXISTING,
+                            StandardCopyOption.COPY_ATTRIBUTES
+                    };
+                    Files.copy(from, to1, options);
+                    System.out.println("added");
+                    System.out.println(file);
+
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+
+        }
+        imagePath2=file.getPath();
+
+        this.imagePath2=imagePath2;
+        Image img = new Image(file.toURI().toString());
+        imgC.setImage(img);
+        return file;
+    }
+
+
+
+
 
 
     @FXML
@@ -64,9 +126,9 @@ private  Exercice exercice;
 
         int id = SharedModel.getId();
 
-        if (imagePath != null && !nomTF.getText().isEmpty() && !etapeTR.getText().isEmpty()) {
+        if (imagePath2 != null && !nomTF.getText().isEmpty() && !etapeTR.getText().isEmpty()) {
             // Créer un nouveau exercice
-            Exercice nouveauExercice = new Exercice(id, nomTF.getText(), etapeTR.getText(), imagePath);
+            Exercice nouveauExercice = new Exercice(id, nomTF.getText(), etapeTR.getText(), imagePath2);
             // Vérifier si l'exercice existe déjà
             if (!es.ExerciceExiste(nouveauExercice)) {
                 // Si l'exercice n'existe pas, l'ajouter

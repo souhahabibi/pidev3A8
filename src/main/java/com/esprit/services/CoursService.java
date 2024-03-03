@@ -1,6 +1,7 @@
 package com.esprit.services;
 import com.esprit.models.Cours;
 import com.esprit.utils.DataSource;
+import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -32,6 +33,13 @@ public class CoursService implements IService<Cours> {
 
             if (rowsAffected > 0) {
                 System.out.println("Cours ajoutée !");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Le cours a été ajouté avec succès !");
+                alert.showAndWait();
+
+
             } else {
                 System.out.println("Erreur lors de l'ajout du cours !");
             }
@@ -81,6 +89,13 @@ public class CoursService implements IService<Cours> {
             pstmt.setInt(2, cours.getId());
             pstmt.executeUpdate();
             System.out.println("Commentaire ajoutée !");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Votre Commentaire a été ajouté avec succès !");
+            alert.showAndWait();
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -102,6 +117,13 @@ public class CoursService implements IService<Cours> {
             pstmt.setInt(5, Cours.getId());
             pstmt.executeUpdate();
             System.out.println("Cours modifiée !");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Le cours a été modifier avec succès !");
+            alert.showAndWait();
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -117,6 +139,15 @@ public class CoursService implements IService<Cours> {
             Statement st = connection.createStatement();
             st.executeUpdate(req);
             System.out.println("Cours supprmiée !");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Le cours a été supprimer avec succès !");
+            alert.showAndWait();
+
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -154,6 +185,14 @@ public class CoursService implements IService<Cours> {
             Statement st = connection.createStatement();
             st.executeUpdate(req);
             System.out.println("Cours ajoutée !");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Le cours a été ajouté avec succès !");
+            alert.showAndWait();
+
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

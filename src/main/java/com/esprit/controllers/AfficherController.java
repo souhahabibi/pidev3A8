@@ -25,6 +25,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class AfficherController {
 
@@ -135,8 +136,7 @@ private Button btnAjouter2;
                         AjouterButton.getScene().setRoot(root);
 
 
-                        TabPane tabPane = (TabPane) root.lookup("#tabPane");
-                        tabPane.getSelectionModel().select(0);
+
 
 
 
@@ -275,9 +275,22 @@ private Button btnAjouter2;
     void supprimerCours(ActionEvent event) {
         Cours coursASupprimer = obtenirCoursSelectionne();
         int indexASupprimer = listView.getSelectionModel().getSelectedIndex();
-        listView.getItems().remove(indexASupprimer);
-        cs.supprimer(coursASupprimer);
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation de suppression");
+        alert.setHeaderText("Suppression de cours");
+        alert.setContentText("Voulez-vous vraiment supprimer ce cours ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            listView.getItems().remove(indexASupprimer);
+            cs.supprimer(coursASupprimer);
+        } else {
+
+
+        }
     }
+
 
 
     @FXML
@@ -346,9 +359,21 @@ private Button btnAjouter2;
     void supprimerExercice2(ActionEvent event) {
         Exercice ExerciceASupprimer = obtenirExerciceSelectionne();
         int indexASupprimer = listView2.getSelectionModel().getSelectedIndex();
-        listView2.getItems().remove(indexASupprimer);
-        es.supprimer(ExerciceASupprimer);
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation de suppression");
+        alert.setHeaderText("Suppression d'exercice");
+        alert.setContentText("Voulez-vous vraiment supprimer cet exercice ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            listView2.getItems().remove(indexASupprimer);
+            es.supprimer(ExerciceASupprimer);
+        } else {
+            // ... user chose CANCEL or closed the dialog
+        }
     }
+
 
 
 }

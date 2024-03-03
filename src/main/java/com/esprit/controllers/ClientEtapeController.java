@@ -40,8 +40,8 @@ public class ClientEtapeController {
 
     private final ExerciceService es = new ExerciceService();
 
-    public static final String ACCOUNT_SID = "ACbe7739e913f726ee5ea8caca45b7843a";
-    public static final String AUTH_TOKEN = "4d3f09669e1c0de3cc5f98a5cceead10";
+    public static final String ACCOUNT_SID = "ACf98656ce24cceaaa4be85d72a63ecbe8";
+    public static final String AUTH_TOKEN = "150155d4627db5404bfed786a0833ea8";
 
 
 
@@ -58,7 +58,7 @@ public class ClientEtapeController {
             private final Label etape = new Label("Etape: ");
             private final Text etapeLabel = new Text();
             private final HBox etapeBox = new HBox(etape, etapeLabel);
-            private final Button messageButton = new Button("Rappele-Moi");
+            private final Button messageButton = new Button("Retour vers cours");
             private final HBox messages = new HBox(10,messageButton);
             private final VBox vBox = new VBox(10,etapeBox,messages);
 
@@ -93,10 +93,18 @@ public class ClientEtapeController {
 
 
                 messageButton.setOnAction(event -> {
-                    Exercice selectedExercice= listView2.getSelectionModel().getSelectedItem();
-                    String Etape = selectedExercice.getEtape();
-                    message(Etape);
+
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("/Client.fxml"));
+                        messageButton.getScene().setRoot(root);
+                    } catch (IOException e) {
+                        System.err.println(e.getMessage());
+                    }
+
+
+
                 });
+
 
 
 
@@ -133,7 +141,7 @@ public class ClientEtapeController {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         com.twilio.rest.api.v2010.account.Message message = com.twilio.rest.api.v2010.account.Message.creator(
                         new PhoneNumber("+21624019297"),
-                        new PhoneNumber("+19492696585"),
+                        new PhoneNumber("+15717486711"),
                         nom)
                 .create();
 

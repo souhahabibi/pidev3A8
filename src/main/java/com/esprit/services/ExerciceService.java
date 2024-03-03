@@ -4,6 +4,7 @@ package com.esprit.services;
 import com.esprit.models.Cours;
 import com.esprit.models.Exercice;
 import com.esprit.utils.DataSource;
+import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,6 +30,13 @@ public class ExerciceService implements IService<Exercice>{
             pstmt.setString(4, exercice.getImage());
             pstmt.executeUpdate();
             System.out.println("Exercice ajoutée !");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("L'Exercice a été ajouté avec succès !");
+            alert.showAndWait();
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -78,6 +86,14 @@ public class ExerciceService implements IService<Exercice>{
 
             pstmt.executeUpdate();
             System.out.println("modifiée!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Le cours a été modifié avec succès !");
+            alert.showAndWait();
+
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -92,6 +108,14 @@ public class ExerciceService implements IService<Exercice>{
             Statement st = connection.createStatement();
             st.executeUpdate(req);
             System.out.println("Exercice supprmiée !");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("L'Exercice a été supprimer avec succès !");
+            alert.showAndWait();
+
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

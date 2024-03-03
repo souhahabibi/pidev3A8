@@ -253,6 +253,21 @@ public class ClientController {
 
 
 
+                planningButton.setStyle("  -fx-background-color:\n" +
+                        "            #a6b5c9,\n" +
+                        "            linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),\n" +
+                        "            linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);\n" +
+                        "    -fx-background-insets: 0 0 -1 0,0,1;\n" +
+                        "    -fx-background-radius: 5,5,4;\n" +
+                        "    -fx-padding: 7 30 7 30;\n" +
+                        "    -fx-text-fill: #242d35;\n" +
+                        "    -fx-font-family: \"Helvetica\";\n" +
+                        "    -fx-font-size: 20px;\n" +
+                        "    -fx-text-fill: white;" +
+                        "-fx-pref-width: 250px;" +
+                        "-fx-pref-height: 35px;");
+
+
 
                 planningButton.setOnAction(event -> {
 

@@ -15,8 +15,11 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.*;
 import java.sql.Connection;
 
 public class ModifierController {
@@ -32,6 +35,11 @@ public class ModifierController {
     private RadioButton rButton1, rButton2, rButton3;
     @FXML
     private ToggleGroup sport;
+
+    @FXML
+    private ImageView imgC;
+
+    private String imagePath;
 
     @FXML
     private TextField nomTF;
@@ -51,7 +59,7 @@ public class ModifierController {
     @FXML
     private TextField idTF;
 
-
+ private  String imagePath2;
     @FXML
     private ListView<Cours> listView;
 
@@ -102,11 +110,12 @@ public class ModifierController {
 
 
 
+
     @FXML
     void modifierC(ActionEvent event) {
         // Récupérer les éléments string dans les textfields
 
-        String path = imagePath;
+        String path = (imagePath2 != null && !imagePath2.isEmpty()) ? imagePath2 : cours.getImage();
         String nom = nomTF.getText();
         String description = descriptionTF.getText();
         String niveau = ((RadioButton) sport.getSelectedToggle()).getText();
@@ -117,15 +126,13 @@ public class ModifierController {
         cours.setNiveau(niveau);
         // Appeler la méthode modifier du service en lui passant l'objet Cours modifié
         cs.modifier(cours);
-
     }
 
 
 
 
     // Variable pour stocker le chemin de l'image
-    private String imagePath;
-
+/*
     @FXML
     void choisirImage(ActionEvent event) {
         try {
@@ -142,7 +149,62 @@ public class ModifierController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }*/
+
+
+    @FXML
+    File choisirImage(ActionEvent event) {
+        File file = null;
+        Path to1 = null;
+        String m = null;
+        JFileChooser chooser = new JFileChooser();
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "JPG & PNG Images", "jpg", "jpeg", "PNG");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            m = chooser.getSelectedFile().getAbsolutePath();
+            String imagePath2;
+            file = chooser.getSelectedFile();
+            String fileName = file.getName();
+            String imagePath = file.getPath().replace("\\", "/");
+
+            if (chooser.getSelectedFile() != null) {
+
+                try {
+                    java.nio.file.Path from = Paths.get(chooser.getSelectedFile().toURI());
+                    to1 = Paths.get(imagePath + "\\" + fileName);
+
+                    CopyOption[] options = new CopyOption[]{
+                            StandardCopyOption.REPLACE_EXISTING,
+                            StandardCopyOption.COPY_ATTRIBUTES
+                    };
+                    Files.copy(from, to1, options);
+                    System.out.println("added");
+                    System.out.println(file);
+
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+
+        }
+        imagePath2=file.getPath();
+
+        this.imagePath2=imagePath2;
+        Image img = new Image(file.toURI().toString());
+        imgC.setImage(img);
+        return file;
     }
+
+
+
+
+
+
+
+
 
 
 
