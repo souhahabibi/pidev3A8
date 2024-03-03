@@ -19,7 +19,7 @@ public class MainFx extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
        // Application.setUserAgentStylesheet(new CupertinoDark().getUserAgentStylesheet());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/market.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/CoachMealManagement.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Gérer diet");

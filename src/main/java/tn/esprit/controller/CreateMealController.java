@@ -28,8 +28,8 @@ import com.twilio.type.PhoneNumber;
 
 public class CreateMealController implements Initializable {
 
-    private final String ACCOUNT_SID = "AC5a4eb19d8a6ba01904d59307be80a6ff";
-    private final String AUTH_TOKEN = "461e062a1dd65eb6755af986bf99c874";
+    private final String ACCOUNT_SID = "ACf98656ce24cceaaa4be85d72a63ecbe8";
+    private final String AUTH_TOKEN = "150155d4627db5404bfed786a0833ea8";
 
 
     private static CreateMealController instance;
@@ -44,7 +44,7 @@ public class CreateMealController implements Initializable {
         return instance;
     }
 
-    static Meal chosenMeal;
+    private Meal chosenMeal;
     @FXML
     private TextField Calories;
 
@@ -71,29 +71,46 @@ public class CreateMealController implements Initializable {
     MealImpl service = new MealImpl();
 
 
+
+
+
     @FXML
     void Save(ActionEvent event) {
         if (chosenMeal != null) {
-            // Update the chosen meal with the modified information
-            chosenMeal.setName(Meal_Name.getText());
-            chosenMeal.setCalories(Integer.parseInt(Calories.getText()));
-            chosenMeal.setRecipe(RecipeText.getText());
+            try {
+                // Validate the calories input
+                if (!validateCalories()) {
+                    return; // Stop execution if calories are not valid
+                }
 
-            // Save the changes to the database or wherever you store your meal data
-            service.update(chosenMeal);
+                // Update the chosen meal with the modified information
+                chosenMeal.setName(Meal_Name.getText());
+                chosenMeal.setCalories(Integer.parseInt(Calories.getText()));
+                chosenMeal.setRecipe(RecipeText.getText());
 
-            // Optionally, you can show a confirmation message or perform other actions after saving
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Changes Saved");
-            alert.setHeaderText(null);
-            alert.setContentText("Meal changes have been saved.");
-            alert.showAndWait();
+                // Save the changes to the database or wherever you store your meal data
+                service.update(chosenMeal);
 
-            // Update the UI to reflect the changes
-            CoachMealMangagementController.getInstance().show();
-            Calories.setText("");
-            Meal_Name.setText("");
-            RecipeText.setText("");
+                // Optionally, you can show a confirmation message or perform other actions after saving
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Changes Saved");
+                alert.setHeaderText(null);
+                alert.setContentText("Meal changes have been saved.");
+                alert.showAndWait();
+
+                // Update the UI to reflect the changes
+                CoachMealMangagementController.getInstance().show();
+                Calories.setText("");
+                Meal_Name.setText("");
+                RecipeText.setText("");
+            } catch (NumberFormatException e) {
+                // Handle the case where the calories input is not a valid number
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid Calories");
+                alert.setHeaderText(null);
+                alert.setContentText("Please enter a valid number for Calories.");
+                alert.showAndWait();
+            }
         } else {
             // Handle the case where no meal is chosen, show an alert or take appropriate action
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -102,11 +119,11 @@ public class CreateMealController implements Initializable {
             alert.setContentText("Please select a meal to update and save changes.");
             alert.showAndWait();
         }
-
     }
 
 
-        @FXML
+
+    @FXML
         void addMeal(ActionEvent event) {
             try {
                 // Validate the calories input
@@ -136,14 +153,14 @@ public class CreateMealController implements Initializable {
                     Meal m = new Meal(Meal_Name.getText(), path, RecipeText.getText(), Integer.parseInt(Calories.getText()));
                     service.save(m);
                     String destinataire = "yosri.selmi369@gmail.com";
-                    String sujet = "Nouveau produit ajouté";
-                    String contenu = "Un nouveau produit a été ajouté pour le fournisseur : ";
+                    String sujet = "New meal added";
+                    String contenu = "new meal added from the coach : ";
 
                     SendMail.envoyerEmailSansAuthentification(destinataire, sujet, contenu);
                     Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
                     Message twilioMessage = Message.creator(
-                                    new PhoneNumber("+21695359282"),  // User's phone number
-                                    new PhoneNumber("+13346211559"),  // Twilio phone number
+                                    new PhoneNumber("+21624019297"),  // User's phone number
+                                    new PhoneNumber("+15717486711"),  // Twilio phone number
                                     "New meal added: " + m.getName())
                             .create();
 
@@ -228,6 +245,13 @@ public class CreateMealController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setMealInformation(Meal chosenMeal) {
+        this.chosenMeal=chosenMeal;
+        Meal_Name.setText(chosenMeal.getName());
+        Calories.setText(String.valueOf(chosenMeal.getCalories()));
+        RecipeText.setText(chosenMeal.getRecipe());
     }
 }
 

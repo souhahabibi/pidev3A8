@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import tn.esprit.entities.Ingredient;
 import tn.esprit.entities.Meal;
 import tn.esprit.entities.ingredientMeal;
@@ -28,8 +31,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.*;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class IngredientAndRecipeController implements Initializable {
 
@@ -38,6 +43,8 @@ public class IngredientAndRecipeController implements Initializable {
     public IngredientAndRecipeController() {
         instance = this;
     }
+
+    private IngredientListener ingredientListener;
 
 
     @FXML
@@ -83,13 +90,15 @@ public class IngredientAndRecipeController implements Initializable {
     private TextField nameIngred;
 
     @FXML
-    private TextArea protein;
+    private TextField protein;
 
     @FXML
     private ScrollPane scroll;
 
     @FXML
     private Button updateingred;
+    @FXML
+    private TextField searchF;
 
     File file;
 
@@ -145,7 +154,7 @@ public class IngredientAndRecipeController implements Initializable {
 
         if (ingredients.size() > 0) {
             setChosenIngredient(ingredients.get(0));
-            myListener = new IngredientListener() {
+            ingredientListener = new IngredientListener() {
                 @Override
                 public void onClickListener(Ingredient ingredient) {
 
@@ -163,7 +172,7 @@ public class IngredientAndRecipeController implements Initializable {
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 IngredientItemController itemController = fxmlLoader.getController();
-                itemController.setData(ingredients.get(i), myListener);
+                itemController.setData(ingredients.get(i), ingredientListener);
 
                 if (column == 3) {
                     column = 0;
@@ -189,7 +198,6 @@ public class IngredientAndRecipeController implements Initializable {
     }
 
 
-
     @FXML
     void DeleteIngredient(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -200,7 +208,6 @@ public class IngredientAndRecipeController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             service.deleteById(chosenIngredient.getId());
-
 
 
             // Remove the chosen meal from the UI
@@ -247,169 +254,28 @@ public class IngredientAndRecipeController implements Initializable {
     }
 
 
-
-    @FXML
-    void Save(ActionEvent event) {
-        if (chosenIngredient != null) {
-        // Update the chosen meal with the modified information
-        chosenIngredient.setName(nameIngred.getText());
-        chosenIngredient.setCalorie(Integer.parseInt(Calories.getText()));
-        chosenIngredient.setTotalFat(Integer.parseInt(TotalFat.getText()));
-        chosenIngredient.setProtein(Integer.parseInt(protein.getText()));
-
-        // Save the changes to the database or wherever you store your meal data
-        service.update(chosenIngredient);
-
-        // Optionally, you can show a confirmation message or perform other actions after saving
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Changes Saved");
-        alert.setHeaderText(null);
-        alert.setContentText("Meal changes have been saved.");
-        alert.showAndWait();
-
-        // Update the UI to reflect the changes
-        show();
-        nameIngred.setText("");
-        Calories.setText("");
-        TotalFat.setText("");
-        protein.setText("");
-    } else {
-        // Handle the case where no meal is chosen, show an alert or take appropriate action
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("No Ingredient Selected");
-        alert.setHeaderText(null);
-        alert.setContentText("Please select an Ingredient to update and save changes.");
-        alert.showAndWait();
-    }
-
-    }
-
-    @FXML
-    void addMeal(ActionEvent event) {
-        try {
-            // Validate the input fields
-            if (!validateFields()) {
-                return; // Stop execution if any field is not valid
-            }
-
-            // Continue with the rest of your code
-            if (Calories.getText().isEmpty() || TotalFat.getText().isEmpty() || protein.getText().isEmpty() || nameIngred.getText().isEmpty()) {
-                Alert alerts = new Alert(Alert.AlertType.WARNING);
-                alerts.setTitle("Warning");
-                alerts.setHeaderText(null);
-                alerts.setContentText("Please fill in the fields!");
-                alerts.show();
-            } else {
-                int caloriesValue = Integer.parseInt(Calories.getText());
-                int totalFatValue = Integer.parseInt(TotalFat.getText());
-                int proteinValue = Integer.parseInt(protein.getText());
-
-                FileInputStream fl = new FileInputStream(file);
-
-                byte[] data = new byte[(int) file.length()];
-                String fileName = file.getName();
-                String path = fileName;
-                fl.read(data);
-                fl.close();
-                //System.out.println(file);
-
-                Ingredient m = new Ingredient(nameIngred.getText(), caloriesValue, totalFatValue, proteinValue, path);
-                service.save(m);
-
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText(null);
-                alert.setContentText("Regime added successfully!");
-                alert.show();
-                show();
-                Calories.setText("");
-                TotalFat.setText("");
-                protein.setText("");
-                nameIngred.setText("");
-            }
-        } catch (NumberFormatException | IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter valid numeric values for the fields!");
-            alert.show();
-        }
-    }
-
-    private boolean validateFields() {
-        try {
-            // Attempt to parse Calories, TotalFat, and Protein as integers
-            Integer.parseInt(Calories.getText());
-            Integer.parseInt(TotalFat.getText());
-            Integer.parseInt(protein.getText());
-            return true; // All fields are valid numbers
-        } catch (NumberFormatException e) {
-            // Show an alert if any field is not a valid number
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Input");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter valid numeric values for all fields.");
-            alert.showAndWait();
-            return false; // At least one field is not a valid number
-        }
-    }
-
-
-    @FXML
-    File importimg(ActionEvent event) {
-        Path to1 = null;
-        String m = null;
-        String path = "C:\\Users\\WIKI\\IdeaProjects\\PidevProject\\src\\main\\resources\\img";
-        JFileChooser chooser = new JFileChooser();
-
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "JPG & PNG Images", "jpg", "jpeg", "PNG");
-        chooser.setFileFilter(filter);
-        int returnVal = chooser.showOpenDialog(null);
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            m = chooser.getSelectedFile().getAbsolutePath();
-
-            file = chooser.getSelectedFile();
-            String fileName = file.getName();
-
-            if (chooser.getSelectedFile() != null) {
-
-                try {
-                    java.nio.file.Path from = Paths.get(chooser.getSelectedFile().toURI());
-                    to1 = Paths.get(path + "\\" + fileName);
-                    //           to2 = Paths.get("src\\"+path+"\\"+file.getName()+".png");
-
-                    CopyOption[] options = new CopyOption[]{
-                            StandardCopyOption.REPLACE_EXISTING,
-                            StandardCopyOption.COPY_ATTRIBUTES
-                    };
-                    Files.copy(from, to1, options);
-                    System.out.println("added");
-                    System.out.println(file);
-
-                } catch (IOException ex) {
-                    System.out.println();
-                }
-            }
-
-        }
-        System.out.println(file.getPath());
-        Image img = new Image(file.getPath());
-        imgMeal.setImage(img);
-        return file;
-
-    }
-
     @FXML
     void update(ActionEvent event) {
         if (chosenIngredient != null) {
-            // Populate the fields with the current meal's information
-            nameIngred.setText(chosenIngredient.getName());
-            Calories.setText(String.valueOf(chosenIngredient.getCalorie()));
-            TotalFat.setText(String.valueOf(chosenIngredient.getTotalFat()));
-            protein.setText(String.valueOf(chosenIngredient.getProtein()));
+            try {
+                // Load createmeal.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/CreateIngredient.fxml"));
+                Parent root = loader.load();
 
-            // Other update logic can be added here based on your requirements
+                // Get the controller associated with createmeal.fxml
+                CreateIngredientController createIngredientController = loader.getController();
+
+                createIngredientController.setIngredientInformation(chosenIngredient);
+
+                // Create a new stage and set the scene
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+
+                // Show the stage
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace(); // Handle the exception appropriately
+            }
         } else {
             // Handle the case where no meal is chosen, show an alert or take appropriate action
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -418,8 +284,24 @@ public class IngredientAndRecipeController implements Initializable {
             alert.setContentText("Please select a meal to update.");
             alert.showAndWait();
         }
+        // Populate the fields with the current meal's information
+        //nameIngred.setText(chosenIngredient.getName());
+        //Calories.setText(String.valueOf(chosenIngredient.getCalorie()));
+        //TotalFat.setText(String.valueOf(chosenIngredient.getTotalFat()));
+        //protein.setText(String.valueOf(chosenIngredient.getProtein()));
+
+        // Other update logic can be added here based on your requirements
+        //} else {
+        // Handle the case where no meal is chosen, show an alert or take appropriate action
+        //  Alert alert = new Alert(Alert.AlertType.WARNING);
+        //alert.setTitle("No Meal Selected");
+        //alert.setHeaderText(null);
+        //alert.setContentText("Please select a meal to update.");
+        //alert.showAndWait();
+        //}
 
     }
+
     public void setChosenMeal(Meal meal) {
         IngredientAndRecipeController.chosenMeal = meal;
     }
@@ -427,5 +309,63 @@ public class IngredientAndRecipeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         show();
+    }
+
+    public void createIngred(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/CreateIngredient.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    void searchIngred(ActionEvent event) {
+        String searchQuery = searchF.getText().trim();
+
+        if (!searchQuery.isEmpty()) {
+            List<Ingredient> searchResults = ingredients.stream()
+                    .filter(ingredient -> ingredient.getName().toLowerCase().contains(searchQuery.toLowerCase()))
+                    .collect(Collectors.toList());
+
+            // Update the UI with the search results
+            show(searchResults);
+        } else {
+            // If the search query is empty, show all meals
+            show(ingredients);
+        }
+
+    }
+
+    public void show(List<Ingredient> displayIngredients) {
+        grid.getChildren().clear(); // Clear the existing grid
+
+        int column = 0;
+        int row = 1;
+
+        try {
+            for (int i = 0; i < displayIngredients.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/Ingredientitem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                IngredientItemController itemingController = fxmlLoader.getController();
+                itemingController.setData(displayIngredients.get(i), ingredientListener);
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

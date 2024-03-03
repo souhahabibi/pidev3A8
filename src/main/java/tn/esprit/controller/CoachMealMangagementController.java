@@ -418,13 +418,26 @@ public class CoachMealMangagementController implements Initializable {
 
     public void update(ActionEvent actionEvent) {
         if (chosenMeal != null) {
-            // Populate the fields with the current meal's information
-            Meal_Name.setText(chosenMeal.getName());
-            Calories.setText(String.valueOf(chosenMeal.getCalories()));
-            RecipeText.setText(chosenMeal.getRecipe());
+            try {
+                // Load createmeal.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/CreateMeal.fxml"));
+                Parent root = loader.load();
 
+                // Get the controller associated with createmeal.fxml
+                CreateMealController createMealController = loader.getController();
 
-            // Other update logic can be added here based on your requirements
+                // Set the fields with existing meal information
+                createMealController.setMealInformation(chosenMeal);
+
+                // Create a new stage and set the scene
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+
+                // Show the stage
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace(); // Handle the exception appropriately
+            }
         } else {
             // Handle the case where no meal is chosen, show an alert or take appropriate action
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -434,6 +447,7 @@ public class CoachMealMangagementController implements Initializable {
             alert.showAndWait();
         }
     }
+
 
 //    public void Save(ActionEvent actionEvent) {
 //        if (chosenMeal != null) {
