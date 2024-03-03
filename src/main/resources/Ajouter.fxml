@@ -56,7 +56,7 @@
                         </Label>
                    <TextField fx:id="nomTF" layoutX="283.0" layoutY="194.0" />
                    <TextField fx:id="descriptionTF" layoutX="283.0" layoutY="252.0" />
-                   <Button layoutX="313.0" layoutY="386.0" mnemonicParsing="false" onAction="#AjouterCours" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
+                   <Button layoutX="313.0" layoutY="386.0" mnemonicParsing="false" onAction="#AjouterCours" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Ajouter" />
                    <Button fx:id="btnuplaod" layoutX="298.0" layoutY="145.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: grey; -fx-text-fill: white; -fx-font-size: 15px; -fx-padding: 4px 25px; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 2);" text="Upload" />
                    <RadioButton fx:id="rButton1" layoutX="283.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Débutant" textFill="WHITE" toggleGroup="$sport">
                        <font>
@@ -76,7 +76,7 @@
                            <Font size="19.0" />
                        </font>
                    </RadioButton>
-                        <Button fx:id="btnAfficher2" layoutX="489.0" layoutY="386.0" mnemonicParsing="false" onAction="#NaviviguerVerAfficherCours" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Afficher" />
+                        <Button fx:id="btnAfficher2" layoutX="489.0" layoutY="386.0" mnemonicParsing="false" onAction="#NaviviguerVerAfficherCours" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Afficher" />
                  </children>
               </AnchorPane>
 

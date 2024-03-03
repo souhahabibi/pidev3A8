@@ -2,6 +2,7 @@ package com.esprit.controllers;
 
 import com.esprit.models.Cours;
 import com.esprit.models.Exercice;
+import com.esprit.models.SharedModel;
 import com.esprit.services.CoursService;
 import com.esprit.services.ExerciceService;
 import javafx.collections.FXCollections;
@@ -98,7 +99,12 @@ private Button btnAjouter2;
             private final Text niveau = new Text();
             private final HBox niveauBox = new HBox(niveauLabel, niveau);
 
-            private final VBox vBox = new VBox(10,nomBox, descriptionBox, niveauBox);
+            private final Button AjouterButton = new Button("Ajouter Exercice");
+            private final HBox Ajouter = new HBox(10,AjouterButton);
+
+
+
+            private final VBox vBox = new VBox(10,nomBox, descriptionBox, niveauBox,Ajouter);
             private final HBox hBox = new HBox(35, imageView, vBox);
 
             {
@@ -113,6 +119,36 @@ private Button btnAjouter2;
                 niveauLabel.setStyle("-fx-text-fill: white;"+"-fx-font-weight: bold;");
                 // changer la police du texte en Comic Sans MS
                 vBox.setStyle("-fx-font-family: 'Comic Sans MS';" + "-fx-font-size: 14px;");
+
+
+
+
+                AjouterButton.setStyle("-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 250px;-fx-pref-height: 30px;");
+
+
+                AjouterButton.setOnAction(event -> {
+                    Cours selectedCours = listView.getSelectionModel().getSelectedItem();
+                    SharedModel.setId(selectedCours.getId());
+
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("/AjouterExercice.fxml"));
+                        AjouterButton.getScene().setRoot(root);
+
+
+                        TabPane tabPane = (TabPane) root.lookup("#tabPane");
+                        tabPane.getSelectionModel().select(0);
+
+
+
+                    } catch (IOException e) {
+                        System.err.println(e.getMessage());
+                    }
+                });
+
+
+
+
+
             }
 
             @Override

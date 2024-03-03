@@ -75,13 +75,6 @@ public class ModifierController {
 
 
 
-
-
-
-
-
-
-
     public void setCours(Cours cours) {
         // Récupérer les attributs de l'objet Cours
 

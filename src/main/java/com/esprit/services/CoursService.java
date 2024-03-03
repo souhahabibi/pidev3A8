@@ -3,7 +3,9 @@ import com.esprit.models.Cours;
 import com.esprit.utils.DataSource;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.*;
+import java.util.Date;
 
 
 public class CoursService implements IService<Cours> {
@@ -17,16 +19,76 @@ public class CoursService implements IService<Cours> {
     }
     @Override
     public void ajouter(Cours cours) {
-        String req = "INSERT into cours(image, nom, description, niveau) values ('" + cours.getImage() + "','" + cours.getNom() + "','" + cours.getDescription() + "','" + cours.getNiveau() + "')";
+        String req = "INSERT INTO cours (image, nom, description, niveau, commentaire) VALUES (?, ?, ?, ?, ?)";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
+            preparedStatement.setString(1, cours.getImage());
+            preparedStatement.setString(2, cours.getNom());
+            preparedStatement.setString(3, cours.getDescription());
+            preparedStatement.setString(4, cours.getNiveau());
+            preparedStatement.setString(5, "");
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Cours ajoutée !");
+            } else {
+                System.out.println("Erreur lors de l'ajout du cours !");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur SQL : " + e.getMessage());
+        }
+    }
+
+    public Cours getCoursById(int id) {
+        String req = "SELECT planning, nom FROM cours WHERE id = ?";
+        Cours cours = null;
 
         try {
-            Statement st = connection.createStatement();
-            st.executeUpdate(req);
-            System.out.println("Cours ajoutée !");
+            PreparedStatement pstmt = connection.prepareStatement(req);
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                cours = new Cours();
+                Date date = rs.getDate("planning");
+                if (date != null) {
+                    cours.setPlanning(((java.sql.Date) date).toLocalDate());
+                }
+                cours.setNom(rs.getString("nom"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return cours;
+    }
+
+
+
+
+
+
+
+
+    @Override
+    public void ajoutercom(Cours cours) {
+        String req = "UPDATE cours SET commentaire = ? WHERE id = ?";
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(req);
+            pstmt.setString(1, cours.getCommentaire());
+            pstmt.setInt(2, cours.getId());
+            pstmt.executeUpdate();
+            System.out.println("Commentaire ajoutée !");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
+
+
+
 
     @Override
     public void modifier(Cours Cours) {
@@ -50,7 +112,7 @@ public class CoursService implements IService<Cours> {
 
     @Override
     public void supprimer(Cours Cours) {
-        String req = "DELETE from Cours where id = " + Cours.getId() + ";";
+        String req = "DELETE * from Cours where id = " + Cours.getId() + ";";
         try {
             Statement st = connection.createStatement();
             st.executeUpdate(req);
@@ -83,12 +145,6 @@ public class CoursService implements IService<Cours> {
         // Si aucun cours existant ne correspond au nouveau cours, le cours n'existe pas
         return false;
     }
-
-
-
-
-
-
 
     @Override
     public void insererImage(Cours cours) {
@@ -138,13 +194,5 @@ public class CoursService implements IService<Cours> {
         }
 
         return id;
-
-
-
-
-
-
-
-
 
 }}

@@ -5,10 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a20d9d01-1829-4530-86cc-cb1e1bdc6946" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/CalendrierController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ClientCommentaireController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ClientEtapeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/TraductionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/SharedModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Calendar.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ClientCommentaire.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Etapes.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Traduction.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AcceuilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AfficherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AfficherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/AjouterExerciceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ClientExerciceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ClientExerciceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ModifierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/ModifierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/models/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/Cours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/models/Exercice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/Exercice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/CoursService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/CoursService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/ExerciceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/ExerciceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Acceuil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Afficher.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Afficher.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AfficherExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AfficherExercice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Ajouter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Ajouter.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AjouterExercice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Client.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Modifier.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ModifierExercice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ModifierExercice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +47,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaFXApplication" />
         <option value="CSS File" />
-        <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -63,20 +92,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Rebasing GestionCours",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Rebasing GestionCours&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\benjd\OneDrive\Bureau\pidev\ProjetJAVA\src\main\resources" />
@@ -95,7 +126,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ed67626f-6065-4efb-a6f9-e9424ff03d08" name="Changes" comment="" />
+      <changelist id="a20d9d01-1829-4530-86cc-cb1e1bdc6946" name="Changes" comment="" />
       <created>1708261516233</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -156,6 +187,10 @@
       <workItem from="1708957049926" duration="23000" />
       <workItem from="1709114404912" duration="753000" />
       <workItem from="1709115174295" duration="1058000" />
+      <workItem from="1709236265461" duration="16171000" />
+      <workItem from="1709280975003" duration="6962000" />
+      <workItem from="1709297272984" duration="53094000" />
+      <workItem from="1709394353190" duration="27251000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

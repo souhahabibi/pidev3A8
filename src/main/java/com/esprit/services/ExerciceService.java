@@ -34,6 +34,10 @@ public class ExerciceService implements IService<Exercice>{
         }
     }
 
+    @Override
+    public void ajoutercom(Exercice exercice) {
+
+    }
 
 
     public boolean ExerciceExiste(Exercice nouveauExercice) {
@@ -139,7 +143,7 @@ public class ExerciceService implements IService<Exercice>{
 
     public List<Exercice> afficher2(int id) {
         List<Exercice> exercice = new ArrayList<>();
-        String req = "SELECT exercice.idE, exercice.id, exercice.nom, exercice.etape, exercice.image from exercice , cours where cours.id=exercice.id AND cours.id=" + id;
+        String req = "SELECT * from exercice , cours where cours.id=exercice.id AND cours.id=" + id;
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
@@ -152,6 +156,29 @@ public class ExerciceService implements IService<Exercice>{
 
         return exercice;
     }
+
+    public List<Exercice> afficher3(int courseId) {
+        List<Exercice> exercice = new ArrayList<>();
+
+        String req = "SELECT * FROM exercice JOIN cours ON cours.id = exercice.id ORDER BY exercice.id ASC LIMIT 1";
+
+
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                exercice.add(new Exercice( rs.getString("nom"), rs.getString("etape"),rs.getString("image")));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return exercice;
+    }
+
+
+
+
 
 
 

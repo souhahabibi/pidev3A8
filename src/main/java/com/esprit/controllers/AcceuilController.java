@@ -124,8 +124,21 @@ public class AcceuilController {
         showAlert(message.toString());
     }
 
+
+    private void navigateTo2(String resource) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(resource));
+            btnAfficher2.getScene().setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @FXML
     void NaviviguerVerAfficherCours(ActionEvent event) {
-        navigateTo("/Afficher.fxml");
+        navigateTo2("/Afficher.fxml");
     }
+
+
 }

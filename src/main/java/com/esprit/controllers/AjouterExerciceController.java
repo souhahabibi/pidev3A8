@@ -2,6 +2,7 @@ package com.esprit.controllers;
 
 import com.esprit.models.Cours;
 import com.esprit.models.Exercice;
+import com.esprit.models.SharedModel;
 import com.esprit.services.CoursService;
 import com.esprit.services.ExerciceService;
 
@@ -60,9 +61,12 @@ private  Exercice exercice;
 
     @FXML
     void AjouterExercice(ActionEvent event) {
+
+        int id = SharedModel.getId();
+
         if (imagePath != null && !nomTF.getText().isEmpty() && !etapeTR.getText().isEmpty()) {
             // Créer un nouveau exercice
-            Exercice nouveauExercice = new Exercice(Integer.parseInt(id.getText()), nomTF.getText(), etapeTR.getText(), imagePath);
+            Exercice nouveauExercice = new Exercice(id, nomTF.getText(), etapeTR.getText(), imagePath);
             // Vérifier si l'exercice existe déjà
             if (!es.ExerciceExiste(nouveauExercice)) {
                 // Si l'exercice n'existe pas, l'ajouter

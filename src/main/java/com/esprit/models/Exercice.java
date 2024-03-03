@@ -15,6 +15,11 @@ public class Exercice extends Cours {
 
     private  Cours cours;
 
+    public Exercice(String nom, String etape, String image) {  this.nom = nom;
+        this.etape = etape;
+        this.image = image;
+
+    }
 
 
     public String getEtape() {

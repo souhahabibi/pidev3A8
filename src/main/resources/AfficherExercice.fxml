@@ -9,7 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+
 <!-- height 600 w widht 1000.0 -->
+
 <AnchorPane prefHeight="1000" prefWidth="2000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.AfficherExerciceController">
     <children>
         <ImageView fitHeight="111.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
@@ -27,12 +29,12 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
-                                <Button fx:id="btnAjouter" layoutX="123.0" layoutY="26.0" mnemonicParsing="false" onAction="#NaviguerVerAjouter" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Ajouter" />
+                                <Button fx:id="btnAjouter" layoutX="122.0" layoutY="14.0" mnemonicParsing="false" onAction="#NaviguerVerAjouter" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Ajouter" />
 
                                 <ListView fx:id="listView" layoutY="68.0" prefHeight="539.0" prefWidth="937.0" />
-                                <Button fx:id="btnAjouter1" layoutX="475.0" layoutY="26.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Afficher" />
-                                <Button fx:id="btnSupprimer1" layoutX="656.0" layoutY="26.0" mnemonicParsing="false" onAction="#supprimerExercice" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Supprimer" />
-                                <Button fx:id="btnModifier" layoutX="307.0" layoutY="26.0" mnemonicParsing="false" onAction="#modifierExercice" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: red;-fx-font-size: 15px; -fx-text-fill: white;" text="Modifier" />
+                                <Button fx:id="btnAjouter1" layoutX="476.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 30px;" text="Afficher" />
+                                <Button fx:id="btnSupprimer1" layoutX="646.0" layoutY="14.0" mnemonicParsing="false" onAction="#supprimerExercice" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Supprimer" />
+                                <Button fx:id="btnModifier" layoutX="304.0" layoutY="14.0" mnemonicParsing="false" onAction="#modifierExercice" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Modifier" />
 
 
                             </children>
