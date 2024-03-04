@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierController">
+
+    <children>
+        <ImageView fitHeight="111.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/esprat.png" />
+            </image>
+        </ImageView>
+        <TabPane layoutX="6.0" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Cours">
+                    <content>
+
+                        <Label fx:id="titre" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="50.0" prefHeight="53.0" prefWidth="582.0" stylesheets="@style.css" text="Modifier Cours" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="169.0" layoutY="136.0" text="Image" textFill="WHITE">
+                                    <font>
+                                        <Font size="33.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="189.0" layoutY="185.0" text="Nom" textFill="WHITE">
+                                    <font>
+                                        <Font size="33.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="117.0" layoutY="243.0" text="Description" textFill="WHITE">
+                                    <font>
+                                        <Font size="33.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="175.0" layoutY="306.0" text="Niveau" textFill="WHITE">
+                                    <font>
+                                        <Font size="33.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="nomTF" layoutX="283.0" layoutY="194.0" />
+                                <TextField fx:id="descriptionTF" layoutX="283.0" layoutY="252.0" />
+                                <Button layoutX="313.0" layoutY="386.0" mnemonicParsing="false" onAction="#modifierC" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Modifier" />
+                                <Button fx:id="btnuplaod" layoutX="298.0" layoutY="145.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: grey; -fx-text-fill: white; -fx-font-size: 15px; -fx-padding: 4px 25px; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 2);" text="Upload" />
+                                <RadioButton fx:id="rButton1" layoutX="283.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Débutant" textFill="WHITE" toggleGroup="$sport">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="sport" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="rButton2" layoutX="392.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Normale" textFill="WHITE" toggleGroup="$sport">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </RadioButton>
+                                <RadioButton fx:id="rButton3" layoutX="526.0" layoutY="316.0" mnemonicParsing="false" onAction="#AjoutertNiveau" text="Avancé" textFill="WHITE" toggleGroup="$sport">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </RadioButton>
+                                <Button fx:id="btnAfficher" layoutX="489.0" layoutY="386.0" mnemonicParsing="false" onAction="#NaviguerVersAfficher" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #a6b5c9,linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);-fx-background-insets: 0 0 -1 0,0,1;-fx-background-radius: 5,5,4;-fx-padding: 7 30 7 30;-fx-text-fill: #242d35;-fx-font-family: 'Helvetica';-fx-font-size: 20px;-fx-text-fill: white;-fx-pref-width: 160px;-fx-pref-height: 35px;" text="Afficher" />
+                                <ImageView fx:id="imgC" fitHeight="104.0" fitWidth="145.0" layoutX="489.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
+                            </children>
+                        </AnchorPane>
+
+                    </content>
+                </Tab>
+                <Tab text="Exercice">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+            </tabs>
+            <padding>
+                <Insets left="100.0" />
+            </padding>
+        </TabPane>
+    </children>
+
+
+
+
+
+
+</AnchorPane>

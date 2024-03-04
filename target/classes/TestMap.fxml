@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TestMapController">
+   <children>
+      <WebView fx:id="webMap" layoutX="19.0" layoutY="94.0" prefHeight="486.0" prefWidth="953.0" />
+      <Button layoutX="29.0" layoutY="22.0" mnemonicParsing="false" onAction="#naviguezVersClient" prefHeight="54.0" prefWidth="57.0">
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true">
+               <image>
+                  <Image url="@flaticon/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text layoutX="449.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la localisation " />
+   </children>
+</AnchorPane>

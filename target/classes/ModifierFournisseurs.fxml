@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierFournisseurController">
+    <children>
+        <!-- Label principal -->
+        <Label layoutX="375.0" layoutY="59.0" style="-fx-font-weight: bold;" text="MODIFIER FOURNISSEUR" />
+
+
+        <!-- Labels pour les champs de saisie -->
+        <Label layoutX="342.0" layoutY="206.0" text="Nom" />
+        <Label layoutX="342.0" layoutY="290.0" text="Prénom" />
+        <Label layoutX="352.0" layoutY="366.0" text="Type" />
+        <Label layoutX="352.0" layoutY="434.0" text="Numéro" />
+
+        <!-- Champs de saisie pour le nom, prénom, type et numéro -->
+        <TextField fx:id="nomTF" layoutX="486.0" layoutY="201.0" promptText="Nom" />
+        <TextField fx:id="prenomTF" layoutX="486.0" layoutY="285.0" promptText="Prénom" />
+        <TextField fx:id="typeTF" layoutX="486.0" layoutY="361.0" promptText="Type" />
+        <TextField fx:id="numeroTF" layoutX="486.0" layoutY="429.0" promptText="Numéro" />
+
+        <!-- Conteneur pour les boutons -->
+        <HBox alignment="CENTER" layoutX="186.0" layoutY="290.0" spacing="10.0" />
+         <Button fx:id="buttonList" layoutX="925.0" layoutY="555.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" styleClass="login-btn" stylesheets="@style.css" text="Liste" />
+         <!-- Boutons pour ajouter, annuler et afficher la liste -->
+         <Button fx:id="buttonAdd" layoutX="426.0" layoutY="530.0" mnemonicParsing="false" onAction="#modifierFournisseur" styleClass="login-btn" stylesheets="@style.css" text="modifier" />
+        <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true">
+            <image>
+                <Image url="@/logo.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

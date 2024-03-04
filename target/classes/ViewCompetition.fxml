@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ViewCompetitionController">
+   <children>
+      <ScrollPane layoutX="45.0" layoutY="99.0" prefHeight="460.0" prefViewportHeight="713.9267578125" prefViewportWidth="827.0" prefWidth="899.0">
+         <content>
+            <AnchorPane>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000007a" height="371.0" layoutX="81.0" layoutY="708.0" stroke="BLACK" strokeType="INSIDE" width="707.0" />
+                  <ImageView fitHeight="398.0" fitWidth="803.0" layoutX="40.0" layoutY="699.0" opacity="0.8" pickOnBounds="true">
+                     <image>
+                        <Image url="@Viewimage1.jpeg" />
+                     </image>
+                     <effect>
+                        <GaussianBlur radius="16.15" />
+                     </effect>
+                  </ImageView>
+                  <Button fx:id="joinB" layoutX="661.0" layoutY="26.0" mnemonicParsing="false" onAction="#joinCompetition" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #8ce047;" text="JOIN" textFill="WHITE" />
+                  <Text fx:id="nomT" layoutX="151.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WeightLifting" textAlignment="CENTER" wrappingWidth="427.6708984375">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="dateT" layoutX="667.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:20/02/2024" wrappingWidth="123.6708984375" />
+                  <Line endX="500.0" layoutX="233.0" layoutY="1011.0" startX="-100.0" stroke="WHITE" />
+                  <TextArea fx:id="descriptionTA" editable="false" layoutX="47.0" layoutY="530.0" prefHeight="145.0" prefWidth="793.0" wrapText="true" />
+                  <Text fill="WHITE" layoutX="325.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LeaderBoard">
+                     <font>
+                        <Font size="45.0" />
+                     </font>
+                  </Text>
+                  <WebView fx:id="videoWV" layoutX="67.0" layoutY="126.0" prefHeight="384.0" prefWidth="728.0" />
+                  <Line endX="500.0" layoutX="233.0" layoutY="831.0" startX="-100.0" stroke="WHITE" />
+                  <Line endX="500.0" layoutX="233.0" layoutY="891.0" startX="-100.0" stroke="WHITE" />
+                  <Line endX="500.0" layoutX="233.0" layoutY="951.0" startX="-100.0" stroke="WHITE" />
+                  <Text fill="WHITE" layoutX="153.0" layoutY="818.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                     <font>
+                        <Font name="Bodoni MT" size="41.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="153.0" layoutY="879.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+                     <font>
+                        <Font name="Bodoni MT" size="41.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="153.0" layoutY="936.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                     <font>
+                        <Font name="Bodoni MT" size="41.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="153.0" layoutY="999.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+                     <font>
+                        <Font name="Bodoni MT" size="41.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="153.0" layoutY="1057.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+                     <font>
+                        <Font name="Bodoni MT" size="41.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="leader1" fill="WHITE" layoutX="197.0" layoutY="816.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="499.6708984375">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="leader2" fill="WHITE" layoutX="197.0" layoutY="877.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="499.6708984375">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="leader3" fill="WHITE" layoutX="197.0" layoutY="934.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="499.6708984375">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="leader4" fill="WHITE" layoutX="197.0" layoutY="997.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="499.6708984375">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="leader5" fill="WHITE" layoutX="197.0" layoutY="1055.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="499.6708984375">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Button layoutX="45.0" layoutY="43.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" styleClass="login-btn" stylesheets="@design.css" text="Return" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="601.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MaterielClientController">
+   <children>
+      <ScrollPane layoutX="135.0" layoutY="106.0" prefHeight="436.0" prefViewportHeight="206.0" prefViewportWidth="879.0" prefWidth="762.0">
+         <content>
+            <VBox fx:id="materielsContainer" layoutX="73.0" layoutY="125.0" />
+         </content>
+      </ScrollPane>
+      <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="128.0" layoutY="17.0" mnemonicParsing="false" onAction="#naviguezVersClient">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true">
+               <image>
+                  <Image url="@flaticon/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

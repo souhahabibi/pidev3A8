@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="261.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateMealController">
+    <children>
+        <HBox layoutX="2.0" prefHeight="278.0" prefWidth="753.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <AnchorPane prefHeight="278.0" prefWidth="800.0">
+                            <children>
+                                <Label layoutX="3.0" layoutY="49.0" prefHeight="40.0" prefWidth="101.0" text="Meal Name">
+                                    <padding>
+                                        <Insets left="20.0" top="20.0" />
+                                    </padding>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="Meal_Name" layoutX="110.0" layoutY="64.0" prefHeight="38.0" prefWidth="117.0">
+                                    <padding>
+                                        <Insets left="30.0" top="20.0" />
+                                    </padding>
+                                </TextField>
+                                <Label layoutX="19.0" layoutY="107.0" prefHeight="19.0" prefWidth="78.0" text="Calories">
+                                    <padding>
+                                        <Insets left="20.0" top="20.0" />
+                                    </padding>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="Calories" layoutX="109.0" layoutY="120.0" prefHeight="28.0" prefWidth="119.0">
+                                    <padding>
+                                        <Insets left="30.0" top="20.0" />
+                                    </padding>
+                                </TextField>
+                                <Button fx:id="Import_btn" layoutX="428.0" layoutY="25.0" mnemonicParsing="false" onAction="#importimg" prefHeight="26.0" prefWidth="92.0" text="Import image" />
+                                <Button fx:id="add_btn" layoutX="457.0" layoutY="204.0" mnemonicParsing="false" onAction="#addMeal" prefHeight="26.0" prefWidth="63.0" styleClass="login-btn" stylesheets="@css/css.css" text="Add" />
+                                <ImageView fx:id="imgMeal" fitHeight="137.0" fitWidth="178.0" layoutX="542.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label layoutX="54.0" layoutY="174.0" text="Recipe">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextArea fx:id="RecipeText" layoutX="109.0" layoutY="174.0" prefHeight="89.0" prefWidth="287.0" />
+                                <Button fx:id="Savebtn" layoutX="550.0" layoutY="204.0" mnemonicParsing="false" onAction="#Save" prefHeight="26.0" prefWidth="63.0" styleClass="login-btn" stylesheets="@css/css.css" text="Save" />
+                                <Label layoutX="19.0" layoutY="17.0" prefHeight="18.0" prefWidth="178.0" text="Create a new meal" textFill="#cc1515">
+                                    <font>
+                                        <Font name="Arial Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

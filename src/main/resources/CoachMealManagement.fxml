@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CoachMealMangagementController">
+    <children>
+        <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <left>
+                <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="148.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/logo.png" />
+                                    </image>
+                                </ImageView>
+                                <Label prefHeight="50.0" prefWidth="112.0" text="Meal" textFill="#878787">
+                                    <font>
+                                        <Font name="Cambria Bold" size="40.0" />
+                                    </font>
+                                </Label>
+                                <Label prefHeight="50.0" prefWidth="123.0" text="List" textFill="#878787">
+                                    <font>
+                                        <Font name="Cambria" size="40.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <VBox fx:id="chosenMealCard" alignment="CENTER" prefHeight="406.0" prefWidth="334.0" stylesheets="@css/style.css">
+                            <VBox.margin>
+                                <Insets left="50.0" right="50.0" />
+                            </VBox.margin>
+                            <children>
+                                <HBox prefHeight="60.0" prefWidth="335.0">
+                                    <children>
+                                        <Label fx:id="MealNameLable" prefHeight="48.0" prefWidth="276.0" text="Meal" textFill="WHITE">
+                                            <font>
+                                                <Font name="Cambria" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="CaloriesProp" prefHeight="44.0" prefWidth="223.0" text="Calories" textFill="WHITE">
+                                            <font>
+                                                <Font name="Cambria" size="36.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="20.0" top="30.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <ImageView fx:id="mealImg" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/img/healthyfood.png" />
+                                    </image>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </ImageView>
+                                <HBox alignment="CENTER" prefHeight="107.0" prefWidth="334.0">
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                                    <children>
+                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                            <children>
+                                                <Label layoutX="-23.0" layoutY="18.0" prefHeight="40.0" prefWidth="98.0" text="User name">
+                                                    <padding>
+                                                        <Insets left="20.0" top="20.0" />
+                                                    </padding>
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="usersList" layoutX="75.0" layoutY="32.0" prefWidth="150.0" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </HBox>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                            </children>
+                            <styleClass>
+                                <String fx:value="chosen-fruit-card" />
+                                <String fx:value="shadow" />
+                            </styleClass>
+                        </VBox>
+                        <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Button fx:id="Add_To_Client" layoutX="73.0" layoutY="27.0" mnemonicParsing="false" onAction="#AddToClient" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Add to client" />
+                                <Button fx:id="Delete_btn" layoutX="226.0" layoutY="28.0" mnemonicParsing="false" onAction="#DeleteMeal" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Delete" />
+                                <Button fx:id="updatemeal" layoutX="73.0" layoutY="80.0" mnemonicParsing="false" onAction="#update" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Update" />
+                                <Button fx:id="addIngred" layoutX="226.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddIngredient" prefHeight="37.0" prefWidth="117.0" styleClass="login-btn" stylesheets="@css/css.css" text="Add Ingredient" />
+                                <Button fx:id="createmeal" layoutX="120.0" layoutY="138.0" mnemonicParsing="false" onAction="#create" prefHeight="37.0" prefWidth="191.0" styleClass="login-btn" stylesheets="@css/css.css" text="Create a new meal" />
+                            </children></Pane>
+                    </children>
+                </VBox>
+            </left>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Pane prefHeight="100.0" prefWidth="166.0" />
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="520.0" styleClass="free-delivery-card" stylesheets="@css/style.css">
+                                    <children>
+                                        <VBox alignment="CENTER" prefHeight="94.0" prefWidth="786.0">
+                                            <children>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                    <children>
+                                                        <AnchorPane prefHeight="100.0" prefWidth="616.0">
+                                                            <children>
+                                                                <HBox alignment="CENTER" layoutX="108.0" layoutY="29.0" prefHeight="38.0" prefWidth="311.0" stylesheets="@../../../../../Downloads/CodingBoothDesk-farouk/src/gui/style.css">
+                                                                    <children>
+                                                                        <TextField fx:id="searchField" prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent" stylesheets="@../../../../../Downloads/CodingBoothDesk-farouk/src/gui/style.css">
+                                                                            <HBox.margin>
+                                                                                <Insets left="20.0" />
+                                                                            </HBox.margin>
+                                                                            <font>
+                                                                                <Font name="Cambria" size="18.0" />
+                                                                            </font>
+                                                                        </TextField>
+                                                                        <Button mnemonicParsing="false" onAction="#searchMeal" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../../../../../Downloads/CodingBoothDesk-farouk/src/gui/style.css" text="Search" textFill="WHITE" />
+                                                                    </children>
+                                                                    <styleClass>
+                                                                        <String fx:value="search-box" />
+                                                                        <String fx:value="shadow" />
+                                                                    </styleClass>
+                                                                </HBox>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Pane prefHeight="84.0" prefWidth="96.0" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <ScrollPane fx:id="scroll" prefHeight="570.0" prefWidth="785.0" styleClass="transparent" stylesheets="@css/style.css">
+                                    <content>
+                                        <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </content>
+                                    <HBox.margin>
+                                        <Insets top="10.0" />
+                                    </HBox.margin>
+                                </ScrollPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

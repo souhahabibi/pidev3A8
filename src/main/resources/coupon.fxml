@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GestionCouponsController">
+    <children>
+        <Label layoutX="17.0" layoutY="435.0" styleClass="head-label" stylesheets="@LoginDesign.css" text="NomSociete" />
+        <TextField fx:id="NomSocieteTF" layoutX="124.0" layoutY="430.0" promptText="NomSociete" stylesheets="@LoginDesign.css" />
+        <TextField fx:id="codeTF" layoutX="412.0" layoutY="430.0" prefHeight="31.0" prefWidth="129.0" promptText="code du coupon" />
+        <Label layoutX="355.0" layoutY="435.0" styleClass="head-label" stylesheets="@LoginDesign.css" text="code" />
+        <TextField fx:id="valeurTF" layoutX="108.0" layoutY="483.0" prefHeight="31.0" prefWidth="136.0" promptText="valeur du coupon" />
+        <Label layoutX="17.0" layoutY="488.0" styleClass="head-label" stylesheets="@LoginDesign.css" text="Valeur" />
+        <TextField fx:id="dateTF" layoutX="396.0" layoutY="483.0" promptText="JJ/MM/YYYY" />
+        <Label layoutX="262.0" layoutY="488.0" styleClass="head-label" stylesheets="@LoginDesign.css" text="DateExpiration" />
+        <Button fx:id="Ajouterbtn" layoutX="142.0" layoutY="539.0" mnemonicParsing="false" onAction="#ajouterCoupon" prefHeight="31.0" prefWidth="89.0" stylesheets="@LoginDesign.css" text="Ajouter" />
+        <Button fx:id="Modifierbtn" layoutX="282.0" layoutY="539.0" mnemonicParsing="false" onAction="#modifierCoupon" prefHeight="31.0" prefWidth="89.0" stylesheets="@LoginDesign.css" text="Modifier" />
+        <Button fx:id="Supprimerbtn" layoutX="412.0" layoutY="539.0" mnemonicParsing="false" onAction="#supprimerCoupon" stylesheets="@LoginDesign.css" text="Supprimer" />
+        <Button fx:id="Clearbtn" layoutX="891.0" layoutY="541.0" mnemonicParsing="false" onAction="#clearData" stylesheets="@LoginDesign.css" text="clear" />
+        <TextField fx:id="idTF" layoutX="227.0" layoutY="211.0" />
+        <TableView fx:id="TableViewCoupon" layoutY="-1.0" onMouseClicked="#updateView" prefHeight="421.0" prefWidth="1002.0" styleClass="head-label" stylesheets="@LoginDesign.css">
+            <columns>
+                <TableColumn fx:id="nomSocieteCol" prefWidth="182.0" text="NomSociete" />
+                <TableColumn fx:id="codeCol" prefWidth="148.00003051757812" text="code" />
+                <TableColumn fx:id="valeurCol" prefWidth="156.0" text="valeur" />
+                <TableColumn fx:id="dateExpirationCol" prefWidth="268.00006103515625" text="dateExpiration" />
+            <TableColumn fx:id="uservalue" prefWidth="324.79998779296875" text="user" />
+            </columns>
+        </TableView>
+      <ComboBox fx:id="user" layoutX="647.0" layoutY="431.0" onAction="#getusers" prefWidth="150.0" promptText="Users List" />
+      <Button fx:id="retourBtn" layoutX="807.0" layoutY="542.0" mnemonicParsing="false" onAction="#goTohome" text="retour" />
+    </children>
+</AnchorPane>

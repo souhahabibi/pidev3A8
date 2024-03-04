@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterCompetitionController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="248.0" layoutY="352.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1000.0" style="-fx-background-color: linear-gradient(to bottom right,#891b1b ,#a7473e )">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop color="#525252" />
+                  <Stop color="#525252" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Text layoutX="115.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="79.6708984375" />
+      <DatePicker fx:id="dateDP" layoutX="521.0" layoutY="193.0" />
+      <TextArea fx:id="DescriptionTA" layoutX="363.0" layoutY="116.0" prefHeight="64.0" prefWidth="376.0" wrapText="true" />
+      <TextField fx:id="nomTF" layoutX="363.0" layoutY="73.0" prefHeight="31.0" prefWidth="376.0" />
+      <Text layoutX="109.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+      <Text layoutX="115.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="46.07666015625" />
+      <Text layoutX="115.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VideoURL" />
+      <TextField fx:id="videoTF" layoutX="459.0" layoutY="236.0" prefHeight="31.0" prefWidth="280.0" />
+      <Text layoutX="110.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacite" />
+      <TextField fx:id="capaciteTF" layoutX="363.0" layoutY="287.0" prefHeight="31.0" prefWidth="75.0" />
+      <Text layoutX="484.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Organisateur" />
+      <TextField fx:id="organisateurTF" editable="false" layoutX="591.0" layoutY="287.0" prefHeight="31.0" prefWidth="148.0" />
+      <Button layoutX="357.0" layoutY="429.0" mnemonicParsing="false" onAction="#ajouterCompetition" prefHeight="55.0" prefWidth="86.0" styleClass="login-btn" stylesheets="@design.css" text="ADD" />
+      <Button layoutX="641.0" layoutY="429.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="55.0" prefWidth="86.0" styleClass="login-btn" stylesheets="@design.css" text="Cancel" />
+      <Text fx:id="nomCS" fill="RED" layoutX="747.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".Letters only" visible="false" />
+      <Text fx:id="descCS" fill="RED" layoutX="747.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".maximum of 200 characters long " visible="false" />
+      <Text fx:id="dayCS" fill="RED" layoutX="747.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".Day should be atleast a week in advance" visible="false" wrappingWidth="241.982421875" />
+      <Text layoutX="225.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="https://www.youtube.com/embed/" wrappingWidth="235.982421875" />
+      <Text fx:id="capaciteCS" fill="RED" layoutX="246.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".Numbers only  .Maximum 100" visible="false" wrappingWidth="111.0" />
+   </children>
+</AnchorPane>

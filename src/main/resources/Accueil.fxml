@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AccueilController">
+    <children>
+        <TabPane prefHeight="600.0" prefWidth="1000.0" style=" -fx-font-weight: bold;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <tabs>
+                <Tab text="G_Salle">
+                    <content>
+                        <TabPane prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="salle">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="526.0" prefWidth="949.0" styleClass="gradient" stylesheets="@design.css">
+                                            <children>
+
+
+                                                <ListView fx:id="listS" layoutX="216.0" layoutY="140.0" onMouseClicked="#isEnabled" opacity="0.68" prefHeight="328.0" prefWidth="621.0" />
+                                                <Button fx:id="buttonSAjouter" layoutX="208.0" layoutY="49.0" mnemonicParsing="false" onAction="#naviguezVersAjouterSalle" prefHeight="35.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="ajouter">
+                                                    <graphic>
+                                                        <ImageView fitHeight="34.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add-button.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                                <Button fx:id="buttonSModifier" layoutX="428.0" layoutY="48.0" mnemonicParsing="false" onAction="#naviguezVersMODIFY" prefHeight="35.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="modifier">
+                                                    <graphic>
+                                                        <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/note.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                                <Button fx:id="buttonSSupprimer" disable="true" layoutX="653.0" layoutY="48.0" mnemonicParsing="false" onAction="#deleteSalle" prefHeight="35.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="supprimer">
+                                                    <graphic>
+                                                        <ImageView fitHeight="36.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/removed.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                                <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="16.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="materiel">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" styleClass="gradient" stylesheets="@design.css">
+                                            <children>
+                                                <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="16.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ListView fx:id="listM" layoutX="208.0" layoutY="153.0" onMouseClicked="#isEnabled" opacity="0.68" prefHeight="308.0" prefWidth="650.0" />
+                                                <Button fx:id="buttonMAjouter" layoutX="208.0" layoutY="49.0" mnemonicParsing="false" onAction="#naviguezVersAjouterMateriel" prefHeight="35.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="ajouter ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add-button.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                                <Button fx:id="buttonMModifier" layoutX="428.0" layoutY="48.0" mnemonicParsing="false" onAction="#naviguezVersMODIFYMateriel" prefHeight="35.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="modifier ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/note.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                                <Button fx:id="buttonMSupprimer" disable="true" layoutX="653.0" layoutY="47.0" mnemonicParsing="false" onAction="#deleteMateriel" prefHeight="35.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="supprimer ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/removed.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                            </children></AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="abonnement">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" styleClass="gradient" stylesheets="@design.css">
+                                            <children>
+                                                <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="16.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/418597714_683613163937422_3465083466212055398_n.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ListView fx:id="listA" layoutX="217.0" layoutY="152.0" onMouseClicked="#isEnabled" opacity="0.68" prefHeight="312.0" prefWidth="675.0" />
+                                                <Button fx:id="buttonAAjouter" layoutX="208.0" layoutY="48.0" mnemonicParsing="false" onAction="#naviguezVersAjouterAbonnement" prefHeight="35.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="ajouter ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/add-button.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                                <Button fx:id="buttonAModifier" layoutX="428.0" layoutY="48.0" mnemonicParsing="false" onAction="#naviguezVersMODIFYAbonnement" prefHeight="45.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="modifier ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/note.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                                <Button fx:id="buttonASupprimer" disable="true" layoutX="653.0" layoutY="48.0" mnemonicParsing="false" onAction="#deleteAbonnement" prefHeight="47.0" prefWidth="144.0" styleClass="login-btn" stylesheets="@design.css" text="supprimer ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="34.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../../Users/Cyrinechalghoumi/Downloads/removed.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic></Button>
+                                            </children></AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </content>
+                </Tab>
+            </tabs>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </TabPane>
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</AnchorPane>

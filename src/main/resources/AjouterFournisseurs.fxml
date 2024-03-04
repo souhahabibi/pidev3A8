@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterFournisseurController">
+   <children>
+      <!-- Label principal -->
+      <Label layoutX="395.0" layoutY="44.0" style="-fx-font-weight: bold;" text="AJOUT FOURNISSEUR" />
+
+
+      <!-- Labels pour les champs de saisie -->
+      <Label layoutX="311.0" layoutY="180.0" text="Nom" />
+      <Label layoutX="302.0" layoutY="267.0" text="Prénom" />
+      <Label layoutX="312.0" layoutY="360.0" text="Type" />
+      <Label layoutX="311.0" layoutY="436.0" text="Numéro" />
+
+      <!-- Champs de saisie pour le nom, prénom, type et numéro -->
+      <TextField fx:id="nomTF" layoutX="472.0" layoutY="175.0" promptText="Nom" />
+      <TextField fx:id="prenomTF" layoutX="472.0" layoutY="262.0" promptText="Prénom" />
+      <TextField fx:id="typeTF" layoutX="472.0" layoutY="339.0" promptText="Type" />
+      <TextField fx:id="numeroTF" layoutX="472.0" layoutY="420.0" promptText="Numéro" />
+
+      <!-- Conteneur pour les boutons -->
+      <HBox alignment="CENTER" layoutX="387.0" layoutY="511.0" spacing="10.0">
+   <children>
+            <!-- Boutons pour ajouter, annuler et afficher la liste -->
+            <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#ajouterFournisseurAction" styleClass="login-btn" stylesheets="@style.css" text="ADD" />
+            <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#effacerChampsAction" styleClass="login-btn" stylesheets="@style.css" text="Cancel" />
+            <Button fx:id="buttonList" mnemonicParsing="false" onAction="#naviguezVersAffichage" styleClass="login-btn" stylesheets="@style.css" text="Liste" />
+   </children>
+
+      </HBox>
+       <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true">
+           <image>
+               <Image url="@/logo.png" />
+           </image>
+       </ImageView>
+   </children>
+</AnchorPane>

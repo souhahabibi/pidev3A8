@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientController">
+   <children>
+      <TabPane prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Competitions">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="searchTF" layoutX="324.0" layoutY="17.0" onKeyTyped="#displayCompetitions" prefHeight="0.0" prefWidth="314.0" />
+                        <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="610.0" layoutY="19.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@flaticon/recherche.png" />
+                           </image>
+                        </ImageView>
+                        <ScrollPane layoutX="77.0" layoutY="97.0" prefHeight="450.0" prefViewportHeight="200.0" prefViewportWidth="834.0" prefWidth="846.0">
+                           <content>
+                              <VBox fx:id="competitionsContainer" layoutX="132.0" layoutY="123.0" />
+                           </content>
+                        </ScrollPane>
+                        <ImageView fitHeight="69.0" fitWidth="87.0" layoutY="1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="dayCB" layoutX="662.0" layoutY="9.0" mnemonicParsing="false" onAction="#setSortbydaysClicked" text="Sort by days" />
+                        <CheckBox fx:id="capacityCB" layoutX="662.0" layoutY="36.0" mnemonicParsing="false" onAction="#setSortbycapacityClicked" text="Sort by capacity" />
+                        <ToggleButton fx:id="selectionTB" layoutX="234.0" layoutY="17.0" mnemonicParsing="false" onAction="#setSelectionClicked" style="-fx-background-color: #00b6e4;" text="Ongoing" />
+                        <ToggleButton fx:id="orderTB" layoutX="813.0" layoutY="17.0" mnemonicParsing="false" onAction="#setSortorderClicked" style="-fx-background-color: #00b6e4;" text="Ascending" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Salles">
+                <content>
+                    <AnchorPane prefHeight="600.0" prefWidth="1000.0">
+                        <children>
+                            <ScrollPane layoutX="33.0" layoutY="109.0" prefHeight="420.0" prefViewportHeight="217.0" prefViewportWidth="922.0" prefWidth="930.0">
+                                <content>
+                                    <VBox fx:id="sallesContainer" layoutX="38.0" layoutY="114.0" />
+                                </content>
+                            </ScrollPane>
+                            <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@flaticon/418597714_683613163937422_3465083466212055398_n.png" />
+                                </image>
+                            </ImageView>
+
+                            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="530" layoutY="550">
+                                <image>
+                                    <Image url="@flaticon/communicate.png" />
+                                </image>
+                            </ImageView>
+                            <Text layoutX="580.0" layoutY="570.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 16px;" text="Contact us : 52 299 117  /  ESPRAT@gmail.com " />
+                            <TextField fx:id="rechercheTF" layoutX="759.0" layoutY="38.0" onKeyTyped="#chercher" />
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab text="Produits">
+                <content>
+                    <AnchorPane prefHeight="600.0" prefWidth="1000.0">
+                        <children>
+                            <ScrollPane layoutX="33.0" layoutY="109.0" prefHeight="420.0" prefViewportHeight="217.0" prefViewportWidth="922.0" prefWidth="930.0">
+                                <content>
+                                    <VBox fx:id="Produit" layoutX="38.0" layoutY="114.0" />
+                                </content>
+                            </ScrollPane>
+                            <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@/logo.png" />
+                                </image>
+                            </ImageView>
+                            <Text layoutX="580.0" layoutY="570.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 16px;" text="Contact us : 52 299 117  /  ESPRAT@gmail.com " />
+                            <HBox layoutX="759.0" layoutY="38.0" spacing="5">
+                                <children>
+                                    <TextField fx:id="rechercheTFP" onKeyTyped="#chercherp" promptText="recherche" />
+                                </children>
+                            </HBox>
+                            <ImageView fitHeight="21.0" fitWidth="23.0" layoutX="730.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@moteur-de-recherche.png" />
+                                </image>
+                            </ImageView>
+                            <Button layoutX="500.0" layoutY="38.0" onAction="#trierProduits" styleClass="login-btn" stylesheets="@style.css" text="Trier/prix" />
+                            <Button fx:id="buttonReturn" layoutX="21.0" layoutY="548.0" onAction="#naviguezVersAcceuil" styleClass="login-btn" stylesheets="@style.css" text="Return" />
+
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab text="Meal">
+               <content>
+                  <AnchorPane prefHeight="600.0" prefWidth="1000.0">
+                     <children>
+                        <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/logo.png" />
+                           </image>
+                        </ImageView>
+                        <HBox layoutX="759.0" layoutY="38.0" spacing="5" />
+                        <Button fx:id="clientMeal" layoutX="193.0" layoutY="159.0" mnemonicParsing="false" onAction="#GoToMealClient" prefHeight="82.0" prefWidth="613.0" text="Go to meal selection" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Regime">
+               <content>
+                  <AnchorPane prefHeight="600.0" prefWidth="1000.0">
+                     <children>
+                        <ImageView fitHeight="106.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/logo.png" />
+                           </image>
+                        </ImageView>
+                        <HBox layoutX="759.0" layoutY="38.0" spacing="5" />
+                        <Button fx:id="clientRegime" layoutX="193.0" layoutY="159.0" mnemonicParsing="false" onAction="#GoToRegimeClient" prefHeight="82.0" prefWidth="613.0" text="Go to regime form" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
