@@ -113,4 +113,14 @@ public class MaterielService implements IService<Materiel> {
         }
         return materiels;
     }
+    public int recupererSommeQuantitesMateriels(int idSalle) throws SQLException {
+        int sommeQuantites = 0;
+        List<Materiel> materiels = select(idSalle);
+        for (Materiel materiel : materiels) {
+            sommeQuantites += materiel.getQuantite();
+        }
+        return sommeQuantites;
+    }
+
+
 }

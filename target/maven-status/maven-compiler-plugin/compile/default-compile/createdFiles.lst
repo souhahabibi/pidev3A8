@@ -29,6 +29,7 @@ services\IService.class
 controllers\AdminController.class
 models\Salle.class
 controllers\AccueilController$1.class
+controllers\StatSalleMController.class
 models\Personne.class
 controllers\GSalleController.class
 controllers\ClientController.class

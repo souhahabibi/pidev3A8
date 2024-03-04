@@ -35,7 +35,8 @@ public class AdminController {
     AbonnementService a = new AbonnementService();
     @FXML
     private VBox sallesContainer;
-
+    @FXML
+    private Button ButtonStatS;
     @FXML
     private VBox abonnementsContainer;
 
@@ -236,6 +237,18 @@ public class AdminController {
 
     }
 
+
+    @FXML
+    void naviguezVersStatSalleM(ActionEvent event) {//Event=représente l'événement déclenché avec l'élément graphique associé.
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/StatSalleM.fxml"));//charger le fichier FXML
+            ButtonStatS.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+
+    }
 
 
     @FXML

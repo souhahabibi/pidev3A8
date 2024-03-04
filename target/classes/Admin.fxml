@@ -37,11 +37,19 @@
                                              <font>
                                                 <Font size="17.0" />
                                              </font></Text>
-                                          <Button layoutX="724.0" layoutY="58.0" mnemonicParsing="false" onAction="#naviguezVersAjouterSalle" prefHeight="31.0" prefWidth="156.0" styleClass="login-btn" stylesheets="@design.css" text="ajouter">
+                                          <Button layoutX="796.0" layoutY="57.0" mnemonicParsing="false" onAction="#naviguezVersAjouterSalle" prefHeight="31.0" prefWidth="156.0" styleClass="login-btn" stylesheets="@design.css" text="ajouter">
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true">
                                                    <image>
                                                       <Image url="@flaticon/add-button.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
+                                          <Button fx:id="ButtonStatS" layoutX="627.0" layoutY="57.0" mnemonicParsing="false" onAction="#naviguezVersStatSalleM" prefHeight="39.0" prefWidth="152.0" styleClass="login-btn" stylesheets="@design.css" text="  statistique">
+                                             <graphic>
+                                                <ImageView fitHeight="31.0" fitWidth="47.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@flaticon/analytics.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic></Button>

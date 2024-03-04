@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatSalleMController">
+   <children>
+      <Button fx:id="ButtonRetour" layoutX="91.0" layoutY="27.0" mnemonicParsing="false" onAction="#naviguezVersRetour" prefHeight="48.0" prefWidth="52.0">
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true">
+               <image>
+                  <Image url="@flaticon/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <BarChart fx:id="barChart" layoutX="66.0" layoutY="100.0" prefHeight="400.0" prefWidth="711.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" visible="false" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" prefHeight="359.0" prefWidth="126.0" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>
