@@ -102,13 +102,13 @@ public class AjouterFournisseurController {
             stage.setScene(new Scene(root));
             stage.show();
             // Envoyer un SMS pour indiquer qu'un nouveau fournisseur est ajouté
-           // Twilio.init("AC1a44aabedb725c79e6704984db67fe7e", "3a8cb25262bfe1b901a443e331a7518e");
-           // Message twilioMessage = Message.creator(
-                 //   new PhoneNumber("+21620185787"), // Numéro de téléphone du destinataire
-                  //  new PhoneNumber("+15189636614"), // Numéro Twilio
-                    //"Un nouveau fournisseur est ajouté"
-           // ).create();
-            //System.out.println("SMS envoyé avec succès : " + twilioMessage.getSid()); // Pour vérification dans la console
+           Twilio.init("ACc4d86ffa3e9f5a46670d5420b2326baa", "e689c73fe6116076af63d9ec9af5e37e");
+            Message twilioMessage = Message.creator(
+                 new PhoneNumber("+21653009552"), // Numéro de téléphone du destinataire
+                 new PhoneNumber("+15178363873"), // Numéro Twilio
+                    "Un nouveau fournisseur est ajouté"
+            ).create();
+            System.out.println("SMS envoyé avec succès : " + twilioMessage.getSid()); // Pour vérification dans la console
 
         } catch (SQLException | IOException e) {
             e.printStackTrace(); // Gérer les exceptions correctement
