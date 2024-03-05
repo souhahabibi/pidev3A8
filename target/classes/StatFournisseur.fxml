@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatFournisseurController">
+    <children>
+        <Button fx:id="ButtonRetour" layoutX="74.0" layoutY="37.0" mnemonicParsing="false" onAction="#naviguezVersRetour" prefHeight="51.0" prefWidth="50.0">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@flaticon/arrow.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <PieChart fx:id="pieChart" layoutX="184.0" layoutY="100.0" prefHeight="418.0" prefWidth="672.0" />
+    </children>
+</AnchorPane>

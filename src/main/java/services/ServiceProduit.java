@@ -10,11 +10,25 @@ import java.util.List;
 
 public class ServiceProduit implements tn.esprit.services.IService<tn.esprit.entites.Produit> {
 
-    private Connection connection;
+    private static Connection connection;
 
     public ServiceProduit(){
         connection= MyDatabase.getInstance().getConnection();
     }
+
+    public int recupererSommeQuantitesMateriels(int idFournisseur) {
+        int sommeQuantites = 0;
+        try {
+            List<Produit> produits = select(idFournisseur);
+            for (Produit produit : produits) {
+                sommeQuantites += produit.getQuantite();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // ou gérer l'exception d'une autre manière
+        }
+        return sommeQuantites;
+    }
+
 
     @Override
     public void modifier(Produit produit) throws SQLException {
@@ -128,5 +142,29 @@ public class ServiceProduit implements tn.esprit.services.IService<tn.esprit.ent
         }
         return null; // Si aucun fournisseur n'est trouvé avec cet ID
     }
+    public static List<Produit> select(int id) throws SQLException {
 
+        String sql = "SELECT * FROM produit WHERE id_fournisseur = ? ";
+
+        List<Produit> produits = new ArrayList<>();
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    Produit p = new Produit();
+                    p.setId_produit(rs.getInt("id_produit"));
+                    p.setNom(rs.getString("nom"));
+                    p.setQuantite(rs.getInt("quantite"));
+                    p.setCout(rs.getFloat("cout"));
+                    p.setDescription(rs.getString("description"));
+                    p.setImage(rs.getString("image"));
+                    p.setDate_expiration(rs.getDate("date_expiration"));
+                    produits.add(p);
+                }
+            }
+        }
+        return produits;
+    }
 }

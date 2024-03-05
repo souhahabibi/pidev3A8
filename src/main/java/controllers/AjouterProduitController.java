@@ -37,7 +37,8 @@ public class AjouterProduitController {
 
     @FXML
     private DatePicker dateExpirationDP;
-
+@FXML
+private  Button ButtonRetour;
     @FXML
     private TextField idFournisseurTF;
     private tn.esprit.entites.Fournisseur fournisseur;
@@ -180,7 +181,12 @@ public class AjouterProduitController {
 
             // Appeler le service pour ajouter le produit
             produitService.ajouter(produit);
-
+            // Envoyer un e-mail pour informer de l'ajout du produit
+            String destinataire = "souhahbibi1@gmail.com";
+            String sujet = "Nouveau produit ajouté";
+            String contenu = "Un nouveau produit a été ajouté pour le fournisseur : " + fournisseur.getNom();
+            // Appel de la méthode pour envoyer l'e-mail
+            Mailservice.envoyerEmailSansAuthentification(destinataire, sujet, contenu);
             // Charger le fichier AfficherProduits.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Admin.fxml"));
             Parent root = loader.load();
@@ -198,5 +204,16 @@ public class AjouterProduitController {
             alert.setContentText("Erreur lors de l'ajout du produit. Veuillez vérifier les données saisies.");
             alert.showAndWait();
         }
+    }
+    @FXML
+    void naviguezVersRetour(ActionEvent event) {//Event=représente l'événement déclenché avec l'élément graphique associé.
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));//charger le fichier FXML
+            ButtonRetour.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+
     }
 }

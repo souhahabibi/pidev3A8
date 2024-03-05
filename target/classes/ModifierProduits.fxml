@@ -35,7 +35,15 @@
         <Button layoutX="453.0" layoutY="350.0" mnemonicParsing="false" onAction="#modifierProduitAction" styleClass="login-btn" stylesheets="@style.css" text="Modifier" />
         <!-- Bouton pour choisir une image -->
         <Button fx:id="btnChooseImage" layoutX="193.0" layoutY="350.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="31.0" prefWidth="121.0" styleClass="login-btn" stylesheets="@style.css" text="Choisir une image" />
-
+        <Button fx:id="ButtonRetour" layoutX="74.0" layoutY="500.0" mnemonicParsing="false" onAction="#naviguezVersRetour" prefHeight="51.0" prefWidth="50.0">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@flaticon/arrow.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
         <!-- Affichage de l'image choisie -->
         <ImageView fx:id="imageView" layoutX="193.0" layoutY="390.0" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
     </children>

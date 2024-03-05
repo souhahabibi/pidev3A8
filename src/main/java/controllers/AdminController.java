@@ -40,6 +40,8 @@ public class AdminController {
     @FXML
     private Button buttonAjouter;
     @FXML
+    private  Button buttonstatF;
+    @FXML
     public void initialize() {
         try {
             fournisseurContainer.setSpacing(25);// Définition de l'espacement entre les éléments du conteneur
@@ -262,10 +264,10 @@ public class AdminController {
         addProduitButton.setOnAction(event -> addProduitToFournisseur(fournisseur));
         addProduitButton.getStyleClass().add("login-btn");
         addProduitButton.getStylesheets().add(getClass().getResource("/design.css").toExternalForm());
-     //   ImageView imageView3 = new ImageView(new Image("/flaticon/add.png"));
-      //  imageView3.setFitWidth(30);
-       // imageView3.setFitHeight(30);
-      //  addProduitButton.setGraphic(imageView3);
+       ImageView imageView3 = new ImageView(new Image("/flaticon/add (1).png"));
+       imageView3.setFitWidth(30);
+       imageView3.setFitHeight(30);
+      addProduitButton.setGraphic(imageView3);
 
         fournisseurPane.getChildren().addAll(nomLabel, prenomLabel, numeroLabel, typeLabel, modifierButton, supprimerButton, addProduitButton);
 
@@ -412,6 +414,15 @@ public class AdminController {
             System.out.println("Fichier PDF du produit créé avec succès !");
         } catch (IOException e) {
             System.err.println("Erreur lors de la création du fichier PDF : " + e.getMessage());
+        }
+    }
+    @FXML
+    void naviguezVersStatFournisseur(ActionEvent event) {//Event=représente l'événement déclenché avec l'élément graphique associé.
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/StatFournisseur.fxml"));//charger le fichier FXML
+            buttonstatF.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
     }
 }

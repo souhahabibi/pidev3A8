@@ -28,7 +28,16 @@
 
         <!-- Conteneur pour les boutons -->
         <HBox alignment="CENTER" layoutX="186.0" layoutY="290.0" spacing="10.0" />
-         <Button fx:id="buttonList" layoutX="925.0" layoutY="555.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" styleClass="login-btn" stylesheets="@style.css" text="Liste" />
+
+        <Button fx:id="ButtonRetour" layoutX="74.0" layoutY="500.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="51.0" prefWidth="50.0">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@flaticon/arrow.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
          <!-- Boutons pour ajouter, annuler et afficher la liste -->
          <Button fx:id="buttonAdd" layoutX="426.0" layoutY="530.0" mnemonicParsing="false" onAction="#modifierFournisseur" styleClass="login-btn" stylesheets="@style.css" text="modifier" />
         <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true">

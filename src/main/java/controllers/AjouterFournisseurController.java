@@ -126,7 +126,7 @@ public class AjouterFournisseurController {
     void naviguezVersAffichage(ActionEvent event) {
         try {
             // Charger le fichier afficherFournisseurs.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/AfficherFournisseurs.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             // Changer la scène actuelle pour afficher la nouvelle
             nomTF.getScene().setRoot(root);
         } catch (IOException e) {

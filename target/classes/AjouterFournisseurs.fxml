@@ -33,7 +33,16 @@
             <!-- Boutons pour ajouter, annuler et afficher la liste -->
             <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#ajouterFournisseurAction" styleClass="login-btn" stylesheets="@style.css" text="ADD" />
             <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#effacerChampsAction" styleClass="login-btn" stylesheets="@style.css" text="Cancel" />
-            <Button fx:id="buttonList" mnemonicParsing="false" onAction="#naviguezVersAffichage" styleClass="login-btn" stylesheets="@style.css" text="Liste" />
+
+       <Button fx:id="buttonList" layoutX="150.0" layoutY="500.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="51.0" prefWidth="50.0">
+           <graphic>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@flaticon/arrow.png" />
+                   </image>
+               </ImageView>
+           </graphic>
+       </Button>
    </children>
 
       </HBox>

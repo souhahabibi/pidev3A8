@@ -57,7 +57,8 @@ public class ModifierProduitController  {
 
     private Connection connection;
 
-
+@FXML
+private Button ButtonRetour;
 
 
 // Maintenant, vous pouvez itérer sur la liste comme suit
@@ -244,6 +245,17 @@ public class ModifierProduitController  {
             // Sélectionner le fournisseur dans le ComboBox
             fournisseurCB.setValue(fournisseurProduit);
         }
+
+    }
+    @FXML
+    void naviguezVersRetour(ActionEvent event) {//Event=représente l'événement déclenché avec l'élément graphique associé.
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));//charger le fichier FXML
+            ButtonRetour.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
 
     }
 }

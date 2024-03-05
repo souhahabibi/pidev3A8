@@ -15,7 +15,7 @@ public class AcceuilController {
     @FXML
     void naviguezVersAdmin(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AfficherFournisseurs.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Admin.fxml"));
             buttonAdmin.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

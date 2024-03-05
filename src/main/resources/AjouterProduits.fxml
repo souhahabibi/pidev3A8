@@ -32,6 +32,15 @@
 
         <!-- Bouton Ajouter -->
         <Button layoutX="880.0" layoutY="544.0" mnemonicParsing="false" onAction="#ajouterProduitAction" styleClass="login-btn" stylesheets="@style.css" text="Ajouter" />
+        <Button fx:id="ButtonRetour" layoutX="74.0" layoutY="500.0" mnemonicParsing="false" onAction="#naviguezVersRetour" prefHeight="51.0" prefWidth="50.0">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@flaticon/arrow.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
         <Label layoutX="375.0" layoutY="48.0" prefWidth="250.0" text="AJOUTER PRODUIT" style="-fx-font-size: 24px; -fx-alignment: CENTER;" />
         <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true">
             <image>
