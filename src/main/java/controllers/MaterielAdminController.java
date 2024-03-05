@@ -209,6 +209,29 @@ public class MaterielAdminController {
         }
     }
 
+    @FXML
+    void naviguezVersChart(ActionEvent event) {
+        //ObservableList<Salle> observableList = null;
+
+
+        try {
+            // Correctly create an FXMLLoader instance pointing to your FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pieChart.fxml"));
+
+            // Load the FXML and get the root node in one step
+            Parent root = loader.load();
+
+            // Now that the FXML is loaded, get the controller
+            PieChartController controller = loader.getController();
+
+            // If an item is selected, pass it to the controller of the next scene
+            controller.setSalleName(x);
+            // Finally, set the scene's root to switch to the new view
+            buttonMAjouter.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
     private void drawCell(PDPageContentStream contentStream, float x, float y, float width, float height, String text, PDImageXObject image) throws IOException {
         contentStream.setNonStrokingColor(0, 0, 0);
         contentStream.addRect(x, y, width, height);
@@ -298,4 +321,6 @@ public class MaterielAdminController {
             System.err.println(e.getMessage());
         }
     }
+
+
 }

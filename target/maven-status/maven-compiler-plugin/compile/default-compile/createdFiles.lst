@@ -9,6 +9,7 @@ services\MaterielService.class
 controllers\AjouterSalleController.class
 controllers\AjouterMaterielController.class
 services\SalleService.class
+controllers\PieChartController.class
 services\PersonneService.class
 controllers\TestMapController.class
 controllers\MaterielClientController.class

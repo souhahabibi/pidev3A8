@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.PieChart?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PieChartController">
+   <children>
+      <ScrollPane layoutX="43.0" layoutY="93.0" prefHeight="468.0" prefViewportHeight="575.0" prefViewportWidth="918.0" prefWidth="929.0">
+         <content>
+            <AnchorPane prefHeight="794.0" prefWidth="918.0">
+               <children>
+                  <Pane layoutX="29.0" layoutY="636.0" prefHeight="207.0" prefWidth="861.0" styleClass="login-btn" stylesheets="@design.css">
+                     <children>
+
+                           <ImageView layoutX="18.0" layoutY="94.0" fitHeight="38.0" fitWidth="40.0" pickOnBounds="true">
+                              <image>
+                                 <Image url="@flaticon/commission.png" />
+                              </image>
+                           </ImageView>
+
+                        <Text fx:id="textStat" layoutX="68.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="824.6708984375">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Text>
+
+                        <ImageView layoutX="18.0" layoutY="34.0" fitHeight="38.0" fitWidth="40.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@flaticon/gap.png" />
+                           </image>
+                        </ImageView>
+
+                        <Text fx:id="textStat1" layoutX="68.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="824.6708984375">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               
+                         <PieChart fx:id="pieChart" layoutX="70.0" layoutY="114.0" prefHeight="491.0" prefWidth="759.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+   <Button fx:id="ButtonRetour" layoutX="91.0" layoutY="27.0" mnemonicParsing="false" onAction="#naviguezVersRetour" prefHeight="48.0" prefWidth="52.0">
+      <graphic>
+         <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true">
+            <image>
+               <Image url="@flaticon/arrow.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+</AnchorPane>

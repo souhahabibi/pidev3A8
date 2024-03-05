@@ -16,7 +16,7 @@
             <VBox fx:id="abonnementsContainer" layoutX="142.0" layoutY="137.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="buttonAAjouter" layoutX="786.0" layoutY="70.0" mnemonicParsing="false" onAction="#naviguezVersAjouterAbbonnement" text="ajouter" />
+      <Button fx:id="buttonAAjouter" layoutX="786.0" layoutY="70.0" mnemonicParsing="false" onAction="#naviguezVersAjouterAbbonnement" text="ajouter" styleClass="login-btn" stylesheets="@design.css"/>
       <Button layoutX="128.0" layoutY="17.0" mnemonicParsing="false" onAction="#naviguezVersClient">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true">
